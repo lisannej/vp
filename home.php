@@ -15,7 +15,9 @@ $semesterend = new DateTime ("2020-12-13");
 $semesterduration = $semesterstart->diff($semesterend);
 $semesterdurationdays = $semesterduration->format ("%r%a");
 $today = new DateTime ("now");
-$semesterdurationdays = $semesterstart->diff($today)/$semesterduration;
+$temp = $semesterstart->diff($today);
+$daysnumber = $temp->days;
+$semesterdurationdays = $daysnumber/$semesterduration;
 
 
 ?>
