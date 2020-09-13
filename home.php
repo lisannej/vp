@@ -14,7 +14,9 @@ $semesterstart = new DateTime ("2020-8-31");
 $semesterend = new DateTime ("2020-12-13");
 $semesterduration = $semesterstart->diff($semesterend);
 $semesterdurationdays = $semesterduration->format ("%r%a");
+$semesterdurationdays = $semesterstart->diff(now)/$semesterduration
 $today = new DateTime ("now");
+
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -30,5 +32,7 @@ $today = new DateTime ("now");
   Digitehnoloogiate instituudis.</p>
   <p>Lehe avamise hetk: <?php echo $fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
+  <p><?php echo "Praegu on moodunud " .$semesterdurationdays ."." ?><p>
+  
 </body>
 </html>
