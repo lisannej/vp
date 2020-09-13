@@ -19,6 +19,13 @@ $temp = $semesterstart->diff($today);
 $daysnumber = $temp->days;
 $semesterdurationdays = $daysnumber/$semesterduration;
 
+$mynumber = $semesterdurationdays;
+$percenttoget = $mynumber;
+$percentindecimal = $percenttoget/100;
+$percent = $percentindecimal * $mynumber
+
+if $semesterdurationdays <= 0 ;
+if $semesterdurationdays >= 1 ;
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +42,7 @@ $semesterdurationdays = $daysnumber/$semesterduration;
   Digitehnoloogiate instituudis.</p>
   <p>Lehe avamise hetk: <?php echo $fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
-  <p><?php echo "Praegu on moodunud " .$semesterdurationdays ."." ?><p>
+  <p><?php echo "Praegu on moodunud semestri algusest" .$semesterdurationdays ."paeva, mis on ." .$percent  ?><p>
   
 </body>
 </html>
