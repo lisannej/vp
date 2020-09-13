@@ -24,8 +24,6 @@ $percenttoget = $mynumber;
 $percentindecimal = $percenttoget/100;
 $percent = $percentindecimal * $mynumber
 
-if $semesterdurationdays <= 0 ;
-if $semesterdurationdays >= 1 ;
 
 ?>
 <!DOCTYPE html>
