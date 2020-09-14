@@ -45,6 +45,9 @@ if ($today < $semesterstart ) {
 if ($today > $semesterend) {
   echo "Semester on läbi";
 }
+if ($semesterstart < $today && $today < $semesterend ) {
+  echo "Semester käib";
+}
 
 
 ?>
