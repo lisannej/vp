@@ -6,9 +6,22 @@ $partofday = "lihtsalt aeg";
 if($hournow < 6){
 	$partofday = "uneaeg";
 } // enne 6
-if($hournow >= 8 and $hournow <= 18) {
-	$partofday = "õppimise aeg";
+if($hournow >= 6.01 and $hournow <= 9) {
+	$partofday = "hommik";
 }
+if($hournow > 9.01 and $hournow <=16) {
+	$partofday = "kooliaeg";
+} // 
+if($hournow > 16.01 and $hournow <= 18) {
+	$partofday = "oppimise aeg";
+} // oppimine
+if($hournow > 18.01 and $hournow <= 21) {
+	$partofday = "ohtu";
+} // ohtu
+if($hournow >21.01 and $hournow < 23.59){
+	$partofday = "mine magama";
+} // magama
+
 // vaatame semestri kulgemist 
 $semesterstart = new DateTime ("2020-8-31"); 
 $semesterend = new DateTime ("2020-12-13"); 
