@@ -18,8 +18,8 @@ $today = new DateTime ("now");
 $temp = $semesterstart->diff($today); 
 $daysnumber = $temp->days; 
 $semesterpercent = $daysnumber/$semesterdurationdays * 100 ; 
- $semesterpercentpercent = round ($semesterpercent, 2);
- 
+ $semesterpercent = round ($semesterpercent, 2);
+
 if ($semesterpercent < 0 ) { 
    $semesterpercent = 0; 
 } 
