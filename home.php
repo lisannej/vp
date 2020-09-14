@@ -22,7 +22,7 @@ $semesterpercent = $daysnumber/$semesterdurationdays * 100 ;
 if ($semesterpercent < 0 ) { 
    $semesterpercent = 0; 
 } 
-if ($semesterpercent > 1 ) { 
+if ($semesterpercent > 100 ) { 
 $semesterpercent = 1; 
 }
 
