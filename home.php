@@ -43,7 +43,7 @@ $semesterpercent = 1;
   <p>Lehe avamise hetk: <?php echo $fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on moodunud semestri algusest " .$semesterdurationdays ." paeva, mis on ." .$semesterpercent  ?><p>
-  <p><?php echo "temp " .$temp ;?></p>
+
   <p><?php echo "daysnumber " .$daysnumber ;?></p>
   <p><?php echo "semesterpercent " .$semesterpercent ;?></p>
   <p><?php echo "$semesterstart";?></p>
