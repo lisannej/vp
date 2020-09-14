@@ -46,6 +46,6 @@ $semesterpercent = 1;
 
   <p><?php echo "daysnumber " .$daysnumber ;?></p>
   <p><?php echo "semesterpercent " .$semesterpercent ;?></p>
-  
+  <p><?php echo "semesterdurationdays " .$semesterdurationdays ;?></p>
 </body>
 </html>
