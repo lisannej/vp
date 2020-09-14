@@ -37,7 +37,7 @@ if ($semesterpercent < 0 ) {
    $semesterpercent = 0; 
 } 
 if ($semesterpercent > 100 ) { 
-$semesterpercent = 1; 
+  $semesterpercent = 1; 
 }
 if ($today < $semesterstart ) {
   echo "Semester pole alanud" ;
