@@ -19,10 +19,17 @@ $temp = $semesterstart->diff($today);
 $daysnumber = $temp->days;
 $semesterdurationdays = $daysnumber/$semesterduration;
 
-$mynumber = $semesterdurationdays;
-$percenttoget = $mynumber;
-$percentindecimal = $percenttoget/100;
-$percent = $percentindecimal * $mynumber
+//$mynumber = $semesterdurationdays;
+//$percenttoget = $mynumber;
+//$percentindecimal = $percenttoget/100;
+//$percent = $percentindecimal * $mynumber;
+
+if ($semesterdurationdays < 0 ) {
+   $semesterdurationdays = 0;
+}
+if ($semesterdurationdays > 1 ) {
+$semesterdurationdays = 1;
+}
 
 
 ?>
