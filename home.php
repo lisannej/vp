@@ -9,26 +9,21 @@ if($hournow < 6){
 if($hournow >= 8 and $hournow <= 18) {
 	$partofday = "õppimise aeg";
 }
-// vaatame semestri kulgemist
-$semesterstart = new DateTime ("2020-8-31");
-$semesterend = new DateTime ("2020-12-13");
-$semesterduration = $semesterstart->diff($semesterend);
-$semesterdurationdays = $semesterduration->format ("%r%a");
-$today = new DateTime ("now");
-$temp = $semesterstart->diff($today);
-$daysnumber = $temp->days;
-$semesterdurationdays = $daysnumber/$semesterduration;
-
-//$mynumber = $semesterdurationdays;
-//$percenttoget = $mynumber;
-//$percentindecimal = $percenttoget/100;
-//$percent = $percentindecimal * $mynumber;
-
-if ($semesterdurationdays < 0 ) {
-   $semesterdurationdays = 0;
-}
-if ($semesterdurationdays > 1 ) {
-$semesterdurationdays = 1;
+// vaatame semestri kulgemist 
+$semesterstart = new DateTime ("2020-8-31"); 
+$semesterend = new DateTime ("2020-12-13"); 
+$semesterduration = $semesterstart->diff($semesterend); 
+$semesterdurationdays = $semesterduration->format ("%r%a"); 
+$today = new DateTime ("now"); 
+$temp = $semesterstart->diff($today); 
+$daysnumber = $temp->days; 
+$semesterpercent = $daysnumber/$semesterdurationdays; 
+ 
+if ($semesterpercent < 0 ) { 
+   $semesterpercent = 0; 
+} 
+if ($semesterpercent > 1 ) { 
+$semesterpercent = 1; 
 }
 
 
