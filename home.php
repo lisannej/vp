@@ -13,7 +13,7 @@ if($hournow > 9.01 and $hournow <=16) {
 	$partofday = "kooliaeg";
 } // 
 if($hournow > 16.01 and $hournow <= 18) {
-	$partofday = "oppimise aeg";
+	$partofday = "õppimise aeg";
 } // oppimine
 if($hournow > 18.01 and $hournow <= 21) {
 	$partofday = "ohtu";
@@ -56,7 +56,7 @@ $semesterpercent = 1;
   Digitehnoloogiate instituudis.</p>
   <p>Lehe avamise hetk: <?php echo $fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
-  <p><?php echo "Praegu on moodunud semestri algusest " .$daysnumber ." paeva, mis on " .$semesterpercent ." %"; ?><p>
+  <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
 
   <p><?php echo "daysnumber " .$daysnumber ;?></p>
   <p><?php echo "semesterpercent " .$semesterpercent ;?></p>
