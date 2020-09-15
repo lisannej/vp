@@ -86,7 +86,7 @@ if ($today > $semesterend) {
   echo " Semester on läbi";
 }
 if ($semesterstart < $today && $today < $semesterend ) {
-  echo " Semester käib";
+  echo " Semester käib<br>";
 }
 //annan ette lubatud piltivormingute loendi
 $picfiletypes = ["image/jpeg", "image/png"];
