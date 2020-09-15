@@ -3,6 +3,13 @@ $username = "Lisanne Järv";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
 $partofday = "lihtsalt aeg";
+$weekdayNamesET = ["esmaspäev", "teisipäev", "kolmapäev", "neljapäev",
+ "reede", "laupäev", "pühapäev"];
+$monthNamesET = ["jaanuar", "veebruar", "märts", "aprill", "mai",
+ "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+//echo $weekdaynamesET
+var_dump ($weekdayNamesET);
+
 if($hournow < 6){
 	$partofday = "uneaeg";
 } // enne 6
