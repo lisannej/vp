@@ -1,5 +1,35 @@
 <?php
 //var_dump ($_POST);
+require ("../../../config.php");
+$database = "if20_lisanne_ja_1"
+//kui on idee sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
+if(isset($_POST["ideasubmit"]) and !empty($_POST ["ideainput"]){
+  $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
+  //valmistan ette SQL kasu
+  $stmt = $conn->prepare ("INSERT INTO myideas (myidea) VALUES (?) ");
+  echo $conn->error;
+  //seome kasuga meie parisandmed
+  //i - integer, d- decimal, s - string
+  $stmt->bind_param("s", $_POST ["ideainput"]);
+  $stmt->execute ();
+  $stmt->close ();
+  $conn->close ();
+} 
+//loen lehele koik olemasolevad motted
+$conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
+$stmt = $conn->prepare ("SELECT idea FROM myideas");
+echo $conn->error;
+//seome tulemuse muutujaga
+$stmt->bind_result ($ideafromdb);
+$stmt->execute ();
+$ideahtml = "";
+while ($stmt->fetch ()) {
+    $ideahtml .= "<p>" .$ideafromdb ."</p>";
+}
+$stmt->close ();
+  $conn->close ();
+
+
 $username = "Lisanne Järv";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
@@ -84,6 +114,7 @@ for ($i = 0; $i < $piccount; $i ++) {
     $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
     $imghtml .= 'alt="Tallinna Ulikool">';
 }
+require ("header.php");
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -110,5 +141,7 @@ for ($i = 0; $i < $piccount; $i ++) {
     <input type="text" name="ideainput" placeholder="Kirjuta siia mote!">
     <input type="submit" name="ideasubmit" value="Saada mote ara!"> 
   </form>
+  <hr>
+  <?php echo $ideahtml; ?>
 </body>
 </html>
