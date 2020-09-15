@@ -6,7 +6,7 @@ $database = "if20_lisanne_ja_1" ;
 if(isset($_POST["ideasubmit"]) and !empty($_POST ["ideainput"])){
   $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
   //valmistan ette SQL kasu
-  $stmt = $conn->prepare ("INSERT INTO myideas (myidea) VALUES (?) ");
+  $stmt = $conn->prepare ("INSERT INTO myideas (idea) VALUES (?) ");
   echo $conn->error;
   //seome kasuga meie parisandmed
   //i - integer, d- decimal, s - string
