@@ -8,7 +8,7 @@ $weekdaynameset= ["esmaspäev", "teisipäev", "kolmapäev", "neljapäev",
 $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
  "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
 //echo $weekdaynamesET
-var_dump ($weekdaynameset);
+//var_dump ($weekdaynameset);
 $weekdaynow = date ("N");
 echo $weekdaynow ;
 
