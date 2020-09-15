@@ -71,7 +71,7 @@ $piccount = count ($picfiles);
 $imghtlm = "";
 //<img src="IMG/failinimi.png" alt="text">
 for ($i = 0; $i < $piccount; $i ++) {
-    $imghtml .= '<img src= "vp_pics/' .$picfiles[$i]'"';
+    $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
     $imghtml .= 'alt="Tallinna Ulikool">';
 }
 ?>
