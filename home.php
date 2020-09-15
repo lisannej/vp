@@ -60,7 +60,8 @@ if ($semesterstart < $today && $today < $semesterend ) {
 
 // loeme piltide kataloogi sisu ja naitame pilte
 $allfiles = scandir ("vp_pics/");
-var_dump ($allfiles);
+//var_dump ($allfiles);
+$picfiles = array_slice ($allfiles, 2);
 
 ?>
 <!DOCTYPE html>
