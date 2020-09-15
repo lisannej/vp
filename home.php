@@ -103,5 +103,11 @@ for ($i = 0; $i < $piccount; $i ++) {
   <hr>
   <?php echo $imghtml ; ?>
   
+  <hr>
+  <form>
+    <label>Sisesta oma pahe tulnud mote!</label>
+    <input type="text" name="ideainput" placeholder="Kirjuta siia mote!">
+    <input type="submit" name="ideasubmit" value="Saada mote ara!"> 
+  </form>
 </body>
 </html>
