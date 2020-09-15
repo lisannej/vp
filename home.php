@@ -10,7 +10,7 @@ $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
 //echo $weekdaynamesET
 //var_dump ($weekdaynameset);
 $weekdaynow = date ("N");
-echo $weekdaynow ;
+//echo $weekdaynow ;
 
 if($hournow < 6){
 	$partofday = "uneaeg";
