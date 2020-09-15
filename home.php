@@ -77,7 +77,7 @@ $piccount = count ($picfiles);
 //$i = $i + 1;
 // $i ++
 // $i +=2
-$imghtlm = "";
+$imghtml = "";
 //<img src="IMG/failinimi.png" alt="text">
 for ($i = 0; $i < $piccount; $i ++) {
     $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
