@@ -9,6 +9,8 @@ $monthNamesET = ["jaanuar", "veebruar", "märts", "aprill", "mai",
  "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
 //echo $weekdaynamesET
 var_dump ($weekdayNamesET);
+$weekdaynow = date ("N");
+echo $weekdaynow ;
 
 if($hournow < 6){
 	$partofday = "uneaeg";
@@ -70,7 +72,7 @@ if ($semesterstart < $today && $today < $semesterend ) {
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
-  <p>Lehe avamise hetk: <?php echo $fulltimenow; ?>.</p>
+  <p>Lehe avamise hetk: <?php echo $weekdayNamesET [$weekdaynow -1 ].", ".$fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
 
