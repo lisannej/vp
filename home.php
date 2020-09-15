@@ -1,4 +1,5 @@
 <?php
+//var_dump ($_POST);
 $username = "Lisanne Järv";
 $fulltimenow = date("d.m.Y H:i:s");
 $hournow = date("H");
@@ -104,7 +105,7 @@ for ($i = 0; $i < $piccount; $i ++) {
   <?php echo $imghtml ; ?>
   
   <hr>
-  <form>
+  <form method = "POST">
     <label>Sisesta oma pahe tulnud mote!</label>
     <input type="text" name="ideainput" placeholder="Kirjuta siia mote!">
     <input type="submit" name="ideasubmit" value="Saada mote ara!"> 
