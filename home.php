@@ -57,12 +57,21 @@ if ($today > $semesterend) {
 if ($semesterstart < $today && $today < $semesterend ) {
   echo "Semester käib";
 }
-
+//annan ette lubatud piltivormingute loendi
+$picfiletypes = ["image/jpeg", "image/png"];
 // loeme piltide kataloogi sisu ja naitame pilte
-$allfiles = scandir ("vp_pics/");
+$allfiles = array_slice (scandir ("vp_pics/"), 2);
 //var_dump ($allfiles);
-$picfiles = array_slice ($allfiles, 2);
-var_dump ($picfiles);
+//$picfiles = array_slice ($allfiles, 2);
+$picfiles = [];
+//var_dump ($picfiles);
+foreach ($allfiles as $thing) {
+  $fileinfo = getImagesize ("vp_pics/" .$thing);
+  if (in_array($fileinfo["mime"], $picfiletypes) == true) {
+    array_push ($picfiles, $thing);
+  }
+}
+
 //paneme koik pildid ekraanile
 $piccount = count ($picfiles);
 //$i = $i + 1;
