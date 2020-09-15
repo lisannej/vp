@@ -62,7 +62,18 @@ if ($semesterstart < $today && $today < $semesterend ) {
 $allfiles = scandir ("vp_pics/");
 //var_dump ($allfiles);
 $picfiles = array_slice ($allfiles, 2);
-
+var_dump ($picfiles);
+//paneme koik pildid ekraanile
+$piccount = count ($picfiles);
+//$i = $i + 1;
+// $i ++
+// $i +=2
+$imghtlm = "";
+//<img src="IMG/failinimi.png" alt="text">
+for ($i = 0; $i < $piccount; $i ++) {
+    $imghtml .= '<img src= "vp_pics/' .$picfiles[$i]'"';
+    $imghtml .= 'alt="Tallinna Ulikool">';
+}
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -80,7 +91,8 @@ $picfiles = array_slice ($allfiles, 2);
   <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ].", ".$fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
-
+  <hr>
+  <?php echo $imghtml ; ?>
   
 </body>
 </html>
