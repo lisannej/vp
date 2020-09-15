@@ -58,6 +58,9 @@ if ($semesterstart < $today && $today < $semesterend ) {
   echo "Semester käib";
 }
 
+// loeme piltide kataloogi sisu ja naitame pilte
+$allfiles = scandir ("vp_pics/");
+var_dump ($allfiles);
 
 ?>
 <!DOCTYPE html>
