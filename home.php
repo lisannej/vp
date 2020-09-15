@@ -49,13 +49,13 @@ if ($semesterpercent > 100 ) {
   $semesterpercent = 1; 
 }
 if ($today < $semesterstart ) {
-  echo "Semester pole alanud" ;
+  echo " Semester pole alanud" ;
 }
 if ($today > $semesterend) {
-  echo "Semester on läbi";
+  echo " Semester on läbi";
 }
 if ($semesterstart < $today && $today < $semesterend ) {
-  echo "Semester käib";
+  echo " Semester käib";
 }
 //annan ette lubatud piltivormingute loendi
 $picfiletypes = ["image/jpeg", "image/png"];
