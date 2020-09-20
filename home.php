@@ -89,11 +89,8 @@ if ($today > $semesterend) {
   echo " Semester on läbi";
 }
 if ($semesterstart < $today && $today < $semesterend ) {
-<<<<<<< Updated upstream
   echo " Semester käib <br>";
-=======
   echo " Semester käib?<br>";
->>>>>>> Stashed changes
 }
 //annan ette lubatud piltivormingute loendi
 $picfiletypes = ["image/jpeg", "image/png"];
