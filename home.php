@@ -31,8 +31,10 @@ $stmt->close ();
 
 
 $username = "Lisanne Järv";
-$fulltimenow = date("d.m.Y H:i:s");
+$daydate = date("d");
+$yearnow = date ("Y");
 $hournow = date("H");
+$fulltimenow = date ("H.i.s");
 $partofday = "lihtsalt aeg";
 $weekdaynameset= ["esmaspäev", "teisipäev", "kolmapäev", "neljapäev",
  "reede", "laupäev", "pühapäev"];
@@ -42,6 +44,7 @@ $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
 //var_dump ($weekdaynameset);
 $weekdaynow = date ("N");
 //echo $weekdaynow ;
+$monthnow = date ("F");
 
 if($hournow < 6){
 	$partofday = "uneaeg";
@@ -86,7 +89,7 @@ if ($today > $semesterend) {
   echo " Semester on läbi";
 }
 if ($semesterstart < $today && $today < $semesterend ) {
-  echo " Semester käib<br>";
+  echo " Semester käib <br>";
 }
 //annan ette lubatud piltivormingute loendi
 $picfiletypes = ["image/jpeg", "image/png"];
@@ -122,7 +125,7 @@ require ("header.php");
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
-  <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ].", ".$fulltimenow; ?>.</p>
+  <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ],", ".$daydate, ", ".$monthnameset [$monthnow -1 ],", ".$yearnow,", " .$fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <hr>
