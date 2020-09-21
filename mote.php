@@ -1,7 +1,5 @@
 <?php
     require ("header.php");
-?>
-<?php
     require ("config.php");
     //kui on idee sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
     if(isset($_POST["ideasubmit"]) and !empty($_POST ["ideainput"])){
