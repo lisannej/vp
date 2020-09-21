@@ -1,7 +1,6 @@
 <?php
 //var_dump ($_POST);
-require ("config.php");
-$database = "if20_lisanne_ja_1" ;
+
 //kui on idee sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
 if(isset($_POST["ideasubmit"]) and !empty($_POST ["ideainput"])){
   $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
