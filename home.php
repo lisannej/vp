@@ -115,10 +115,11 @@ $piccount = count ($picfiles);
 // $i +=2
 $imghtml = "";
 //<img src="IMG/failinimi.png" alt="text">
-for ($i = 0; $i < $piccount; $i ++) {
-    $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
-    $imghtml .= 'alt="Tallinna Ulikool">';
-}
+//for ($i = 0; $i < $piccount; $i ++) {
+$i = mt_rand(0, ($piccount - 1));
+$imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
+$imghtml .= 'alt="Tallinna Ulikool">';
+//}
 require ("header.php");
 ?>
 
