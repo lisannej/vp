@@ -3,9 +3,24 @@ require ("header.php");
 require ("config.php");
 require ("fnc_films.php");
 
-$database = "if20_lisanne_ja_1" ;
+$inputerror =""; 
+//$database = "if20_lisanne_ja_1" ;
+
 //loen lehele koik olemasolevad motted
 $filmhtml = readfilms ();
+//kui klikiti submit siis
+if(isset($_POST["filmsubmit"])){
+  if(empty ($_POST ["titleinput"]) or empty ($_POST ["genreinput"]) or empty ($_POST ["studioinput"])) or
+   empty ($_POST ["directorinput"]){
+      $inputerror .= "Osa infot on sisestamata!";
+   }
+   if($_POST ["yearinput"]> date ("Y") or $_POST ["yearinput"] < 1895){
+     $inputerror .= "Ebareaalne valmimisaasta!";
+   }
+   if((empty ($inputerror)){
+      savefilm ($_POST ["titleinput"],$_POST ["yearinput"], $_POST ["durationinput"], $_POST ["genreinput"], $_POST ["studioinput"], $_POST ["directorinput"] );
+   }
+}
 
 ?>
 
@@ -37,6 +52,8 @@ $filmhtml = readfilms ();
   <input type= "text" name = "directorinput" id = "directorinput" ;>
   <br>
   <input type= "submit" name = "filmsubmit" value = "Salvesta filmi info">
-  
+<form>
+<?php echo $inputerror ?>
+
 </body>
 </html>
