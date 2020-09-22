@@ -12,8 +12,12 @@ $stmt->bind_result ($titlefromdb, $yearfromdb, $durationfromdb, $genrefromdb, $s
 $stmt->execute ();
 $filmhtml = "<ol> \n";
 while ($stmt->fetch ()) {
-    $filmhtml .= "<li>".$titlefromdb ."</li>";
-    $filmhtml .= "</ol> \n";
+    $filmhtml .= "\t \t <li>".$titlefromdb ."\n";
+    $filmhtml .= "\t \t \t <ul> \n";
+
+    $filmhtml .= "\t \t \t </ul> \n";
+    $filmhtml .= "\t \t </li> \n";
+    $filmhtml .= "\t </ol> \n";
 }
 $stmt->close ();
   $conn->close ();
