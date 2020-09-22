@@ -10,7 +10,7 @@
     <tr>
       <td><a href="home.php">Kodu</a></td>
       <td><a href="mote.php">Mote</a></td>
-      <td><a href="tabel.php">Tabel</a></td>
+      <td><a href="motetabel.php">Tabel</a></td>
     </tr>
   </table>
 
