@@ -16,6 +16,6 @@ $filmhtml = readfilms ();
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
 
-<?php echo $filmhtml; ?>
+<?php echo readfilms(); ?>
 </body>
 </html>
