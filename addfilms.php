@@ -10,6 +10,7 @@ $inputerror ="";
 $filmhtml = readfilms ();
 //kui klikiti submit siis
 if(isset($_POST["filmsubmit"])){
+  echo"tegutsen";
   if(empty($_POST["titleinput"]) or empty($_POST["genreinput"]) or empty($_POST["studioinput"]) or empty($_POST["directorinput"])){
       $inputerror .= "Osa infot on sisestamata! ";
    }
@@ -17,6 +18,7 @@ if(isset($_POST["filmsubmit"])){
      $inputerror .= "Ebareaalne valmimisaasta!";
    }
    if(empty($inputerror)){
+     echo"salvestan";
       savefilm($_POST["titleinput"], $_POST["yearinput"], $_POST["durationinput"], $_POST["genreinput"], $_POST["studioinput"], $_POST["directorinput"] );
    }
   }
