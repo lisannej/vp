@@ -14,7 +14,11 @@ $filmhtml = "<ol> \n";
 while ($stmt->fetch ()) {
     $filmhtml .= "\t \t <li>".$titlefromdb ."\n";
     $filmhtml .= "\t \t \t <ul> \n";
-
+    $filmhtml .= "\t \t \t \t <li>Valmimisaasta: " .$yearfromdb ."</li> \n";
+    $filmhtml .= "\t \t \t \t <li>Kestus minutites: " .$durationfromdb ." minutit</li> \n";
+    $filmhtml .= "\t \t \t \t <li>Zanr: " .$genrefromdb ."</li> \n";
+    $filmhtml .= "\t \t \t \t <li>Tootja: " .$studiofromdb ."</li> \n";
+    $filmhtml .= "\t \t \t \t <li>Lavastaja: " .$directorfromdb ."</li> \n";
     $filmhtml .= "\t \t \t </ul> \n";
     $filmhtml .= "\t \t </li> \n";
     $filmhtml .= "\t </ol> \n";
