@@ -10,9 +10,10 @@ echo $conn->error;
 //seome tulemuse muutujaga
 $stmt->bind_result ($titlefromdb, $yearfromdb, $durationfromdb, $genrefromdb, $studiofromdb, $directorfromdb);
 $stmt->execute ();
-$filmhtml = "";
+$filmhtml = "<ol> \n";
 while ($stmt->fetch ()) {
-    $filmhtml .= "<p>".$titlefromdb ."</p>";
+    $filmhtml .= "<li>".$titlefromdb ."</li>";
+    $filmhtml .= "</ol> \n";
 }
 $stmt->close ();
   $conn->close ();
