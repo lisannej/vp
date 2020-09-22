@@ -35,7 +35,6 @@ if(isset($_POST["filmsubmit"])){
 <form method="POST">
   <label for="titleinput"> Filmi pealkiri </label>
   <input type="text" name="titleinput" id="titleinput" placeholder="peakiri" >
-  </form>
   <br>
   <label for="yearinput"> Filmi valmimisaasta </label>
   <input type="number" name="yearinput" id="yearinput" value="<?php echo date ("Y"); ?>">
@@ -53,7 +52,7 @@ if(isset($_POST["filmsubmit"])){
   <input type="text" name="directorinput" id="directorinput" ;>
   <br>
   <input type="submit" name="filmsubmit" value="Salvesta filmi info">
-<form>
+</form>
 <?php echo $inputerror ?>
 
 </body>
