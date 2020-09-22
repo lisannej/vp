@@ -17,7 +17,7 @@ if(isset($_POST["filmsubmit"])){
    if($_POST ["yearinput"]> date ("Y") or $_POST ["yearinput"] < 1895){
      $inputerror .= "Ebareaalne valmimisaasta!";
    }
-   if((empty ($inputerror)){
+   if(empty($inputerror)){
       savefilm ($_POST ["titleinput"], $_POST ["yearinput"], $_POST ["durationinput"], $_POST ["genreinput"], $_POST ["studioinput"], $_POST ["directorinput"] )
    }
   }
