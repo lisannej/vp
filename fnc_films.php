@@ -1,5 +1,5 @@
 <?php
-require ("header.php");
+
 $database = "if20_lisanne_ja_1" ;
 
 //var_dump ($GLOBALS);
@@ -27,5 +27,6 @@ function readfilms (){
     }
     $stmt->close ();
       $conn->close ();
+      return $filmhtml;
 } //readfilms loppeb
 ?>
