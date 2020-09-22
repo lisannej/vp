@@ -14,7 +14,11 @@
         $stmt->execute ();
         $stmt->close ();
         $conn->close ();
-    } 
+    }
+    
+//link avalehele
+//<ul>
+//<li><a href="home.php" <Avaleht> midagi veel
 ?>
         <form method = "POST">
             <label>Sisesta oma pahe tulnud mote!</label>
