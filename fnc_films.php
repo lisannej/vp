@@ -23,9 +23,10 @@ function readfilms (){
         $filmhtml .= "\t \t \t \t <li>Lavastaja: " .$directorfromdb ."</li> \n";
         $filmhtml .= "\t \t \t </ul> \n";
         $filmhtml .= "\t \t </li> \n";
-        $filmhtml .= "\t </ol> \n";
-    }
-    $stmt->close ();
+        $filmhtml .= "\t <ol> \n";
+    } 
+        
+        $stmt->close ();
       $conn->close ();
       return $filmhtml;
 } //readfilms loppeb
