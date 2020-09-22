@@ -25,7 +25,7 @@ function readfilms (){
         $filmhtml .= "\t \t </li> \n";
         $filmhtml .= "\t </ol> \n";
     } 
-        
+
         $stmt->close ();
       $conn->close ();
       return $filmhtml;
