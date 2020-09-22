@@ -1,7 +1,8 @@
 <?php
+require ("header.php");
 $database = "if20_lisanne_ja_1" ;
 
-var_dump ($GLOBALS);
+//var_dump ($GLOBALS);
 //funktsionn mis loeb koikide filmide info
 function readfilms (){
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
