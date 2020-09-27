@@ -6,7 +6,7 @@ $lastnameinput="";
 $genderinput="";
 $emailinput="";
 $passwordinput="";
-
+$inputerror="";
 //if sisend aga idk mida ma teen
 
 //$firstname=$_POST["firstnameinput"];
@@ -32,16 +32,16 @@ $passwordinput="";
   <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastname; ?>">
   <br>
   <label for="genderinput"> Sugu </label>
-  <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><?php if($gender == "1"){echo " checked";}?>>
-  <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><?php if($gender == "2"){echo " checked";}?>>
+  <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><?php if($genderinput == "1"){echo " checked";}?>>
+  <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><?php if($genderinput == "2"){echo " checked";}?>>
   <br>
-  <label for="emailinput">  </label>
+  <label for="emailinput"> Email </label>
   <input type="email" name="emailinput" id="email" ;>
   <br>
-  <label for="passwordinput"> Filmistuudio </label>
+  <label for="passwordinput"> Salasona </label>
   <input type="password" name="passwordinput" id="password" ;>
   <br>
-  <label for="passwordsecondaryinput"> Filmi lavastaja</label>
+  <label for="passwordsecondaryinput"> Salasona uuesti</label>
   <input type="password" name="passwordsecondaryinput" id="passwordsecondary" ;>
   <br>
   <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
