@@ -33,23 +33,24 @@ $passwordsecondaryinputerror="";
 
   <form method="POST">
   <label for="firstnameinput"> Eesnimi </label>
-  <input type="text" name="firstnameinput" id="firstname" value="<?php echo $firstnameinput; ?>">
+  <input type="text" name="firstnameinput" id="firstname" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
   <br>
   <label for="lastnameinput"> Perekonnanimi </label>
-  <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastnameinput; ?>">
-  <br>
+  <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastnameinput; ?>"><span><?php echo $lastnameinputerror; ?></span>
+  <br> 
+  <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit -->
   <label for="genderinput"> Sugu </label>
   <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><span><?php echo $genderinputerror; ?></span><?php if($genderinput == "1"){echo " checked";}?>
   <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><span><?php echo $genderinputerror; ?></span><?php if($genderinput == "2"){echo " checked";}?>
   <br>
   <label for="emailinput"> Email </label>
-  <input type="email" name="emailinput" id="email" ;>
+  <input type="email" name="emailinput" id="email" ;><span><?php echo $emailinputerror; ?></span>
   <br>
   <label for="passwordinput"> Salasona </label>
-  <input type="password" name="passwordinput" id="password" ;>
+  <input type="password" name="passwordinput" id="password" ;><span><?php echo $passwordinputerror; ?></span>
   <br>
   <label for="passwordsecondaryinput"> Salasona uuesti</label>
-  <input type="password" name="passwordsecondaryinput" id="passwordsecondary" ;>
+  <input type="password" name="passwordsecondaryinput" id="passwordsecondary" ;><span><?php echo $passwordsecondaryinputerror; ?></span>
   <br>
   <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
 </form>
