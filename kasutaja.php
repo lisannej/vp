@@ -26,14 +26,14 @@ $inputerror="";
 
   <form method="POST">
   <label for="firstnameinput"> Eesnimi </label>
-  <input type="text" name="firstnameinput" id="firstname" value="<?php echo $firstname; ?>">
+  <input type="text" name="firstnameinput" id="firstname" value="<?php echo $firstnameinput; ?>">
   <br>
   <label for="lastnameinput"> Perekonnanimi </label>
-  <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastname; ?>">
+  <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastnameinput; ?>">
   <br>
   <label for="genderinput"> Sugu </label>
-  <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><?php if($genderinput == "1"){echo " checked";}?>>
-  <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><?php if($genderinput == "2"){echo " checked";}?>>
+  <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><?php if($genderinput == "1"){echo " checked";}?>
+  <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><?php if($genderinput == "2"){echo " checked";}?>
   <br>
   <label for="emailinput"> Email </label>
   <input type="email" name="emailinput" id="email" ;>
