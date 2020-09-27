@@ -7,6 +7,13 @@ $genderinput="";
 $emailinput="";
 $passwordinput="";
 $inputerror="";
+$firstnameinputerror="";
+$lastnameinputerror="";
+$genderinputerror="";
+$emailinputerror="";
+$passwordinputerror="";
+$passwordsecondaryinputerror="";
+
 //if sisend aga idk mida ma teen
 
 //$firstname=$_POST["firstnameinput"];
@@ -32,8 +39,8 @@ $inputerror="";
   <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastnameinput; ?>">
   <br>
   <label for="genderinput"> Sugu </label>
-  <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><?php if($genderinput == "1"){echo " checked";}?>
-  <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><?php if($genderinput == "2"){echo " checked";}?>
+  <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><span><?php echo $genderinputerror; ?></span><?php if($genderinput == "1"){echo " checked";}?>
+  <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><span><?php echo $genderinputerror; ?></span><?php if($genderinput == "2"){echo " checked";}?>
   <br>
   <label for="emailinput"> Email </label>
   <input type="email" name="emailinput" id="email" ;>
