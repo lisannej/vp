@@ -24,14 +24,14 @@
   if(isset($_POST["userinput"])){
 
     if (!empty($_POST["firstnameinput"])){
-      $firstname = $_POST["firstnameinput"];
+      $firstnameinput = $_POST["firstnameinput"];
     }
     else {
       $firstnameerror = "Palun sisesta eesnimi!";
     }
       
     if (!empty($_POST["lastnameinput"])){
-      $lastname = $_POST["lastnameinput"];
+      $lastnameinput = $_POST["lastnameinput"];
     } else {
       $lastnameerror = "Palun sisesta perekonnanimi!";
     }
@@ -79,7 +79,7 @@
     <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit ... mul if vist vaja vb idk honestly-->
     
     <input type="radio" name="genderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label>
-    <input type="radio" name="genderinput" id="genderfemale" value="2"<?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
+    <input type="radio" name="genderinput" id="genderfemale" value="2" <?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
     <span><?php echo $genderinputerror; ?></span>
     <br>
     <label for="emailinput"> Email </label>
