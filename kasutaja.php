@@ -38,7 +38,7 @@ $passwordsecondaryinputerror="";
   <label for="lastnameinput"> Perekonnanimi </label>
   <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastnameinput; ?>"><span><?php echo $lastnameinputerror; ?></span>
   <br> 
-  <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit -->
+  <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit ... mul if vist vaja vb idk honestly-->
   <label for="genderinput"> Sugu </label>
   <input type="radio" name="genderinput" id="gendermale" value="1"><label for="gendermale">Mees</label><span><?php echo $genderinputerror; ?></span><?php if($genderinput == "1"){echo " checked";}?>
   <input type="radio" name="genderinput" id="genderfemale" value="2"><label for="genderfemale">Naine</label><span><?php echo $genderinputerror; ?></span><?php if($genderinput == "2"){echo " checked";}?>
