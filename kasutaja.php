@@ -3,7 +3,7 @@
 
   $firstnameinput ="";
   $lastnameinput="";
-  $genderinput="0";
+  $genderinput="";
   $emailinput="";
   $passwordinput="";
   $passwordsecondaryinput="";
@@ -21,27 +21,38 @@
   // mingi kood that seemed important
   //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
   if(isset($_POST["userinput"])){
-    if(empty($_POST["firstnameinput"]) or empty($_POST["lastnameinput"]) or empty($_POST["emailinput"]) or empty($_POST["passwordinput"]) or empty($_POST["secondarypasswordinput"])){
-        $inputerror .="Osa infot on sisestamata! ";
-     }
-     if($_POST["genderinput"]!=="1" and $_POST["genderinput"]!=="2"){
-       $genderinputerror .="Sugu maaramata! ";
-     }
-     else{
-       $genderinput=$_POST["genderinput"];
-     }
-     if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
-        $passwordinputerror .="Paroolid ei uhti";
-     }
-     else {
-        $passwordinput=$_POST["passwordinput"];
-        $passwordsecondaryinput=$_POST["passwordsecondaryinput"];
-     }
-     if(strlen($_POST["passwordinput"]) < 8){
-        $passwordinputerror .="Parool on liiga luhike!";
-     }
-     unset($_POST["userinput"]);
+    if (!empty($_POST["firstnameinput"])){
+      $firstname = test_input($_POST["firstnameinput"]);
+    }
+    else {
+      $firstnameerror = "Palun sisesta eesnimi!";
+    }
+      
+    if (!empty($_POST["lastnameinput"])){
+    $lastname = test_input($_POST["lastnameinput"]);
+    } else {
+      $lastnameerror = "Palun sisesta perekonnanimi!";
+    }
+    
+    if($_POST["genderinput"]!=="1" and $_POST["genderinput"]!=="2"){
+      $genderinputerror .="Sugu maaramata! ";
+    }
+    else{
+      $genderinput=$_POST["genderinput"];
+    }
+    if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
+      $passwordinputerror .="Paroolid ei uhti";
+    }
+    else {
+      $passwordinput=$_POST["passwordinput"];
+      $passwordsecondaryinput=$_POST["passwordsecondaryinput"];
+    }
+    if(strlen($_POST["passwordinput"]) < 8){
+      $passwordinputerror .="Parool on liiga luhike!";
+    }
+    unset($_POST["userinput"]);
   }
+
 
 
 ?>
