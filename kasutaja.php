@@ -1,6 +1,6 @@
 <?php
   require ("header.php");
-
+  unset($_POST["userinput"]);
   $firstnameinput ="";
   $lastnameinput="";
   $genderinput="0";
@@ -55,7 +55,7 @@
       $passwordinputerror .="Parool on liiga luhike!";
       exit();
     }
-    unset($_POST["userinput"]);
+    
   }
 
 
