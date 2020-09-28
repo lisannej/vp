@@ -3,7 +3,7 @@
 
   $firstnameinput ="";
   $lastnameinput="";
-  $genderinput="";
+  $genderinput="0";
   $emailinput="";
   $passwordinput="";
   $inputerror="";
