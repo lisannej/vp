@@ -25,7 +25,10 @@
         $inputerror .="Osa infot on sisestamata! ";
      }
      if($_POST["genderinput"]!=1 and $_POST["genderinput"]!=2 ){
-      $inputerror .="Sugu maaramata! ";
+      $genderinputerror .="Sugu maaramata! ";
+     }
+     if($_POST["passwordinput"]!= $_POST["secondarypasswordinput"]){
+       $passwordinputerror .="Paroolid ei uhti";
      }
   }
 
