@@ -1,5 +1,19 @@
 <?php
   require ("header.php");
+
+  $firstnameinput ="";
+  $lastnameinput="";
+  $genderinput="";
+  $emailinput="";
+  $passwordinput="";
+  $passwordsecondaryinput="";
+  $inputerror="";
+  $firstnameinputerror="";
+  $lastnameinputerror="";
+  $genderinputerror="";
+  $emailinputerror="";
+  $passwordinputerror="";
+  $passwordsecondaryinputerror="";
 ?>
 
 <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
@@ -33,20 +47,6 @@
   </form>
 
 <?php
-  $firstnameinput ="";
-  $lastnameinput="";
-  $genderinput="";
-  $emailinput="";
-  $passwordinput="";
-  $passwordsecondaryinput="";
-  $inputerror="";
-  $firstnameinputerror="";
-  $lastnameinputerror="";
-  $genderinputerror="";
-  $emailinputerror="";
-  $passwordinputerror="";
-  $passwordsecondaryinputerror="";
-
   //if sisend aga idk mida ma teen
 
   //$firstname=$_POST["firstnameinput"];
