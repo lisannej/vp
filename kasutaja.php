@@ -7,6 +7,7 @@
   $emailinput="";
   $passwordinput="";
   $passwordsecondaryinput="";
+
   $inputerror="";
   $firstnameinputerror="";
   $lastnameinputerror="";
@@ -21,6 +22,7 @@
   // mingi kood that seemed important
   //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
   if(isset($_POST["userinput"])){
+
     if (!empty($_POST["firstnameinput"])){
       $firstname = $_POST["firstnameinput"];
     }
@@ -34,8 +36,10 @@
       $lastnameerror = "Palun sisesta perekonnanimi!";
     }
   
-    $genderinput = intval($_GET["genderinput"]);
-    if($genderinput!==1 and $genderinput!==2){
+    if (isset($_POST["genderinput"])){
+      $genderinput = intval($_GET["genderinput"]);
+    }
+    else{
       $genderinputerror .="Sugu maaramata! ";
     }
     
