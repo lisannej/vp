@@ -28,12 +28,12 @@
      if($_POST["genderinput"]!=="1" and $_POST["genderinput"]!=="2" ){
       $genderinputerror .="Sugu maaramata! ";
      }
-     if($_POST["passwordinput"]!== $_POST["secondarypasswordinput"]){
+     if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
        $passwordinputerror .="Paroolid ei uhti";
      }
      else {
        $passwordinput=$_POST["passwordinput"];
-       $passwordsecondaryinput=$_POST["secondarypasswordinput"];
+       $passwordsecondaryinput=$_POST["passwordsecondaryinput"];
      }
      if(strlen($_POST["passwordinput"]) < 8){
        $passwordinputerror .="Parool on liiga luhike!";
