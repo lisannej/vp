@@ -1,12 +1,12 @@
 <?php
   require ("header.php");
 
-  $firstnameinput ="";
+  /*$firstnameinput ="";
   $lastnameinput="";
   $genderinput="";
   $emailinput="";
   $passwordinput="";
-  $passwordsecondaryinput="";
+  $passwordsecondaryinput="";*/
 
   $inputerror="";
   $firstnameinputerror="";
@@ -70,8 +70,9 @@
     <br> 
     <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit ... mul if vist vaja vb idk honestly-->
     
-    <input type="radio" name="genderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label><span><?php echo $genderinputerror; ?></span>
-    <input type="radio" name="genderinput" id="genderfemale" value="2"<?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label><span><?php echo $genderinputerror; ?></span>
+    <input type="radio" name="genderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label>
+    <input type="radio" name="genderinput" id="genderfemale" value="2"<?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
+    <span><?php echo $genderinputerror; ?></span>
     <br>
     <label for="emailinput"> Email </label>
     <input type="email" name="emailinput" id="email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
