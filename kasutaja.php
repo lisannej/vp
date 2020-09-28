@@ -1,12 +1,12 @@
 <?php
   require ("header.php");
 
-  /*$firstnameinput ="";
+  $firstnameinput ="";
   $lastnameinput="";
   $genderinput="";
   $emailinput="";
   $passwordinput="";
-  $passwordsecondaryinput="";*/
+  $passwordsecondaryinput="";
 
   $inputerror="";
   $firstnameinputerror="";
