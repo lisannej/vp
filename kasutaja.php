@@ -34,7 +34,8 @@
       $lastnameerror = "Palun sisesta perekonnanimi!";
     }
   
-    if(intval($_GET["genderinput"])!==1 and intval($_GET["genderinput"])!==2){
+    $genderinput = intval($_GET["genderinput"]);
+    if($genderinput!==1 or $genderinput!==2){
       $genderinputerror .="Sugu maaramata! ";
       $genderinput=0;
     }
