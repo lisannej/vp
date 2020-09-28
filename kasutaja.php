@@ -65,7 +65,7 @@
       $passwordinputerror .="Parool on liiga luhike!";
     }
 
-    if (isempty("".$inputerror.$firstnameinputerror.$lastnameinputerror.$genderinputerror.$emailinputerror.$passwordinputerror.$passwordsecondaryinputerror)){
+    if (empty("".$inputerror.$firstnameinputerror.$lastnameinputerror.$genderinputerror.$emailinputerror.$passwordinputerror.$passwordsecondaryinputerror)){
       adduser();
     }
     
