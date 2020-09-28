@@ -25,6 +25,7 @@
 
     if (!empty($_POST["firstnameinput"])){
       $firstname = $_POST["firstnameinput"];
+      $firstnameinput ="";
     }
     else {
       $firstnameerror = "Palun sisesta eesnimi!";
@@ -32,12 +33,14 @@
       
     if (!empty($_POST["lastnameinput"])){
       $lastname = $_POST["lastnameinput"];
+      $lastnameinput="";
     } else {
       $lastnameerror = "Palun sisesta perekonnanimi!";
     }
   
     if (isset($_POST["genderinput"])){
       $genderinput = intval($_GET["genderinput"]);
+      $genderinput="";
     }
     else{
       $genderinputerror .="Sugu maaramata! ";
