@@ -58,7 +58,7 @@
       $emailinputerror = "Palun sisesta email!";
     }
 
-    if($_POST["passwordinput"] == $_POST["passwordsecondaryinput"]){
+    if($_POST["passwordinput"] === $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
     }
     else if(strlen($_POST["passwordinput"]) < 8){
@@ -82,10 +82,10 @@
 
   <form method="POST">
     <label for="firstnameinput"> Eesnimi </label>
-    <input type="text" name="firstnameinput" id="firstname" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
+    <input type="text" name="firstnameinput" id="firstname" placeholder="Eesnimi" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
     <br>
     <label for="lastnameinput"> Perekonnanimi </label>
-    <input type="text" name="lastnameinput" id="lastname" value="<?php echo $lastnameinput; ?>"><span><?php echo $lastnameinputerror; ?></span>
+    <input type="text" name="lastnameinput" id="lastname" placeholder="Perekonnanimi" value="<?php echo $lastnameinput; ?>"><span><?php echo $lastnameinputerror; ?></span>
     <br> 
     <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit ... mul if vist vaja vb idk honestly-->
     
@@ -94,13 +94,13 @@
     <span><?php echo $genderinputerror; ?></span>
     <br>
     <label for="emailinput"> Email </label>
-    <input type="email" name="emailinput" id="email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
+    <input type="email" name="emailinput" id="email" placeholder="Email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
     <br>
     <label for="passwordinput"> Salasona </label>
-    <input type="password" name="passwordinput" id="password" value="<?php echo $passwordinput; ?>"><span><?php echo $passwordinputerror; ?></span>
+    <input type="password" name="passwordinput" id="password" placeholder="Salasona" value="<?php echo $passwordinput; ?>"><span><?php echo $passwordinputerror; ?></span>
     <br>
     <label for="passwordsecondaryinput"> Salasona uuesti</label>
-    <input type="password" name="passwordsecondaryinput" id="passwordsecondary" value="<?php echo $passwordsecondaryinput; ?>"><span><?php echo $passwordsecondaryinputerror; ?></span>
+    <input type="password" name="passwordsecondaryinput" id="passwordsecondary" placeholder="Salasona uuesti" value="<?php echo $passwordsecondaryinput; ?>"><span><?php echo $passwordsecondaryinputerror; ?></span>
     <br>
     <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
   </form>
