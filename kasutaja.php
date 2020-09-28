@@ -28,7 +28,7 @@
      if($_POST["genderinput"]!=1 and $_POST["genderinput"]!=2 ){
       $genderinputerror .="Sugu maaramata! ";
      }
-     if($_POST["passwordinput"]!= $_POST["secondarypasswordinput"]){
+     if($_POST["passwordinput"]!== $_POST["secondarypasswordinput"]){
        $passwordinputerror .="Paroolid ei uhti";
      }
      else {
@@ -38,6 +38,7 @@
      if(strlen($_POST["passwordinput"]) < 8){
        $passwordinputerror .="Parool on liiga luhike!";
      }
+     unset($_POST["userinput"]);
   }
 
 
