@@ -21,22 +21,24 @@
   // mingi kood that seemed important
   //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
   if(isset($_POST["userinput"])){
-    echo"tegutsen";
     if(empty($_POST["firstnameinput"]) or empty($_POST["lastnameinput"]) or empty($_POST["emailinput"]) or empty($_POST["passwordinput"]) or empty($_POST["secondarypasswordinput"])){
         $inputerror .="Osa infot on sisestamata! ";
      }
-     if($_POST["genderinput"]!=="1" and $_POST["genderinput"]!=="2" ){
-      $genderinputerror .="Sugu maaramata! ";
+     if($_POST["genderinput"]!=="1" and $_POST["genderinput"]!=="2"){
+       $genderinputerror .="Sugu maaramata! ";
+     }
+     else{
+       $genderinput=$_POST["genderinput"];
      }
      if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
-       $passwordinputerror .="Paroolid ei uhti";
+        $passwordinputerror .="Paroolid ei uhti";
      }
      else {
-       $passwordinput=$_POST["passwordinput"];
-       $passwordsecondaryinput=$_POST["passwordsecondaryinput"];
+        $passwordinput=$_POST["passwordinput"];
+        $passwordsecondaryinput=$_POST["passwordsecondaryinput"];
      }
      if(strlen($_POST["passwordinput"]) < 8){
-       $passwordinputerror .="Parool on liiga luhike!";
+        $passwordinputerror .="Parool on liiga luhike!";
      }
      unset($_POST["userinput"]);
   }
