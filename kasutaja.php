@@ -26,22 +26,26 @@
     }
     else {
       $firstnameerror = "Palun sisesta eesnimi!";
+      exit();
     }
       
     if (!empty($_POST["lastnameinput"])){
       $lastname = $_POST["lastnameinput"];
     } else {
       $lastnameerror = "Palun sisesta perekonnanimi!";
+      exit();
     }
     
     $genderinput = $_GET["genderinput"];
     if($genderinput!==1 and $genderinput!==2){
       $genderinputerror .="Sugu maaramata! ";
       $genderinput=0;
+      exit();
     }
     
     if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
+      exit();
     }
     else {
       $passwordinput=$_POST["passwordinput"];
@@ -49,6 +53,7 @@
     }
     if(strlen($_POST["passwordinput"]) < 8){
       $passwordinputerror .="Parool on liiga luhike!";
+      exit();
     }
     unset($_POST["userinput"]);
   }
