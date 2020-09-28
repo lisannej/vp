@@ -14,6 +14,40 @@
   $emailinputerror="";
   $passwordinputerror="";
   $passwordsecondaryinputerror="";
+
+  //if sisend aga idk mida ma teen
+
+  //$firstname=$_POST["firstnameinput"];
+  // mingi kood that seemed important
+  //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
+  if(isset($_POST["userinput"])){
+    if (!empty($_POST["firstnameinput"])){
+      $firstname = $_POST["firstnameinput"];
+    }
+    else {
+      $firstnameerror = "Palun sisesta eesnimi!";
+    }
+      
+    if (!empty($_POST["lastnameinput"])){
+      $lastname = $_POST["lastnameinput"];
+    } else {
+      $lastnameerror = "Palun sisesta perekonnanimi!";
+    }
+  
+    if(intval($_GET["genderinput"])!==1 and intval($_GET["genderinput"])!==2){
+      $genderinputerror .="Sugu maaramata! ";
+      $genderinput=0;
+    }
+    
+    if($_POST["passwordinput"]=== $_POST["passwordsecondaryinput"]){
+      $passwordinputerror .="Paroolid ei uhti";
+    }
+    if(strlen($_POST["passwordinput"]) < 8){
+      $passwordinputerror .="Parool on liiga luhike!";
+    }
+    
+  }
+
 ?>
 
 <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
@@ -21,6 +55,7 @@
   <p>See konkreetne veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
+
 
   <form method="POST">
     <label for="firstnameinput"> Eesnimi </label>
@@ -45,43 +80,6 @@
     <br>
     <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
   </form>
-
-<?php
-  //if sisend aga idk mida ma teen
-
-  //$firstname=$_POST["firstnameinput"];
-  // mingi kood that seemed important
-  //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
-  if(isset($_POST["userinput"])){
-    if (!empty($_POST["firstnameinput"])){
-      $firstname = $_POST["firstnameinput"];
-    }
-    else {
-      $firstnameerror = "Palun sisesta eesnimi!";
-    }
-      
-    if (!empty($_POST["lastnameinput"])){
-      $lastname = $_POST["lastnameinput"];
-    } else {
-      $lastnameerror = "Palun sisesta perekonnanimi!";
-    }
-    
-    $genderinput = $_GET["genderinput"];
-    if($genderinput!==1 and $genderinput!==2){
-      $genderinputerror .="Sugu maaramata! ";
-      $genderinput=0;
-    }
-    
-    if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
-      $passwordinputerror .="Paroolid ei uhti";
-    }
-    if(strlen($_POST["passwordinput"]) < 8){
-      $passwordinputerror .="Parool on liiga luhike!";
-    }
-    
-  }
-?>
-
 <?php echo $inputerror ?>
 
 </body>
