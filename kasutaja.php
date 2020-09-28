@@ -22,24 +22,24 @@
   //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
   if(isset($_POST["userinput"])){
     if (!empty($_POST["firstnameinput"])){
-      $firstname = test_input($_POST["firstnameinput"]);
+      $firstname = $_POST["firstnameinput"];
     }
     else {
       $firstnameerror = "Palun sisesta eesnimi!";
     }
       
     if (!empty($_POST["lastnameinput"])){
-    $lastname = test_input($_POST["lastnameinput"]);
+      $lastname = $_POST["lastnameinput"];
     } else {
       $lastnameerror = "Palun sisesta perekonnanimi!";
     }
     
-    if($_POST["genderinput"]!=="1" and $_POST["genderinput"]!=="2"){
+    $genderinput = $_GET["genderinput"];
+    if($genderinput!==1 and $genderinput!==2){
       $genderinputerror .="Sugu maaramata! ";
+      $genderinput=0;
     }
-    else{
-      $genderinput=$_POST["genderinput"];
-    }
+    
     if($_POST["passwordinput"]!== $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
     }
