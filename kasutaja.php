@@ -66,10 +66,9 @@
       $passwordinputerror .="Parool on liiga luhike!";
     }
 
-    adduser();
-    //if (empty("".$inputerror.$firstnameinputerror.$lastnameinputerror.$genderinputerror.$emailinputerror.$passwordinputerror.$passwordsecondaryinputerror)){
-    //  adduser();
-    //}
+    if (empty("".$inputerror.$firstnameinputerror.$lastnameinputerror.$genderinputerror.$emailinputerror.$passwordinputerror.$passwordsecondaryinputerror)){
+      adduser();
+    }
     
   }
 
