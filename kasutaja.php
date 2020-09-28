@@ -25,7 +25,6 @@
 
     if (!empty($_POST["firstnameinput"])){
       $firstname = $_POST["firstnameinput"];
-      $firstnameinput ="";
     }
     else {
       $firstnameerror = "Palun sisesta eesnimi!";
@@ -33,25 +32,31 @@
       
     if (!empty($_POST["lastnameinput"])){
       $lastname = $_POST["lastnameinput"];
-      $lastnameinput="";
     } else {
       $lastnameerror = "Palun sisesta perekonnanimi!";
     }
   
     if (isset($_POST["genderinput"])){
       $genderinput = intval($_GET["genderinput"]);
-      $genderinput="";
     }
     else{
-      $genderinputerror .="Sugu maaramata! ";
+      $genderinputerror = "Sugu maaramata! ";
     }
     
+    if (!empty($_POST["emailinput"])){
+      $emailinput = $_POST["emailinput"];
+    } else {
+      $emailinputerror = "Palun sisesta email!";
+    }
+
     if($_POST["passwordinput"]=== $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
     }
-    if(strlen($_POST["passwordinput"]) < 8){
+    else if(strlen($_POST["passwordinput"]) < 8){
       $passwordinputerror .="Parool on liiga luhike!";
     }
+
+
     
   }
 
