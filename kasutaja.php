@@ -24,6 +24,9 @@
     if(empty($_POST["firstnameinput"]) or empty($_POST["lastnameinput"]) or empty($_POST["emailinput"]) or empty($_POST["passwordinput"]) or empty($_POST["secondarypasswordinput"])){
         $inputerror .="Osa infot on sisestamata! ";
      }
+     if($_POST["genderinput"]!=1 and $_POST["genderinput"]!=2 ){
+      $inputerror .="Sugu maaramata! ";
+     }
   }
 
 

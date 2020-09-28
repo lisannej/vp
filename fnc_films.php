@@ -39,6 +39,6 @@ function savefilm ($titleinput, $yearinput, $durationinput, $genreinput, $studio
     $stmt->bind_param("siisss", $titleinput, $yearinput, $durationinput, $genreinput, $studioinput, $directorinput);
     $stmt->execute ();
     $stmt->close ();
-      $conn->close ();
+    $conn->close ();
 } // savefilm loppeb
 ?>
