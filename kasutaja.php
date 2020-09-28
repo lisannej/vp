@@ -70,13 +70,13 @@
     <input type="radio" name="genderinput" id="genderfemale" value="2"<?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label><span><?php echo $genderinputerror; ?></span>
     <br>
     <label for="emailinput"> Email </label>
-    <input type="email" name="emailinput" id="email" ;><span><?php echo $emailinputerror; ?></span>
+    <input type="email" name="emailinput" id="email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
     <br>
     <label for="passwordinput"> Salasona </label>
-    <input type="password" name="passwordinput" id="password" ;><span><?php echo $passwordinputerror; ?></span>
+    <input type="password" name="passwordinput" id="password" value="<?php echo $passwordinput; ?>"><span><?php echo $passwordinputerror; ?></span>
     <br>
     <label for="passwordsecondaryinput"> Salasona uuesti</label>
-    <input type="password" name="passwordsecondaryinput" id="passwordsecondary" ;><span><?php echo $passwordsecondaryinputerror; ?></span>
+    <input type="password" name="passwordsecondaryinput" id="passwordsecondary" value="<?php echo $passwordsecondaryinput; ?>"><span><?php echo $passwordsecondaryinputerror; ?></span>
     <br>
     <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
   </form>
