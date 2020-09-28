@@ -6,6 +6,7 @@
   $genderinput="0";
   $emailinput="";
   $passwordinput="";
+  $passwordsecondaryinput="";
   $inputerror="";
   $firstnameinputerror="";
   $lastnameinputerror="";
@@ -29,6 +30,13 @@
      }
      if($_POST["passwordinput"]!= $_POST["secondarypasswordinput"]){
        $passwordinputerror .="Paroolid ei uhti";
+     }
+     else {
+       $passwordinput=$_POST["passwordinput"];
+       $passwordsecondaryinput=$_POST["secondarypasswordinput"];
+     }
+     if(strlen($_POST["passwordinput"]) < 8){
+       $passwordinputerror .="Parool on liiga luhike!";
      }
   }
 
