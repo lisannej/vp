@@ -16,6 +16,15 @@
   $passwordinputerror="";
   $passwordsecondaryinputerror="";
 
+  function adduser(){
+    $firstnameinput ="";
+    $lastnameinput="";
+    $genderinput="";
+    $emailinput="";
+    $passwordinput="";
+    $passwordsecondaryinput="";
+    echo "Kasutaja edukalt lisatud!";
+  }
   //if sisend aga idk mida ma teen
 
   //$firstname=$_POST["firstnameinput"];
@@ -49,14 +58,16 @@
       $emailinputerror = "Palun sisesta email!";
     }
 
-    if($_POST["passwordinput"]=== $_POST["passwordsecondaryinput"]){
+    if($_POST["passwordinput"] == $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
     }
     else if(strlen($_POST["passwordinput"]) < 8){
       $passwordinputerror .="Parool on liiga luhike!";
     }
 
-
+    if (isempty("".$inputerror.$firstnameinputerror.$lastnameinputerror.$genderinputerror.$emailinputerror.$passwordinputerror.$passwordsecondaryinputerror)){
+      adduser();
+    }
     
   }
 
