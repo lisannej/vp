@@ -46,7 +46,7 @@
     }
   
     if (isset($_POST["genderinput"])){
-      $genderinput = intval($_GET["genderinput"]);
+      $genderinput = intval($_POST["genderinput"]);
     }
     else{
       $genderinputerror = "Sugu maaramata! ";
