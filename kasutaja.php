@@ -103,8 +103,7 @@
     <label for="passwordsecondaryinput"> Salasona uuesti</label>
     <input type="password" name="passwordsecondaryinput" id="passwordsecondary" placeholder="Salasona uuesti" value="<?php echo $passwordsecondaryinput; ?>"><span><?php echo $passwordsecondaryinputerror; ?></span>
     <br>
-    <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
-    <?php echo $result?>
+    <input type="submit" name="userinput" value="Salvesta kasutaja andmed"><br><span><?php echo $passwordinputerror; ?></span>
   </form>
 <?php echo $inputerror ?>
 
