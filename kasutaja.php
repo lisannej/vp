@@ -35,9 +35,8 @@
     }
   
     $genderinput = intval($_GET["genderinput"]);
-    if($genderinput!==1 or $genderinput!==2){
+    if($genderinput!==1 and $genderinput!==2){
       $genderinputerror .="Sugu maaramata! ";
-      $genderinput=0;
     }
     
     if($_POST["passwordinput"]=== $_POST["passwordsecondaryinput"]){
