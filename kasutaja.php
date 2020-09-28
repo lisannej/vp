@@ -7,6 +7,7 @@
   $emailinput="";
   $passwordinput="";
   $passwordsecondaryinput="";
+  $result="";
 
   $inputerror="";
   $firstnameinputerror="";
@@ -23,7 +24,7 @@
     $emailinput="";
     $passwordinput="";
     $passwordsecondaryinput="";
-    echo "Kasutaja edukalt lisatud!";
+    $result = "Kasutaja edukalt lisatud!";
   }
   //if sisend aga idk mida ma teen
 
@@ -103,6 +104,7 @@
     <input type="password" name="passwordsecondaryinput" id="passwordsecondary" placeholder="Salasona uuesti" value="<?php echo $passwordsecondaryinput; ?>"><span><?php echo $passwordsecondaryinputerror; ?></span>
     <br>
     <input type="submit" name="userinput" value="Salvesta kasutaja andmed">
+    <?php echo $result?>
   </form>
 <?php echo $inputerror ?>
 
