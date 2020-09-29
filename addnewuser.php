@@ -3,8 +3,8 @@
   require ("config.php");
   require ("fnc_common.php");
 
-  //$monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
-  //"juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+  $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
+  "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
   $firstnameinput ="";
   $lastnameinput="";
   $genderinput="";
@@ -82,6 +82,7 @@
     if(!empty($birthday) and !empty($birthmonth) and !empty($birthyear)){
       if(checkdate($birthmonth, $birthday, $birthyear)){
           $tempdate = new DateTime($birthyear ."-" .$birthmonth ."-" .$birthday);
+          $birthdate = $tempdate->format("Y-m-d");
       } else {
           $birthdateerror = "Kuupaev ei ole reaalne!";
       }
