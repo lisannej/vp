@@ -63,7 +63,30 @@
     } else{
       $genderinputerror = "Sugu maaramata! ";
     }
-    
+    if (!empty($_POST["birthdayinput"])){
+      $birthday = intval ($_POST["birthdayinput"]);
+    } else {
+      $birthdayerror= " Palun vali sunnikuupaev";
+    }
+    if (!empty($_POST["birthmonthinput"])){
+      $birthmonth = intval ($_POST["birthmonthinput"]);
+    } else {
+      $birthmontherror= " Palun vali sunnikuu";
+    }
+    if (!empty($_POST["birthyearinput"])){
+      $birthyear = intval ($_POST["birthyearinput"]);
+    } else {
+      $birthyearerror= " Palun vali sunniaasta";
+    }
+    //kontrollime kuupaeva oigsusst
+    if(!empty($birthday) and !empty($birthmonth) and !empty($birthyear)){
+      if(checkdate($birthmonth, $birthday, $birthyear)){
+          $tempdate = new DateTime($birthyear ."-" .$birthmonth ."-" .$birthday);
+      } else {
+          $birthdateerror = "Kuupaev ei ole reaalne!";
+      }
+    }
+
     if (!empty($_POST["emailinput"])){
       $emailinput = test_input ($_POST["emailinput"]);
     } else {
@@ -124,8 +147,8 @@
 		  ?>
 	  <label for="birthmonthinput">Sünnikuu: </label>
 	  <?php
-	    echo "t\" ."'<select name="birthmonthinput" id="birthmonthinput">' ."\n";
-		echo "t\ t\" ."'<option value="" selected disabled>kuu</option>' ."\n";
+	    echo '<select name="birthmonthinput" id="birthmonthinput">' ."\n";
+		  echo "\t \t" .'<option value="" selected disabled>kuu</option>' ."\n";
 		for ($i = 1; $i < 13; $i ++){
 			echo '<option value="' .$i .'"';
 			if ($i == $birthmonth){
@@ -137,8 +160,8 @@
 	  ?>
 	  <label for="birthyearinput">Sünniaasta: </label>
 	  <?php
-	    echo "t\" "'<select name="birthyearinput" id="birthyearinput">' ."\n";
-		echo "t\ t\" "'<option value="" selected disabled>aasta</option>' ."\n";
+	    echo "\t" .'<select name="birthyearinput" id="birthyearinput">' ."\n";
+		echo "\t \t" .'<option value="" selected disabled>aasta</option>' ."\n";
 		for ($i = date("Y") - 15; $i >= date("Y") - 110; $i --){
 			echo '<option value="' .$i .'"';
 			if ($i == $birthyear){
