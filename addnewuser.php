@@ -8,6 +8,10 @@
   $firstnameinput ="";
   $lastnameinput="";
   $genderinput="";
+  $birthday=null;
+  $birthmonth=null;
+  $birthyear=null;
+  $birthdate=null;
   $emailinput="";
 
   $passwordinput="";
@@ -19,6 +23,10 @@
   $lastnameinputerror="";
   $genderinputerror="";
   $emailinputerror="";
+  $birthdayerror=null;
+  $birthmontherror=null;
+  $birthyearerror=null;
+  $birthdateerror=null;
   $passwordinputerror="";
   $passwordsecondaryinputerror="";
 
@@ -104,20 +112,20 @@
     <label for="birthdayinput">Sünnipäev: </label>
 		<?php
 			echo '<select name="birthdayinput" id="birthdayinput">' ."\n";
-			echo '<option value="" selected disabled>päev</option>' ."\n";
+			echo "\t \t" .'<option value="" selected disabled>päev</option>' ."\n";
 			for ($i = 1; $i < 32; $i ++){
-				echo '<option value="' .$i .'"';
+				echo "\t" .'<option value="' .$i .'"';
 				if ($i == $birthday){
 					echo " selected ";
 				}
 				echo ">" .$i ."</option> \n";
 			}
-			echo "</select> \n";
+			echo  "</select> \n";
 		  ?>
 	  <label for="birthmonthinput">Sünnikuu: </label>
 	  <?php
-	    echo '<select name="birthmonthinput" id="birthmonthinput">' ."\n";
-		echo '<option value="" selected disabled>kuu</option>' ."\n";
+	    echo "t\" ."'<select name="birthmonthinput" id="birthmonthinput">' ."\n";
+		echo "t\ t\" ."'<option value="" selected disabled>kuu</option>' ."\n";
 		for ($i = 1; $i < 13; $i ++){
 			echo '<option value="' .$i .'"';
 			if ($i == $birthmonth){
@@ -125,12 +133,12 @@
 			}
 			echo ">" .$monthnameset[$i - 1] ."</option> \n";
 		}
-		echo "</select> \n";
+		echo " t\ </select> \n";
 	  ?>
 	  <label for="birthyearinput">Sünniaasta: </label>
 	  <?php
-	    echo '<select name="birthyearinput" id="birthyearinput">' ."\n";
-		echo '<option value="" selected disabled>aasta</option>' ."\n";
+	    echo "t\" "'<select name="birthyearinput" id="birthyearinput">' ."\n";
+		echo "t\ t\" "'<option value="" selected disabled>aasta</option>' ."\n";
 		for ($i = date("Y") - 15; $i >= date("Y") - 110; $i --){
 			echo '<option value="' .$i .'"';
 			if ($i == $birthyear){
@@ -138,9 +146,10 @@
 			}
 			echo ">" .$i ."</option> \n";
 		}
-		echo "</select> \n";
+		echo "t\ </select> \n";
 	  ?>
 	  <br>
+    <br>
 	  <span><?php echo $birthdateerror ." " .$birthdayerror ." " .$birthmontherror ." " .$birthyearerror; ?></span>
     <label for="emailinput"> Email (kasutajatunnus)</label>
     <input type="email" name="emailinput" id="email" placeholder="Email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
