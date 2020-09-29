@@ -61,7 +61,7 @@
       $emailinputerror = "Palun sisesta email!";
     }
 
-    if($_POST["passwordinput"] === $_POST["passwordsecondaryinput"]){
+    if($_POST["passwordinput"] != $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
     } else if(strlen($_POST["passwordinput"]) < 8){
       $passwordinputerror .="Parool on liiga luhike!";
@@ -88,7 +88,7 @@
   Digitehnoloogiate instituudis.</p>
 
 
-  <form method="POST">
+  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="firstnameinput"> Eesnimi </label>
     <input type="text" name="firstnameinput" id="firstname" placeholder="Eesnimi" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
     <br>
