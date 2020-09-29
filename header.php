@@ -13,7 +13,7 @@
       <td><a href="motetabel.php">Tabel</a></td>
       <td><a href="filmlist.php">Filmlist</a></td>
       <td><a href="addfilms.php">Lisa filme</a></td>
-      <td><a href="kasutaja.php">Tee kasutaja</a></td>
+      <td><a href="addnewuserphp">Tee kasutaja</a></td>
     </tr>
   </table>
 
