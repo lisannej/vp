@@ -103,8 +103,8 @@
 
     if (empty($inputerror) and empty ($firstnameinputerror) and empty($lastnameinputerror) and empty ($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty ($birthdyearerror) and empty ($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
       adduser();
-      $result="koik korras";
-      echo $firstnameinput .$lastnameinput .$emailinput .$genderinput .$birthdate ;
+      $result="Kasutaja loodud";
+      //echo $firstnameinput .$lastnameinput .$emailinput .$genderinput .$birthdate ;
 
       $firstnameinput ="";
       $lastnameinput="";
@@ -162,7 +162,7 @@
 			}
 			echo ">" .$monthnameset[$i - 1] ."</option> \n";
 		}
-		echo " t\ </select> \n";
+		echo " \t </select> \n";
 	  ?>
 	  <label for="birthyearinput">Sünniaasta: </label>
 	  <?php
@@ -175,7 +175,7 @@
 			}
 			echo ">" .$i ."</option> \n";
 		}
-		echo "t\ </select> \n";
+		echo "\t </select> \n";
 	  ?>
 	  <br>
     <br>
