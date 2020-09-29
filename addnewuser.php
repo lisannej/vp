@@ -26,10 +26,10 @@
     $passwordsecondaryinput="";
     $result = "Kasutaja edukalt lisatud!";
   }
-  //if sisend aga idk mida ma teen
+  
 
   //$firstname=$_POST["firstnameinput"];
-  // mingi kood that seemed important
+  // mingi kood 
   //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
   if(isset($_POST["userinput"])){
 
@@ -88,22 +88,20 @@
     <label for="lastnameinput"> Perekonnanimi </label>
     <input type="text" name="lastnameinput" id="lastname" placeholder="Perekonnanimi" value="<?php echo $lastnameinput; ?>"><span><?php echo $lastnameinputerror; ?></span>
     <br> 
-    <!-- SEE EI TEE MIDAGI KUI MA EI SISETA KUMBAGI genderit ... mul if vist vaja vb idk honestly-->
-    
     <input type="radio" name="genderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label>
     <input type="radio" name="genderinput" id="genderfemale" value="2" <?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
     <span><?php echo $genderinputerror; ?></span>
     <br>
-    <label for="emailinput"> Email </label>
+    <label for="emailinput"> Email (kasutajatunnus)</label>
     <input type="email" name="emailinput" id="email" placeholder="Email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
     <br>
-    <label for="passwordinput"> Salasona </label>
+    <label for="passwordinput"> Salasona (min 8 tahemarki) </label>
     <input type="password" name="passwordinput" id="password" placeholder="Salasona" value="<?php echo $passwordinput; ?>"><span><?php echo $passwordinputerror; ?></span>
     <br>
     <label for="passwordsecondaryinput"> Salasona uuesti</label>
     <input type="password" name="passwordsecondaryinput" id="passwordsecondary" placeholder="Salasona uuesti" value="<?php echo $passwordsecondaryinput; ?>"><span><?php echo $passwordsecondaryinputerror; ?></span>
     <br>
-    <input type="submit" name="userinput" value="Salvesta kasutaja andmed"><br><span><?php echo $result; ?></span>
+    <input type="submit" name="userinput" value="Loo kasutaja"><br><span><?php echo $result; ?></span>
   </form>
 <?php echo $inputerror ?>
 
