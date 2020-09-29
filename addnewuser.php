@@ -46,7 +46,6 @@
   // mingi kood 
   //<input type="test" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi" value="<?php echo $lastname:
   if(isset($_POST["userinput"])){
-
     if (!empty($_POST["firstnameinput"])){
       $firstnameinput = test_input ($_POST["firstnameinput"]);
     } else {
@@ -94,16 +93,25 @@
     } else {
       $emailinputerror = "Palun sisesta email!";
     }
+    if(empty($_POST["passwordinput"])){
+      $passwordinputerror = "Parool sisestamata!";
 
-    if($_POST["passwordinput"] != $_POST["passwordsecondaryinput"]){
-      $passwordinputerror .="Paroolid ei uhti";
-    } else if(strlen($_POST["passwordinput"]) < 8){
-      $passwordinputerror .="Parool on liiga luhike!";
-      
+    } else {
+      if(strlen($_POST["passwordinput"]) < 8){
+        $passwordinputerror .="Parool on liiga luhike!";
+      }
+    }
+    if(empty($_POST["passwordsecondaryinput"])){
+      $passwordsecondaryinputerror = "Sisesta parool teist korda!";
+    } else {
+      if($_POST["passwordinput"] != $_POST["passwordsecondaryinput"]){
+        $passwordinputerror .="Paroolid ei uhti";
+      }
     }
 
-    if (empty($inputerror) and empty ($firstnameinputerror) and empty($lastnameinputerror) and empty ($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty ($birthdyearerror) and empty ($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
-      adduser();
+
+    if (empty($inputerror) and empty($firstnameinputerror) and empty($lastnameinputerror) and empty($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty($birthdyearerror) and empty($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
+      //adduser();
       $notice = signup($firstnameinput, $lastnameinput, $emailinput, $genderinput, $birthdate, $_POST["passwordinput"]);
       //$result="Kasutaja loodud";
 
