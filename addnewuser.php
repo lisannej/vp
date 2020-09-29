@@ -37,13 +37,13 @@
       $firstnameinput = $_POST["firstnameinput"];
     }
     else {
-      $firstnameerror = "Palun sisesta eesnimi!";
+      $firstnameinputerror = "Palun sisesta eesnimi!";
     }
       
     if (!empty($_POST["lastnameinput"])){
       $lastnameinput = $_POST["lastnameinput"];
     } else {
-      $lastnameerror = "Palun sisesta perekonnanimi!";
+      $lastnameinputerror = "Palun sisesta perekonnanimi!";
     }
   
     if (isset($_POST["genderinput"])){
