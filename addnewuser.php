@@ -104,7 +104,7 @@
     if (empty($inputerror) and empty ($firstnameinputerror) and empty($lastnameinputerror) and empty ($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty ($birthdyearerror) and empty ($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
       adduser();
       $result="koik korras";
-      echo $firstname .$lastname .$email .$gender .$birthdate ;
+      echo $firstnameinput .$lastnameinput .$emailinput .$genderinput .$birthdate ;
 
       $firstnameinput ="";
       $lastnameinput="";
