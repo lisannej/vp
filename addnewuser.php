@@ -2,6 +2,7 @@
   require ("header.php");
   require ("config.php");
   require ("fnc_common.php");
+  require ("fnc_user.php");
 
   $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
   "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
@@ -103,17 +104,22 @@
 
     if (empty($inputerror) and empty ($firstnameinputerror) and empty($lastnameinputerror) and empty ($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty ($birthdyearerror) and empty ($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
       adduser();
-      $result="Kasutaja loodud";
-      //echo $firstnameinput .$lastnameinput .$emailinput .$genderinput .$birthdate ;
+      $notice = signup($firstnameinput, $lastnameinput, $emailinput, $genderinput, $birthdate, $_POST["passwordinput"]);
+      //$result="Kasutaja loodud";
 
-      $firstnameinput ="";
-      $lastnameinput="";
-      $genderinput="";
-      $birthday="";
-      $birthmonth="";
-      $birthyear="";
-      $birthdate="";
-      $emailinput="";
+      //echo $firstnameinput .$lastnameinput .$emailinput .$genderinput .$birthdate ;
+      if($notice == "ok"){
+        $result="Koik on korras, kasutaja loodud";
+        $firstnameinput ="";
+        $lastnameinput="";
+        $genderinput="";
+        $birthday="";
+        $birthmonth="";
+        $birthyear="";
+        $birthdate="";
+        $emailinput="";
+    } else {
+      $result = "Tekkis tehniline torge: " .$notice;
     }
     
   }
