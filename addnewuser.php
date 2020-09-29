@@ -1,10 +1,14 @@
 <?php
   require ("header.php");
+  require ("config.php");
 
+  //$monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
+  //"juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
   $firstnameinput ="";
   $lastnameinput="";
   $genderinput="";
   $emailinput="";
+
   $passwordinput="";
   $passwordsecondaryinput="";
   $result="";
@@ -35,8 +39,7 @@
 
     if (!empty($_POST["firstnameinput"])){
       $firstnameinput = $_POST["firstnameinput"];
-    }
-    else {
+    } else {
       $firstnameinputerror = "Palun sisesta eesnimi!";
     }
       
@@ -48,8 +51,7 @@
   
     if (isset($_POST["genderinput"])){
       $genderinput = intval($_POST["genderinput"]);
-    }
-    else{
+    } else{
       $genderinputerror = "Sugu maaramata! ";
     }
     
@@ -61,13 +63,18 @@
 
     if($_POST["passwordinput"] === $_POST["passwordsecondaryinput"]){
       $passwordinputerror .="Paroolid ei uhti";
-    }
-    else if(strlen($_POST["passwordinput"]) < 8){
+    } else if(strlen($_POST["passwordinput"]) < 8){
       $passwordinputerror .="Parool on liiga luhike!";
     }
 
     if (empty("".$inputerror.$firstnameinputerror.$lastnameinputerror.$genderinputerror.$emailinputerror.$passwordinputerror.$passwordsecondaryinputerror)){
-      adduser();
+      //adduser();
+      $result="koik korras";
+
+      $firstnameinput ="";
+      $lastnameinput="";
+      $genderinput="";
+      $emailinput="";
     }
     
   }
