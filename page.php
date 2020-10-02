@@ -3,6 +3,24 @@
   require ("fnc_common.php");
   require ("fnc_user.php");
 
+  // login info
+  $emailinput="";
+  $passwordinput="";
+
+  if(isset($_POST["emailinput"])){
+    if (!empty($_POST["emailinput"])){
+      $emailinput = test_input ($_POST["emailinput"]);
+    } else {
+      $emailinput = "Palun sisesta email!";
+    }
+
+    if(empty($_POST["passwordinput"])){
+      $passwordinputerror = "Parool sisestamata!";
+    } else {
+      // check if password is correct, if not, give error about wrong password
+    }
+  }
+
   $daydate = date("d");
   $yearnow = date ("Y");
   $hournow = date("H");
@@ -102,7 +120,6 @@
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <h1>Ole palun nii kena ja logi sisse, Kui sul kasutajat pole, siis palun registreeru <a href = "http://greeny.cs.tlu.ee/~lisajar/vp/addnewuser.php">siin</a></h1>
   <form method="POST" action="<?php echo $redirect; ?>">
-    <span><?php echo $birthdateerror ." " .$birthdayerror ." " .$birthmontherror ." " .$birthyearerror; ?></span>
     <label for="emailinput"> Email (kasutajatunnus)</label>
     <input type="email" name="emailinput" id="email" placeholder="Email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
     <br>
@@ -111,7 +128,6 @@
     <br>
     <input type="submit" name="userinput" value="Logi sisse"><br><span><?php echo $result; ?></span>
   </form>
-  <?php echo $inputerror ; ?>
   <?php echo $imghtml ; ?>
 </body>
 </html>
