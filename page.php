@@ -15,7 +15,7 @@
     if (!empty($_POST["emailinput"])){
       $emailinput = test_input ($_POST["emailinput"]);
     } else {
-      $emailinput = "Palun sisesta email!";
+      $emailinput = "";
     }
 
     if(empty($_POST["passwordinput"])){
@@ -135,7 +135,7 @@
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <h4>Ole palun nii kena ja logi sisse, Kui sul kasutajat pole, siis palun registreeru <a href = "http://greeny.cs.tlu.ee/~lisajar/vp/addnewuser.php">siin</a></h4>
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <label for="emailinput"> Email (kasutajatunnus)</label>
+    <label for="emailinput"> Email</label>
     <input type="email" name="emailinput" id="email" placeholder="Email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
     <br>
     <label for="passwordinput"> Salasona </label>
