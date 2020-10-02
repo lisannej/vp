@@ -15,7 +15,7 @@
     if (!empty($_POST["emailinput"])){
       $emailinput = test_input ($_POST["emailinput"]);
     } else {
-      $emailinput = "";
+      $emailinputerror = "Email sisestamata!";
     }
 
     if(empty($_POST["passwordinput"])){
