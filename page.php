@@ -141,9 +141,9 @@
   //var_dump ($weekdaynameset);
   $weekdaynow = date ("N");
   //echo $weekdaynow ;
-  $monthnow = date ("F");
+  $monthnow = date ("m");
   $monthnowint= (int) $monthnow;
-  
+
   echo "monthnow is: ".$monthnow."int: ".$monthnowint;
 
   if($hournow < 6){
