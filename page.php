@@ -143,6 +143,8 @@
   //echo $weekdaynow ;
   $monthnow = date ("F");
   $monthnowint= (int) $monthnow;
+  
+  echo "monthnow is: ".$monthnow."int: ".$monthnowint;
 
   if($hournow < 6){
     $partofday = "uneaeg";
