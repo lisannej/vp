@@ -134,7 +134,7 @@
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <h1>Ole palun nii kena ja logi sisse, Kui sul kasutajat pole, siis palun registreeru <a href = "http://greeny.cs.tlu.ee/~lisajar/vp/addnewuser.php">siin</a></h1>
-  <form method="POST" action="<?php echo $redirect; ?>">
+  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="emailinput"> Email (kasutajatunnus)</label>
     <input type="email" name="emailinput" id="email" placeholder="Email" value="<?php echo $emailinput; ?>"><span><?php echo $emailinputerror; ?></span>
     <br>
