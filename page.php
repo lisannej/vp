@@ -128,7 +128,7 @@
       }
     }
   }
-}
+
   //var_dump ($_POST);
 
   $daydate = date("d");
