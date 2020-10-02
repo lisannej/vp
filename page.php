@@ -7,6 +7,10 @@
   $emailinput="";
   $passwordinput="";
 
+  $emailinputerror="";
+  $passwordinputerror="";
+  $notice = "ok";
+
   if(isset($_POST["emailinput"])){
     if (!empty($_POST["emailinput"])){
       $emailinput = test_input ($_POST["emailinput"]);
@@ -18,6 +22,17 @@
       $passwordinputerror = "Parool sisestamata!";
     } else {
       // check if password is correct, if not, give error about wrong password
+    }
+  }
+
+  if (empty($emailinputerror) and empty($passwordinputerror)){
+    // check user existence in db
+
+    if($notice == "ok"){
+      $result="Koik on korras, Sisse logitud";
+      $emailinput="";
+    } else {
+      $result = "Tekkis tehniline torge: " .$notice;
     }
   }
 
