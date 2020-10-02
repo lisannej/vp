@@ -208,8 +208,6 @@
   $i = mt_rand(0, ($piccount - 1));
   $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
   $imghtml .= 'alt="Tallinna Ulikool">';
-
-  $redirect = "";
 ?>
 
 <!DOCTYPE html>
@@ -295,6 +293,7 @@
   <?php echo $inputerror ; ?>
   <?php echo $imghtml ; ?>
   <?php 
+    $redirect = "";
     if(empty($inputerror)){
       $redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
     }else{
