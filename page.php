@@ -9,7 +9,8 @@
 
   $emailinputerror="";
   $passwordinputerror="";
-  $notice = "ok";
+  $notice= "ok";
+  $result="";
 
   if(isset($_POST["emailinput"])){
     if (!empty($_POST["emailinput"])){
