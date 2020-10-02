@@ -208,6 +208,13 @@
   $i = mt_rand(0, ($piccount - 1));
   $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
   $imghtml .= 'alt="Tallinna Ulikool">';
+
+  $redirect = "";
+  if(empty($inputerror)){
+    $redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
+  }else{
+    $redirect .= htmlspecialchars($_SERVER["PHP_SELF"]);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -226,8 +233,7 @@
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <h1>Ole palun nii kena ja registreeru</h1>
-  <!--<form method="POST" action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">-->
-  <form method="POST" action="http://greeny.cs.tlu.ee/~lisajar/vp/home.php">
+  <form method="POST" action="<?php echo $redirect; ?>">
     <label for="firstnameinput"> Eesnimi </label>
     <input type="text" name="firstnameinput" id="firstname" placeholder="Eesnimi" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
     <br>
