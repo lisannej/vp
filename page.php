@@ -194,10 +194,7 @@
   $picfiletypes = ["image/jpeg", "image/png"];
   // loeme piltide kataloogi sisu ja naitame pilte
   $allfiles = array_slice (scandir ("vp_pics/"), 2);
-  //var_dump ($allfiles);
-  //$picfiles = array_slice ($allfiles, 2);
   $picfiles = [];
-  //var_dump ($picfiles);
   foreach ($allfiles as $thing) {
     $fileinfo = getImagesize ("vp_pics/" .$thing);
     if (in_array($fileinfo["mime"], $picfiletypes) == true) {
@@ -207,16 +204,10 @@
 
   //paneme koik pildid ekraanile
   $piccount = count ($picfiles);
-  //$i = $i + 1;
-  // $i ++
-  // $i +=2
   $imghtml = "";
-  //<img src="IMG/failinimi.png" alt="text">
-  //for ($i = 0; $i < $piccount; $i ++) {
   $i = mt_rand(0, ($piccount - 1));
   $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
   $imghtml .= 'alt="Tallinna Ulikool">';
-  //}
 ?>
 
 <!DOCTYPE html>
@@ -234,7 +225,7 @@
   <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ],", ".$daydate, ", ".$monthnameset [$monthnowint],", ".$yearnow,", " .$fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
-
+  <h1>Ole palun nii kena ja registreeru</h1>
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="firstnameinput"> Eesnimi </label>
     <input type="text" name="firstnameinput" id="firstname" placeholder="Eesnimi" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
