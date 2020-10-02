@@ -3,6 +3,7 @@
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
+  
 
   $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
   "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
@@ -299,12 +300,9 @@
   $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
   $imghtml .= 'alt="Tallinna Ulikool">';
   //}
-  require ("header.php");
 
 ?>
-
   <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
-  
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
