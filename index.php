@@ -17,6 +17,7 @@
   $passwordinput="";
   $passwordsecondaryinput="";
   $result="";
+  $redirect = "";
 
   $inputerror="";
   $firstnameinputerror="";
@@ -111,6 +112,7 @@
 
     if (empty($inputerror) and empty($firstnameinputerror) and empty($lastnameinputerror) and empty($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty($birthdyearerror) and empty($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
       $notice = signup($firstnameinput, $lastnameinput, $emailinput, $genderinput, $birthdate, $_POST["passwordinput"]);
+      $redirect = "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
 
       if($notice == "ok"){
         $result="Koik on korras, kasutaja loodud";
@@ -125,6 +127,8 @@
       } else {
         $result = "Tekkis tehniline torge: " .$notice;
       }
+    } else {
+      $redirect = htmlspecialchars($_SERVER["PHP_SELF"]);
     }
   }
 
@@ -226,7 +230,7 @@
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <h1>Ole palun nii kena ja registreeru</h1>
-  <form method="POST" action="<?php $redirect = "";if($notice == "ok"){$redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";}else{$redirect .= htmlspecialchars($_SERVER["PHP_SELF"]);}echo $redirect; ?>">
+  <form method="POST" action="<?php echo $redirect; ?>">
     <label for="firstnameinput"> Eesnimi </label>
     <input type="text" name="firstnameinput" id="firstname" placeholder="Eesnimi" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
     <br>
