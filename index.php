@@ -112,7 +112,6 @@
 
     if (empty($inputerror) and empty($firstnameinputerror) and empty($lastnameinputerror) and empty($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty($birthdyearerror) and empty($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
       $notice = signup($firstnameinput, $lastnameinput, $emailinput, $genderinput, $birthdate, $_POST["passwordinput"]);
-      $redirect = "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
 
       if($notice == "ok"){
         $result="Koik on korras, kasutaja loodud";
@@ -124,11 +123,11 @@
         $birthyear="";
         $birthdate="";
         $emailinput="";
+        $redirect = "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
       } else {
         $result = "Tekkis tehniline torge: " .$notice;
+        $redirect = htmlspecialchars($_SERVER["PHP_SELF"]);
       }
-    } else {
-      $redirect = htmlspecialchars($_SERVER["PHP_SELF"]);
     }
   }
 
