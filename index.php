@@ -226,7 +226,7 @@
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <h1>Ole palun nii kena ja registreeru</h1>
-  <form method="POST" action="<?php $redirect = "";if(empty($inputerror)){$redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";}else{$redirect .= htmlspecialchars($_SERVER["PHP_SELF"]);}echo $redirect; ?>">
+  <form method="POST" action="<?php $redirect = "";if($notice == "ok"){$redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";}else{$redirect .= htmlspecialchars($_SERVER["PHP_SELF"]);}echo $redirect; ?>">
     <label for="firstnameinput"> Eesnimi </label>
     <input type="text" name="firstnameinput" id="firstname" placeholder="Eesnimi" value="<?php echo $firstnameinput; ?>"><span><?php echo $firstnameinputerror; ?></span>
     <br>
