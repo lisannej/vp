@@ -210,11 +210,6 @@
   $imghtml .= 'alt="Tallinna Ulikool">';
 
   $redirect = "";
-  if(empty($inputerror)){
-    $redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
-  }else{
-    $redirect .= htmlspecialchars($_SERVER["PHP_SELF"]);
-  }
 ?>
 
 <!DOCTYPE html>
@@ -299,6 +294,13 @@
   </form>
   <?php echo $inputerror ; ?>
   <?php echo $imghtml ; ?>
+  <?php 
+    if(empty($inputerror)){
+      $redirect .= "http://greeny.cs.tlu.ee/~lisajar/vp/home.php";
+    }else{
+      $redirect .= htmlspecialchars($_SERVER["PHP_SELF"]);
+    }
+  ?>
   
 </body>
 </html>
