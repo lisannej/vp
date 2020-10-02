@@ -93,6 +93,7 @@
     } else {
       $emailinputerror = "Palun sisesta email!";
     }
+
     if(empty($_POST["passwordinput"])){
       $passwordinputerror = "Parool sisestamata!";
     } else {
@@ -108,7 +109,6 @@
         $passwordinputerror .="Paroolid ei uhti";
       }
     }
-
 
     if (empty($inputerror) and empty($firstnameinputerror) and empty($lastnameinputerror) and empty($genderinputerror) and empty($birthdayerror) and empty($birthmontherror) and empty($birthdyearerror) and empty($emailinputerror) and empty($passwordinputerror) and empty($passwordsecondaryinputerror)){
       $notice = signup($firstnameinput, $lastnameinput, $emailinput, $genderinput, $birthdate, $_POST["passwordinput"]);
@@ -128,8 +128,6 @@
       }
     }
   }
-
-  //var_dump ($_POST);
 
   $daydate = date("d");
   $yearnow = date ("Y");
@@ -222,18 +220,13 @@
   //}
 ?>
 
-  <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
-  <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
-  <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
-  Digitehnoloogiate instituudis.</p>
-  <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ],", ".$daydate, ", ".$monthnameset [$monthnowint],", ".$yearnow,", " .$fulltimenow; ?>.</p>
-  <p><?php echo "Praegu on " .$partofday ."."; ?></p>
-  <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
-  <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
-<h1><?php echo $username; ?></h1>
-<p>See konkreetne veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
+<img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
+<p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
 <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
 Digitehnoloogiate instituudis.</p>
+<p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ],", ".$daydate, ", ".$monthnameset [$monthnowint],", ".$yearnow,", " .$fulltimenow; ?>.</p>
+<p><?php echo "Praegu on " .$partofday ."."; ?></p>
+<p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <label for="firstnameinput"> Eesnimi </label>
