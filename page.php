@@ -68,7 +68,7 @@
     $partofday = "ohtu";
   } // ohtu
   if($hournow >21.01 and $hournow < 23.59){
-    $partofday = "Aeg magama minna";
+    $partofday = "aeg magama minna";
   } // magama
 
   // vaatame semestri kulgemist 
