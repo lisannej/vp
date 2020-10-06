@@ -33,6 +33,7 @@ session_start();
 
     if($notice == "ok"){
       $result="Koik ok, sisse logitud";
+      header("Location: home.php");
       $emailinput="";
     } else {
       $result = "Tekkis tehniline torge: " .$notice;
