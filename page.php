@@ -144,7 +144,7 @@ session_start();
     <label for="passwordinput"> Salasona </label>
     <input type="password" name="passwordinput" id="password" placeholder="Salasona" value="<?php echo $passwordinput; ?>"><span><?php echo $passwordinputerror; ?></span>
     <br>
-    <input type="submituserdata" name="submit" value="Logi sisse"><br><span><?php echo $result; ?></span>
+    <input type="submit" name="submituserdata" value="Logi sisse"><br><span><?php echo $result; ?></span>
   </form>
   <?php echo $imghtml ; ?>
 </body>
