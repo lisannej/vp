@@ -125,8 +125,8 @@ session_start();
 <html lang="et">
 <head>
   <meta charset="utf-8">
-  <?php $username = "Lisanne Järv"; ?>
-  <title><?php echo $username; ?> programmeerib veebi</title>
+  <?php $username = ""; ?>
+  <title><?php echo  $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?> programmeerib veebi</title>
 </head>
 <body>
   <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
