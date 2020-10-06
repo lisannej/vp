@@ -37,6 +37,18 @@ function signin ($emailinput, $passwordinput) {
             if(password_verify($passwordinput, $passwordfromdb)){
                 //parool oige
                 $stmt->close();
+                //loen sisseloginud kasutaja infot
+                $stmt=$conn->prepare("SELECT vpusers_id, firstname, lastname FROM vpsusers WHERE email = ?");
+                echo $conn->error;
+                $stmt->bind_param("s", $emailinput);
+                $stmt->bind_result ($idfromdb, $firstnamefromdb, $lastnamefromdb);
+                $stmt->execute();
+                $stmt->fetch();
+                //salvestame sessiooni muutujad
+                $_SESSION["userid"] = $idfromdb;
+                $_SESSION["userfirstname"]= $firstnamefromdb;
+                $_SESSION["userlastname"]= $lastnamefromdb;
+                $stmt->close();
                 $conn->close();
                 header("Location: home.php");
                 exit();

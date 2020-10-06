@@ -1,4 +1,6 @@
 <?php
+//kaivitan sessiooni
+session_start();
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
@@ -12,7 +14,7 @@
   $notice= "ok";
   $result="";
 
-  if(isset($_POST["emailinput"])){
+  if(isset($_POST["submituserdata"])){
     if (!empty($_POST["emailinput"])){
       $emailinput = test_input ($_POST["emailinput"]);
     } else {
@@ -30,7 +32,7 @@
     // check user existence in db
 
     if($notice == "ok"){
-      $result="Koik on korras, Sisse logitud";
+      $result="Koik ok";
       $emailinput="";
     } else {
       $result = "Tekkis tehniline torge: " .$notice;
@@ -142,7 +144,7 @@
     <label for="passwordinput"> Salasona </label>
     <input type="password" name="passwordinput" id="password" placeholder="Salasona" value="<?php echo $passwordinput; ?>"><span><?php echo $passwordinputerror; ?></span>
     <br>
-    <input type="submit" name="userinput" value="Logi sisse"><br><span><?php echo $result; ?></span>
+    <input type="submituserdata" name="submit" value="Logi sisse"><br><span><?php echo $result; ?></span>
   </form>
   <?php echo $imghtml ; ?>
 </body>
