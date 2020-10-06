@@ -73,7 +73,7 @@ function signin ($emailinput, $passwordinput) {
 
 function storeuserprofile ($description, $bgcolor, $txtcolor){
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
-    $stmt = $conn->prepare("SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = $_SESSION["userid"]");
+    $stmt = $conn->prepare("SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = ?");
     echo $conn->error;
     //SQL 
     //kontrollime kas profiil on olemas
