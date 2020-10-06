@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title><?php echo $username; ?> Veebiprogrammeerimine</title>
+  <title><?php ?> Veebiprogrammeerimine</title>
 </head>
 <body>
   <table>
