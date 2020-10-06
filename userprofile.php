@@ -26,22 +26,14 @@ if(isset($_POST["profilesubmit"])){
   <label for="descriptioninput"> Minu luhikirjeldus </label>
   <br>
   <textarea rows="10" cols="80" name="descrptioninput" id="descriptioninput" placeholder="Minu luhikirjeldus..."><?php echo $userdescription ?></textarea>
-  <label for="yearinput"> Filmi valmimisaasta </label>
-  <input type="number" name="yearinput" id="yearinput" value="<?php echo date ("Y"); ?>">
   <br>
-  <label for="durationinput"> Filmi kestus minutites </label>
-  <input type="number" name="durationinput" id="durationinput" value="80">
-  <br>
-  <label for="genreinput"> Filmi zanr </label>
-  <input type="text" name="genreinput" id="genreinput" ;>
-  <br>
-  <label for="studioinput"> Filmistuudio </label>
-  <input type="text" name="studioinput" id="studioinput" ;>
-  <br>
-  <label for="directorinput"> Filmi lavastaja</label>
-  <input type="text" name="directorinput" id="directorinput" ;>
-  <br>
-  <input type="submit" name="filmsubmit" value="Salvesta filmi info">
+	<label for="bgcolorinput">Minu valitud taustavärv: </label>
+	<input type="color" name="bgcolorinput" id="bgcolorinput" value="<?php echo $_SESSION["userbgcolor"]; ?>">
+	<br>
+	<label for="txtcolorinput">Minu valitud tekstivärv: </label>
+	<input type="color" name="txtcolorinput" id="txtcolorinput" value="<?php echo $_SESSION["usertxtcolor"]; ?>">
+	<br>
+  <input type="submit" name="profilesubmit" value="Salvesta profiil">
 </form>
 <?php echo $inputerror ?>
 
