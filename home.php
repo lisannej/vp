@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+require ("header.php");
+require ("usesession.php");
 
 
   //annan ette lubatud piltivormingute loendi
@@ -30,8 +31,7 @@ session_start();
   $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
   $imghtml .= 'alt="Tallinna Ulikool">';
   //}
-  require ("header.php");
-  require ("usesession.php")
+  
 ?>
 
   <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
