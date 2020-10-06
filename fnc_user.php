@@ -48,6 +48,10 @@ function signin ($emailinput, $passwordinput) {
                 $_SESSION["userid"] = $idfromdb;
                 $_SESSION["userfirstname"]= $firstnamefromdb;
                 $_SESSION["userlastname"]= $lastnamefromdb;
+
+                $_SESSION["userbgcolor"] = "#AACCFF";
+                $_SESSION["usertxtcolor"] = "#000066";
+                
                 $stmt->close();
                 $conn->close();
                 header("Location: home.php");
