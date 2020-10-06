@@ -16,6 +16,7 @@
       echo "\t \t color: " .$_SESSION["usertxtcolor"] ." \n";
     } else {
       echo "\t \t color: " #000000; ." \n";
+    }
   ?>
   </style>
 </head>
