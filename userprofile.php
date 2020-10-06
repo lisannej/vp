@@ -2,6 +2,7 @@
 require ("header.php");
 require ("config.php");
 require ("fnc_common.php");
+require ("usesession.php");
 
 $notice= "";
 $userdescription = "";
