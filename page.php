@@ -32,7 +32,7 @@ session_start();
     // check user existence in db
 
     if($notice == "ok"){
-      $result="Koik ok";
+      $result="Koik ok, sisse logitud";
       $emailinput="";
     } else {
       $result = "Tekkis tehniline torge: " .$notice;
