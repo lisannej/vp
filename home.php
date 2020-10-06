@@ -112,7 +112,7 @@ session_start();
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
   <p><a href="home.php/logout=1">Logi valja</a></li>
-  <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ],", ".$daydate, ", ".$monthnameset [$monthnowint],", ".$yearnow,", " .$fulltimenow; ?>.</p>
+  <p>Lehe avamise hetk: <?php echo $weekdaynameset [$weekdaynow -1 ],", ".$daydate, ", ".$monthnameset [$monthnowint -1],", ".$yearnow,", " .$fulltimenow; ?>.</p>
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <hr>
