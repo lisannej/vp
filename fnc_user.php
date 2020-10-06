@@ -38,7 +38,7 @@ function signin ($emailinput, $passwordinput) {
                 //parool oige
                 $stmt->close();
                 //loen sisseloginud kasutaja infot
-                $stmt=$conn->prepare("SELECT vpusers_id, firstname, lastname FROM vpsusers WHERE email = ?");
+                $stmt=$conn->prepare("SELECT vpusers_id, firstname, lastname FROM vpusers WHERE email = ?");
                 echo $conn->error;
                 $stmt->bind_param("s", $emailinput);
                 $stmt->bind_result ($idfromdb, $firstnamefromdb, $lastnamefromdb);
@@ -51,7 +51,7 @@ function signin ($emailinput, $passwordinput) {
 
                 $_SESSION["userbgcolor"] = "#AACCFF";
                 $_SESSION["usertxtcolor"] = "#000066";
-                
+
                 $stmt->close();
                 $conn->close();
                 header("Location: home.php");
