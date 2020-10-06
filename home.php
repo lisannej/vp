@@ -1,8 +1,18 @@
 <?php
 session_start();
 
-  //var_dump ($_POST);
-
+  //kas on sessioon olemas
+  if(!isset($_SESSION[userid])){
+    //jouga suunatake sisselogimise lehele
+    header("Location: page.php");
+    exit();
+  }
+  //LOGIME VALJA
+  if(isset($_GET["logout"])){
+    session_destroy();
+    header("Location:page.php");
+    exit();
+  }
   //$username = "Lisanne Järv";
   $daydate = date("d");
   $yearnow = date ("Y");
@@ -105,6 +115,7 @@ session_start();
   <p><?php echo "Praegu on " .$partofday ."."; ?></p>
   <p><?php echo "Praegu on möödunud semestri algusest " .$daysnumber ." päeva, mis on " .$semesterpercent ." %"; ?><p>
   <hr>
+  <p><a href="home.php/logout=1">Logi valja</a></li>
   <?php echo $imghtml ; ?>
   
   
