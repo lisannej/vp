@@ -32,7 +32,7 @@ session_start();
     // check user existence in db
 
     if($notice == "ok"){
-      $result= header("Location: home.php");
+      $result= "sisse logitud";
       $emailinput="";
     } else {
       $result = "Tekkis tehniline torge: " .$notice;
