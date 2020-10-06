@@ -2,7 +2,7 @@
 session_start();
 
   //kas on sessioon olemas
-  if(!isset($_SESSION[userid])){
+  if(!isset($_SESSION["userid"])){
     //jouga suunatake sisselogimise lehele
     header("Location: page.php");
     exit();
