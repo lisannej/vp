@@ -48,9 +48,9 @@ function signin ($emailinput, $passwordinput) {
                 $_SESSION["userid"] = $idfromdb;
                 $_SESSION["userfirstname"]= $firstnamefromdb;
                 $_SESSION["userlastname"]= $lastnamefromdb;
-
-                $_SESSION["userbgcolor"] = "#AACCFF";
-                $_SESSION["usertxtcolor"] = "#000066";
+//varvid tuleb lugeda profiilist, kui see on olemas
+                $_SESSION["userbgcolor"] = "#FFFFFF";
+                $_SESSION["usertxtcolor"] = "#000000";
 
                 $stmt->close();
                 $conn->close();
@@ -69,4 +69,24 @@ function signin ($emailinput, $passwordinput) {
     $stmt->close();
     $conn->close();
     return $result;
+}
+
+function storeuserprofile ($description, $bgcolor, $txtcolor){
+    //SQL 
+    //kontrollime kas profiil on olemas
+    //SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = ?
+    ///kusimark asendada vaartusega
+    //$_SESSION["userid]
+
+    //kui profiili pole olemas siis loome
+    //INSERT INTO vpuserprofiles (userid, description, bgcolor, txtcolor) VALUES (?,?,?,?) 
+
+    //kui profiil on olemas siis uuendame
+    //UPDATE vpuserprofiles SET description=?, bgcolor= ?, txtcolor= ? WHERE userid = ?
+
+    //execute jms voib loomisel/uuendamisel uhine olla
+}
+
+function readuserdescription (){
+    //kui profiil on olemas, loeb kasutaja luhitutvustuse
 }

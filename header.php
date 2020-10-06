@@ -30,6 +30,7 @@
       <td><a href="filmlist.php">Filmlist</a></td>
       <td><a href="addfilms.php">Lisa filme</a></td>
       <td><a href="addnewuser.php">Tee kasutaja</a></td>
+      td><a href="userprofile.php">Minu kasutajaprofiil</a></td>
     </tr>
   </table>
 
