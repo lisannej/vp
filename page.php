@@ -6,7 +6,7 @@
   require ("fnc_user.php");
 
   // login info
-  /*$emailinput="";
+  $emailinput="";
   $passwordinput="";
 
   $emailinputerror="";
@@ -26,18 +26,20 @@
     } else {
       // check if password is correct, if not, give error about wrong password
     }
+
+    if (empty($emailinputerror) and empty($passwordinputerror)){
+      // check user existence in db
+      $notice= signin($emailinput, $_POST["passwordinput"]);
+      if($notice == "ok"){
+        $result= "sisse logitud";
+        $emailinput="";
+      } else {
+        $result = "Tekkis tehniline torge: " .$notice;
+      }
+    }
   }
 
-  if (empty($emailinputerror) and empty($passwordinputerror)){
-    // check user existence in db
-    $notice= signin($emailinput, $_POST["passwordinput"]);
-    if($notice == "ok"){
-      $result= "sisse logitud";
-      $emailinput="";
-    } else {
-      $result = "Tekkis tehniline torge: " .$notice;
-    }
-  }*/
+  
 
   $daydate = date("d");
   $yearnow = date ("Y");
