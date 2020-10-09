@@ -1,5 +1,4 @@
-<?php
-  require ("header.php");
+<?php 
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
@@ -14,6 +13,7 @@
     $_SESSION["userbgcolor"] = $_POST["bgcolorinput"];
     $_SESSION["usertxtcolor"] = $_POST["txtcolorinput"];
   }
+  require ("header.php");
 ?>
 
 
