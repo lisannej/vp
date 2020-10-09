@@ -1,20 +1,19 @@
 <?php
-require ("header.php");
-require ("config.php");
-require ("fnc_common.php");
-require ("fnc_user.php");
-require ("usesession.php");
+  require ("header.php");
+  require ("config.php");
+  require ("fnc_common.php");
+  require ("fnc_user.php");
+  require ("usesession.php");
 
-$notice= "";
-$userdescription = "";
-if(isset($_POST["profilesubmit"])){
+  $notice= "";
+  $userdescription = "";
+  if(isset($_POST["profilesubmit"])){
     $userdescription = test_input($_POST["descriptioninput"]);
 
     $notice= storeuserprofile($userdescription, $_POST["bgcolorinput"], $_POST["txtcolorinput"]);
     $_SESSION["userbgcolor"] = $_POST["bgcolorinput"];
-	  $_SESSION["usertxtcolor"] = $_POST["txtcolorinput"];
-}
-
+    $_SESSION["usertxtcolor"] = $_POST["txtcolorinput"];
+  }
 ?>
 
 
@@ -37,7 +36,7 @@ if(isset($_POST["profilesubmit"])){
 	<br>
   <input type="submit" name="profilesubmit" value="Salvesta profiil">
 </form>
-<?php echo $inputerror ?>
+<?php echo $notice ?>
 
 </body>
 </html>
