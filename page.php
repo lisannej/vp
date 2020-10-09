@@ -1,12 +1,12 @@
 <?php
-//kaivitan sessiooni
-session_start();
+  //kaivitan sessiooni
+  session_start();
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
 
   // login info
-  $emailinput="";
+  /*$emailinput="";
   $passwordinput="";
 
   $emailinputerror="";
@@ -37,7 +37,7 @@ session_start();
     } else {
       $result = "Tekkis tehniline torge: " .$notice;
     }
-  }
+  }*/
 
   $daydate = date("d");
   $yearnow = date ("Y");
