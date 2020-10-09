@@ -17,7 +17,7 @@
       } else {
         echo "\t \t color:  #000000; \n";
       }
-      echo "\n }";
+      echo "\t } \n";
     ?>
   </style>
 </head>
