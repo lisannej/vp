@@ -49,9 +49,18 @@ function signin ($emailinput, $passwordinput) {
                 $_SESSION["userfirstname"]= $firstnamefromdb;
                 $_SESSION["userlastname"]= $lastnamefromdb;
 //varvid tuleb lugeda profiilist, kui see on olemas
-                $_SESSION["userbgcolor"] = "#FFFFFF";
-                $_SESSION["usertxtcolor"] = "#000000";
-
+                $stmt->close();
+				$stmt = $conn->prepare("SELECT bgcolor, txtcolor FROM vpuserprofiles WHERE userid = ?");
+				$stmt->bind_param("i", $_SESSION["userid"]);
+				$stmt->bind_result($bgcolorfromdb, $txtcolorfromdb);
+				$stmt->execute();
+				if($stmt->fetch()){
+					$_SESSION["usertxtcolor"] = $txtcolorfromdb;
+					$_SESSION["userbgcolor"] = $bgcolorfromdb;
+				} else {
+					$_SESSION["usertxtcolor"] = "#000000";
+					$_SESSION["userbgcolor"] = "#FFFFFF";
+				}
                 $stmt->close();
                 $conn->close();
                 header("Location: home.php");
@@ -77,16 +86,11 @@ function storeuserprofile ($description, $bgcolor, $txtcolor){
     echo $conn->error;
     //SQL 
     //kontrollime kas profiil on olemas
-    //SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = ?
-    ///kusimark asendada vaartusega
-    //$_SESSION["userid]
-
-    //kui profiili pole olemas siis loome
-    //INSERT INTO vpuserprofiles (userid, description, bgcolor, txtcolor) VALUES (?,?,?,?) 
-
-    //kui profiil on olemas siis uuendame
-    //UPDATE vpuserprofiles SET description=?, bgcolor= ?, txtcolor= ? WHERE userid = ?
-
+    $notice = null;
+	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+	//vaatame, kas on profiil olemas
+	$stmt = $conn->prepare("SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = ?");
+	echo $conn->error;
     //execute jms voib loomisel/uuendamisel uhine olla
     $stmt->bind_param("i", $_SESSION["userid"]);
 	$stmt->execute();

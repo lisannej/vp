@@ -8,7 +8,7 @@
   //LOGIME VALJA
   if(isset($_GET["logout"])){
     session_destroy();
-    header("Location:page.php");
+    header("Location: page.php");
     exit();
   }
   
