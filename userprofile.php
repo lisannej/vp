@@ -6,7 +6,7 @@
   require ("usesession.php");
 
   $notice= "";
-  $userdescription = "";
+  $userdescription = readuserdescription();
   if(isset($_POST["profilesubmit"])){
     $userdescription = test_input($_POST["descriptioninput"]);
 
