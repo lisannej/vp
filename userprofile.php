@@ -9,9 +9,9 @@ $userdescription = "";
 if(isset($_POST["profilesubmit"])){
     $userdescription = test_input($_POST["descriptioninput"]);
 
-    $notice= storeuserprofile($userdescription, $_POST["bgcolorinput"], 
-    $_POST["txtcolorinput"]);
-    $_SESSION["userbgcolor"];
+    $notice= storeuserprofile($userdescription, $_POST["bgcolorinput"], $_POST["txtcolorinput"]);
+    $_SESSION["userbgcolor"] = $_POST["bgcolorinput"];
+	  $_SESSION["usertxtcolor"] = $_POST["txtcolorinput"];
 }
 
 ?>
