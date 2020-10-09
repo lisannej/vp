@@ -1,8 +1,9 @@
 <?php 
+  require ("usesession.php");
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
-  require ("usesession.php");
+  
 
   $notice= "";
   $userdescription = readuserdescription();
