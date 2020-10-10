@@ -4,7 +4,7 @@
   require ("fnc_common.php");
   require ("fnc_user.php");
   
-
+  $descriptioninput="";
   $notice= "";
   $userdescription = readuserdescription();
   if(isset($_POST["profilesubmit"])){
