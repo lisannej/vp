@@ -48,7 +48,7 @@ function signin ($emailinput, $passwordinput) {
                 $_SESSION["userid"] = $idfromdb;
                 $_SESSION["userfirstname"]= $firstnamefromdb;
                 $_SESSION["userlastname"]= $lastnamefromdb;
-//varvid tuleb lugeda profiilist, kui see on olemas
+                //varvid tuleb lugeda profiilist, kui see on olemas
                 $stmt->close();
 				$stmt = $conn->prepare("SELECT bgcolor, txtcolor FROM vpuserprofiles WHERE userid = ?");
 				$stmt->bind_param("i", $_SESSION["userid"]);
@@ -60,7 +60,8 @@ function signin ($emailinput, $passwordinput) {
 				} else {
 					$_SESSION["usertxtcolor"] = "#000000";
 					$_SESSION["userbgcolor"] = "#FFFFFF";
-				}
+                }
+                
                 $stmt->close();
                 $conn->close();
                 header("Location: home.php");
@@ -81,9 +82,6 @@ function signin ($emailinput, $passwordinput) {
 }
 
 function storeuserprofile ($description, $bgcolor, $txtcolor){
-    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
-    $stmt = $conn->prepare("SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = ?");
-    echo $conn->error;
     //SQL 
     //kontrollime kas profiil on olemas
     $notice = null;
