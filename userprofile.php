@@ -4,7 +4,7 @@
   require ("fnc_common.php");
   require ("fnc_user.php");
   
-  $descriptioninput="";
+  
   $notice= "";
   $userdescription = readuserdescription();
   if(isset($_POST["profilesubmit"])){
@@ -27,7 +27,7 @@
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <label for="descriptioninput"> Minu luhikirjeldus </label>
   <br>
-  <textarea rows="10" cols="80" name="descrptioninput" id="descriptioninput" placeholder="Minu luhikirjeldus..."><?php echo $userdescription ?></textarea>
+  <textarea rows="10" cols="80" name="descriptioninput" id="descriptioninput" placeholder="Minu luhikirjeldus..."><?php echo $userdescription ?></textarea>
   <br>
 	<label for="bgcolorinput">Minu valitud taustavärv: </label>
 	<input type="color" name="bgcolorinput" id="bgcolorinput" value="<?php echo $_SESSION["userbgcolor"]; ?>">
