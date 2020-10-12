@@ -37,7 +37,7 @@
 	<br>
   <input type="submit" name="profilesubmit" value="Salvesta profiil">
 </form>
-<?php echo $notice ?>
+<p><?php echo $notice; ?></p>
 
 </body>
 </html>
