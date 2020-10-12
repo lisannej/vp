@@ -1,11 +1,10 @@
 <?php 
-  require("usesession.php");
-  require("config.php");
-  require("fnc_user.php");
-  require("fnc_common.php");
+  require ("usesession.php");
+  require ("config.php");
+  require ("fnc_user.php");
+  require ("fnc_common.php");
   
-    //var_dump($_POST);
-    //$database = "if20_gaspar_lu_1";
+  
     
     //$filmhtml = readfilms(); filmhtml väärtus on funktsiooni vastus
     $notice = "";
