@@ -13,8 +13,8 @@
  	   exit();
    }
    //loeme andmebaasi login ifo muutujad
-   require("config_vp2020.php");
-   require("fnc_filmrelations.php");
+   require ("config.php");
+   require ("fnc_filmrelations.php");
 
    $notice = "";
    $selectedfilm = "";
