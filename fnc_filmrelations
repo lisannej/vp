@@ -1,5 +1,5 @@
 <?php
- $database = "if20_inga_filmibaas_E";
+ $database = "if20_lisanne_ja_1";
 
  function readmovietoselect($selected){
  	$notice = "<p>Kahjuks filme ei leitud!</p> \n";
@@ -79,3 +79,4 @@
  	$conn->close();
  	return $notice;
  } 
+ 
