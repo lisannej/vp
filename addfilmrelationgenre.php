@@ -40,9 +40,9 @@
    $filmgenreselecthtml = readgenretoselect($selectedgenre);
 
 
-   //$username = "Andrus Rinde";
 
-   require("header.php");
+
+   require ("header.php");
  ?>
 
    <img src="../img/vp_banner.png" alt="Veebiprogrammeerimise kursuse bänner">
