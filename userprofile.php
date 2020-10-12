@@ -43,7 +43,7 @@
   <input type="submit" name="profilesubmit" value="Salvesta profiil">
 </form>
 <?php echo $notice ?>
->>>>>>> parent of 097b7df... Update userprofile.php
+
 
 </body>
 </html>
