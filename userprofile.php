@@ -20,7 +20,7 @@
 
    //kui klikiti nuppu, siis kontrollime ja salvestame
    $notice = "";
-   $description = readdescription();
+   $description = readuserdescription();
 
 
    //algatuseks valin vaikimisivärvid
