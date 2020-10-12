@@ -50,10 +50,7 @@
    <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
    <p>Leht on loodud veebiprogrammeerimise kursusel <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
 
-   <ul>
-     <li><a href="home.php">Avalehele</a></li>
- 	<li><a href="?logout=1">Logi välja</a>!</li>
-   </ul>
+
    <h2>Määrame filmile žanri</h2>
    <hr>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
