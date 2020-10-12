@@ -1,6 +1,6 @@
 <?php 
   require("usesession.php");
-  require("../../../config.php");
+  require("config.php");
   require("fnc_user.php");
   require("fnc_common.php");
   
