@@ -32,7 +32,7 @@
       <td><a href="addfilmrelationgenre.php">Loo filmiseoseid</a></td>
       <td><a href="addnewuser.php">Tee kasutaja</a></td>
       <td><a href="userprofile.php">Minu kasutajaprofiil</a></td>
-      <td><a href="filmiseosed.php">Loo filmiseoseid vana</a></td>
+
     </tr>
   </table>
 
