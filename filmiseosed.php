@@ -2,6 +2,7 @@
 require ("header.php");
 require ("config.php");
 require ("fnc_films.php");
+require ("usesession.php");
 ?>
 
 
