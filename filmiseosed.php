@@ -22,9 +22,10 @@ require ("usesession.php");
 	<option value="1">Siin me oleme</option> 
 	<option value="2">Don Juan Tallinnas</option>
 	<option value="3">Hukkunud alpinisti hotell</option> 
-	<option value="4">Viini postmark</option>
-  <option value="5">Mehed ei nuta</option> 
-	<option value="6">Noor pensionar</option>
+	<option value="4">Kevade</option>
+	<option value="5">Viini postmark</option>
+  <option value="6">Mehed ei nuta</option> 
+	<option value="7">Noor pensionar</option>
 </select>
 <label for="filminput">Film: </label>
 <select name="genreinput" id="genreinput">
