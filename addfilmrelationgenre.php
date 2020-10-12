@@ -45,7 +45,7 @@
    require ("header.php");
  ?>
 
-   <img src="../img/vp_banner.png" alt="Veebiprogrammeerimise kursuse bänner">
+   <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse bänner">
    <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?> programmeerib veebi</h1>
    <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
    <p>Leht on loodud veebiprogrammeerimise kursusel <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
