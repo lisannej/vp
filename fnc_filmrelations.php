@@ -92,6 +92,35 @@ function readpersonsinfilm(){
 	 $stmt->execute();
 	 $lines="";
 	 while($stmt->fetch()){
+		$lines.= "<tr> \n";
+		$lines.= "\t <td>" .$firstnamefromdb ." " .$lastnamefromdb ."/td>";
+		$lines.= "<td>" .$rolefromdb ."</td>";
+		$lines.= "<td>" .$titlefromdb ."</td> \n";
+		$lines.= "<tr> \n";
+	 }
+	 if(!empty($lines)){
+		 $notice = "<table> \n" ;
+		 $notice.= "<tr> \n";
+		 $notice.= "<th>Isiku nimi</th><th>Rollfilmis</th><th>Film</th> \n";
+		$notice.= $lines;
+		$notice.= "</table> \n";
+	 }
+	 $stmt->close();
+ 	$conn->close();
+ 	return $notice;
+ 
+}
+
+function old_version_readpersonsinfilm(){
+	$notice = "<p>Kahjuks tegelasi ei leitud!</p> \n";
+ 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+ 	$stmt = $conn->prepare("SELECT first_name, last_name, role, title FROM person JOIN person_in_movie ON person.person_id = person_in_movie.person_id JOIN movie ON movie.movie_id = person_in_movie.movie_id
+	 ");
+	 echo $conn->error;
+	 $stmt->bind_result($firstnamefromdb, $lastnamefromdb, $rolefromdb, $titlefromdb);
+	 $stmt->execute();
+	 $lines="";
+	 while($stmt->fetch()){
 		 $lines.="<p>" .$firstnamefromdb ." " .$lastnamefromdb;
 		 if(!empty($rolefromdb)){
 			 $lines.= " on tegelane " .$rolefromdb;
