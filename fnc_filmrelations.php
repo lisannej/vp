@@ -13,7 +13,7 @@
 		if ($idfromdb == $selectedstudio) {
 			$studios.= " selected";
 		}
-		$studios.= ">" .$companyfromid ."</option> \n";
+		$studios.= ">" .$companyfromdb ."</option> \n";
 	}
 	if(!empty($studios)){
 		$notice = '<select name="studioinput" id="studioinput">' ."\n";
