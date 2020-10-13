@@ -20,7 +20,7 @@ $sortoder=0;
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
 
-<?php echo readpersonsinfilm();
+<?php 
     if(isset($_GET["sortby"])and isset($_GET["sortorder"])){
         if($_GET["sortby"]>= 1 and $_GET["sortby"]<= 4){
             $sortby=$_GET["sortby"];
@@ -29,6 +29,7 @@ $sortoder=0;
             $sortorder=$_GET["sortorder"];
         }
     }
+    echo readpersonsinfilm($sortby, $sortorder);
 ?>
 </body>
 </html>
