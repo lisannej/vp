@@ -96,7 +96,7 @@ function readpersonsinfilm(){
 		$lines.= "\t <td>" .$firstnamefromdb ." " .$lastnamefromdb ."/td>";
 		$lines.= "<td>" .$rolefromdb ."</td>";
 		$lines.= "<td>" .$titlefromdb ."</td> \n";
-		$lines.= "<tr> \n";
+		$lines.= "</tr> \n";
 	 }
 	 if(!empty($lines)){
 		 $notice = "<table> \n" ;
