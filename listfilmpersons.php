@@ -3,6 +3,7 @@ require ("header.php");
 require ("config.php");
 require ("fnc_films.php");
 require ("usesession.php");
+require ("fnc_filmrelations.php");
 
 $database = "if20_lisanne_ja_1" ;
 //loen lehele koik olemasolevad motted
