@@ -93,7 +93,7 @@ function readpersonsinfilm(){
 	 $lines="";
 	 while($stmt->fetch()){
 		$lines.= "<tr> \n";
-		$lines.= "\t <td>" .$firstnamefromdb ." " .$lastnamefromdb ."/td>";
+		$lines.= "\t <td>" .$firstnamefromdb ." " .$lastnamefromdb ."</td>";
 		$lines.= "<td>" .$rolefromdb ."</td>";
 		$lines.= "<td>" .$titlefromdb ."</td> \n";
 		$lines.= "</tr> \n";
