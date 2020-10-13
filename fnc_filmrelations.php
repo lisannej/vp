@@ -4,7 +4,7 @@
  function readstudiotoselect($selectedstudio){
 	$notice = "<p>Kahjuks stuudioid ei leitud!</p> \n";
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
-	$stmt = $conn->prepare("SELECT production_company_id, comapny_name FROM production_company");
+	$stmt = $conn->prepare("SELECT production_company_id, company_name FROM production_company");
 	echo $conn->error;
 	$stmt->bind_result($idfromdb, $companyfromdb);
 	$stmt-> execute ();
