@@ -9,9 +9,23 @@
    $selectedgenre = "";
    $studionotice = "";
    $selectedstudio ="";
+   $quotenotice="";
+   $selectedquote="";
 
    if(isset($_POST["filmrelationsubmit"])){
-
+    if(!empty($_POST["filminput"])){
+      $selectedfilm = intval($_POST["filminput"]);
+    } else {
+      $quotenotice = " Vali film!";
+    }
+    if(!empty($_POST["filmquoteinput"])){
+      $selectedquote = intval($_POST["filmquoteinput"]);
+    } else {
+      $quotenotice .= " Vali fraas!";
+      if(!empty($selectedfilm) and !empty($selectedstudio)){
+        $quotenotice = storenewquoterelation($selectedquote, $selectedquote);
+      }
+  }
    }
    if(isset($_POST["filmrelationsubmit"])){
     //$selectedfilm = $_POST["filminput"];
@@ -50,6 +64,7 @@
    $filmselecthtml = readmovietoselect($selectedfilm);
    $filmgenreselecthtml = readgenretoselect($selectedgenre);
    $filmstudioselecthtml = readstudiotoselect($selectedstudio);
+   $filmquoteselecthtml = readquotetoselect($selectedquote);
 
 
 
@@ -61,6 +76,15 @@
    <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
    <p>Leht on loodud veebiprogrammeerimise kursusel <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
 
+   <h2> Määrame filmile fraasi</h2>
+   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <?php
+ 		echo $filmselecthtml;
+ 	  echo $filmquoteselecthtml;
+ 	?>
+   <input type="submit" name="filmrelationsubmit" value="Salvesta seos fraasiga"><span><?php echo $studionotice; ?></span>
+  
+   </form>
    <h2> Määrame filmile stuudio</h2>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <?php

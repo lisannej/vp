@@ -1,6 +1,34 @@
 <?php
  $database = "if20_lisanne_ja_1";
 
+
+ function readquotetoselect($selectedquote){
+	$notice = "<p>Kahjuks fraasi ei leitud!</p> \n";
+	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+	$stmt = $conn->prepare("SELECT quote_id, quote_text FROM quote");
+	echo $conn->error;
+	$stmt->bind_result($idfromdb, $quotefromdb);
+	$stmt-> execute ();
+	while($stmt->fetch()){
+		$quotes .= '<option value=" ' .$idfromdb .'"';
+		if ($idfromdb == $selectedquote) {
+			$quotes.= " selected";
+		}
+		$quotes.= ">" .$quotefromdb ."</option> \n";
+	}
+	if(!empty($quotes)){
+		$notice = '<select name="quoteinput" id="quoteinput">' ."\n";
+		$notice .= '<option value="" selected disabled> Vali fraas</option>' ."\n";
+		$notice .= $quotes;
+		$notice .= "</select> \n";
+	}
+	$stmt->close();
+ 	$conn->close();
+ 	return $notice;
+ } 
+ function storenewquoterelation ($selectedfilm, $selectedquote){
+
+}
  function readstudiotoselect($selectedstudio){
 	$notice = "<p>Kahjuks stuudioid ei leitud!</p> \n";
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
