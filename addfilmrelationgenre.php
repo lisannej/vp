@@ -27,6 +27,8 @@
       if(!empty($selectedfilm) and !empty($selectedstudio)){
         $studionotice = storenewstudiorelation($selectedfilm, $selectedstudio);
       }
+  }
+}
 
    if(isset($_POST["filmrelationsubmit"])){
  	//$selectedfilm = $_POST["filminput"];
