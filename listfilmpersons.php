@@ -8,6 +8,8 @@ require ("fnc_filmrelations.php");
 $database = "if20_lisanne_ja_1" ;
 //loen lehele koik olemasolevad motted
 $filmhtml = readfilms ();
+$sortby=0;
+$sortoder=0;
 
 ?>
 
@@ -18,6 +20,13 @@ $filmhtml = readfilms ();
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
 
-<?php echo readpersonsinfilm(); ?>
+<?php echo readpersonsinfilm();
+    if(isset($_GET["sortby"])and isset($_GET["sortorder"])){
+        if($_GET["sortby"]>= 1 and $_GET["sortby"]<= 4){
+            $sortby=$_GET["sortby"];
+        }
+        if($_GET["sortorder"]==1 or $_GET["sortorder"])
+    }
+?>
 </body>
 </html>
