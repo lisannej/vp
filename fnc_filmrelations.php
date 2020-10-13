@@ -101,7 +101,7 @@ function readpersonsinfilm(){
 	 if(!empty($lines)){
 		 $notice = "<table> \n" ;
 		 $notice.= "<tr> \n";
-		 $notice.= "<th>Isiku nimi</th><th>Roll filmis</th><th>Film</th> \n";
+		 $notice.= "<th>Isiku nimi</th><th>Roll filmis</th><'th>Film &nbsp;<a href"?sortby=4&sortorder=1">&uarr;</a> &nbsp;<a href"?sortby=4&sortorder=2">&darr;</a></th>'' ."\n";
 		$notice.= $lines;
 		$notice.= "</table> \n";
 	 }
