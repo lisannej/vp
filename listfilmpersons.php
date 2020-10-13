@@ -25,7 +25,9 @@ $sortoder=0;
         if($_GET["sortby"]>= 1 and $_GET["sortby"]<= 4){
             $sortby=$_GET["sortby"];
         }
-        if($_GET["sortorder"]==1 or $_GET["sortorder"])
+        if($_GET["sortorder"]==1 or $_GET["sortorder"]){
+            $sortorder=$_GET["sortorder"];
+        }
     }
 ?>
 </body>
