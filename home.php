@@ -1,6 +1,6 @@
 <?php
 
-require ("header.php");
+
 
 session_start();
 
@@ -15,7 +15,7 @@ session_start();
  	   header("Location: page.php");
  	   exit();
    }
-
+  require ("header.php");
   //annan ette lubatud piltivormingute loendi
   $picfiletypes = ["image/jpeg", "image/png"];
   // loeme piltide kataloogi sisu ja naitame pilte
