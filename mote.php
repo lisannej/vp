@@ -1,7 +1,8 @@
 <?php
+    require ("usesession.php");
     require ("header.php");
     require ("config.php");
-    require ("usesession.php");
+    
     $database = "if20_lisanne_ja_1";
     //kui on idee sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
     if(isset($_POST["ideasubmit"]) and !empty($_POST ["ideainput"])){
