@@ -4,14 +4,31 @@
   require ("config.php");
   require ("fnc_filmrelations.php");
 
-   $genrenotice = "";
-   $selectedfilm = "";
+   $genrenotice ="";
+   $selectedfilm ="";
    $selectedgenre = "";
-   $studionotice = "";
+   $studionotice ="";
    $selectedstudio ="";
    $quotenotice="";
    $selectedquote="";
+   $selectedperson="";
+   $personnotice="";
 
+   if(isset($_POST["filmrelationsubmit"])){
+    if(!empty($_POST["filminput"])){
+      $selectedfilm = intval($_POST["filminput"]);
+    } else {
+      $quotenotice = " Vali film!";
+    }
+    if(!empty($_POST["filmpersoninput"])){
+      $selectedquote = intval($_POST["filmpersoninput"]);
+    } else {
+      $personnotice .= " Vali tegelane!";
+      if(!empty($selectedfilm) and !empty($selectedperson)){
+        $quotenotice = storenewpersonrelation($selectedfilm, $selectedperson);
+      }
+  }
+   }
    if(isset($_POST["filmrelationsubmit"])){
     if(!empty($_POST["filminput"])){
       $selectedfilm = intval($_POST["filminput"]);
@@ -23,7 +40,7 @@
     } else {
       $quotenotice .= " Vali fraas!";
       if(!empty($selectedfilm) and !empty($selectedstudio)){
-        $quotenotice = storenewquoterelation($selectedquote, $selectedquote);
+        $quotenotice = storenewquoterelation($selectedfilm, $selectedquote);
       }
   }
    }
@@ -65,6 +82,7 @@
    $filmgenreselecthtml = readgenretoselect($selectedgenre);
    $filmstudioselecthtml = readstudiotoselect($selectedstudio);
    $filmquoteselecthtml = readquotetoselect($selectedquote);
+   $filmpersonselecthtml = readpersontoselect($selectedperson);
 
 
 
@@ -76,13 +94,21 @@
    <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
    <p>Leht on loodud veebiprogrammeerimise kursusel <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
 
+   <h2> Määrame filmile tegelase</h2>
+   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <?php
+ 		echo $filmselecthtml;
+ 	  echo $filmpersonselecthtml;
+ 	?>
+   <input type="submit" name="filmrelationsubmit" value="Salvesta seos tegelasega"><span><?php echo $personnotice; ?></span>
+  
    <h2> Määrame filmile fraasi</h2>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <?php
  		echo $filmselecthtml;
  	  echo $filmquoteselecthtml;
  	?>
-   <input type="submit" name="filmrelationsubmit" value="Salvesta seos fraasiga"><span><?php echo $studionotice; ?></span>
+   <input type="submit" name="filmrelationsubmit" value="Salvesta seos fraasiga"><span><?php echo $quotenotice; ?></span>
   
    </form>
    <h2> Määrame filmile stuudio</h2>
