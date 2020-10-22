@@ -27,8 +27,32 @@
  	return $notice;
  } 
  function storenewquoterelation ($selectedfilm, $selectedquote){
+	$notice = "";
+ 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+ 	$stmt = $conn->prepare("SELECT quote_id FROM quote WHERE quote_id = ? AND movie_id = ?");
+ 	echo $conn->error;
+ 	$stmt->bind_param("ii", $selectedfilm, $selectedquote);
+ 	$stmt->bind_result($idfromdb);
+ 	$stmt->execute();
+ 	if($stmt->fetch()){
+ 		$notice = "Selline seos on juba olemas!";
+ 	} else {
+ 		$stmt->close();
+ 		$stmt = $conn->prepare("INSERT INTO quote (movie_id, quote_id) VALUES(?,?)");
+ 		echo $conn->error;
+ 		$stmt->bind_param("ii", $selectedfilm, $selectedquote);
+ 		if($stmt->execute()){
+ 			$notice = "Uus seos edukalt salvestatud!";
+ 		} else {
+ 			$notice = "Seose salvestamisel tekkis tehniline tõrge: " .$stmt->error;
+ 		}
+ 	}
 
-}
+ 	$stmt->close();
+ 	$conn->close();
+ 	return $notice;
+ } 
+
  function readstudiotoselect($selectedstudio){
 	$notice = "<p>Kahjuks stuudioid ei leitud!</p> \n";
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
