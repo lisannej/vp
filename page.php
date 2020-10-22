@@ -128,7 +128,7 @@
 <head>
   <meta charset="utf-8">
   <?php $username = ""; ?>
-  <title><?php echo  $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?> programmeerib veebi</title>
+  <title> Veebi programmeerimine TLÜ</title>
 </head>
 <body>
   <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
