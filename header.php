@@ -32,6 +32,7 @@
       <td><a href="addperson.php">Lisa tegelasi</a></td>
       <td><a href="addfilmrelationgenre.php">Loo filmiseoseid</a></td>
       <td><a href="listfilmpersons.php">Filmitegelased</a></td>
+      <td><a href="listquotes.php">Filmi tsitaadid</a></td>
       <td><a href="addnewuser.php">Tee kasutaja</a></td>
       <td><a href="userprofile.php">Minu kasutajaprofiil</a></td>
 

@@ -73,13 +73,7 @@ function saveperson ($firstnameinput, $lastnameinput, $birthdayinput ){
     $stmt = $conn->prepare("INSERT INTO person (first_name, last_name, birth_date) VALUES(?,?,?)");
     echo $conn->error;
     $stmt->bind_param("ssd", $firstnameinput, $lastnameinput, $birthdayinput);
-    
-    if ($stmt->execute ()){
-        echo "hahhahaha";
-    }
-    else{
-        echo "aiai";
-    }
+    $stmt->execute ();
     $stmt->close ();
     $conn->close ();
     echo "wtf";
