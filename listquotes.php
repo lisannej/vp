@@ -7,7 +7,7 @@ require ("fnc_filmrelations.php");
 
 $database = "if20_lisanne_ja_1" ;
 //loen lehele koik olemasolevad motted
-$filmhtml = readquotes();
+//$filmhtml = readquotes();
 $sortby=0;
 $sortorder=0;
 
