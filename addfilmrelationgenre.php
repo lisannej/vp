@@ -62,21 +62,21 @@
 }
 
    if(isset($_POST["filmrelationsubmit"])){
- 	//$selectedfilm = $_POST["filminput"];
- 	if(!empty($_POST["filminput"])){
- 		$selectedfilm = intval($_POST["filminput"]);
- 	} else {
- 		$genrenotice = " Vali film!";
- 	}
- 	if(!empty($_POST["filmgenreinput"])){
- 		$selectedgenre = intval($_POST["filmgenreinput"]);
- 	} else {
- 		$genrenotice .= " Vali žanr!";
- 	}
- 	if(!empty($selectedfilm) and !empty($selectedgenre)){
- 		$genrenotice = storenewrelation($selectedfilm, $selectedgenre);
- 	}
-   }
+ 	  //$selectedfilm = $_POST["filminput"];
+    if(!empty($_POST["filminput"])){
+      $selectedfilm = intval($_POST["filminput"]);
+    } else {
+      $genrenotice = " Vali film!";
+    }
+    if(!empty($_POST["filmgenreinput"])){
+      $selectedgenre = intval($_POST["filmgenreinput"]);
+    } else {
+      $genrenotice .= " Vali žanr!";
+    }
+    if(!empty($selectedfilm) and !empty($selectedgenre)){
+      $genrenotice = storenewrelation($selectedfilm, $selectedgenre);
+    }
+  }
 
    $filmselecthtml = readmovietoselect($selectedfilm);
    $filmgenreselecthtml = readgenretoselect($selectedgenre);
@@ -97,26 +97,26 @@
    <h2> Määrame filmile tegelase</h2>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <?php
- 		echo $filmselecthtml;
- 	  echo $filmpersonselecthtml;
- 	?>
+      echo $filmselecthtml;
+      echo $filmpersonselecthtml;
+    ?>
    <input type="submit" name="filmrelationsubmit" value="Salvesta seos tegelasega"><span><?php echo $personnotice; ?></span>
   
-   <h2> Määrame filmile fraasi</h2>
+   <h2> Määrame tegelasele fraasi</h2>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <?php
- 		echo $filmselecthtml;
- 	  echo $filmquoteselecthtml;
- 	?>
+      echo $filmpersonselecthtml;
+      echo $filmquoteselecthtml;
+    ?>
    <input type="submit" name="filmrelationsubmit" value="Salvesta seos fraasiga"><span><?php echo $quotenotice; ?></span>
   
    </form>
    <h2> Määrame filmile stuudio</h2>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <?php
- 		echo $filmselecthtml;
- 	  echo $filmstudioselecthtml;
- 	?>
+      echo $filmselecthtml;
+      echo $filmstudioselecthtml;
+    ?>
    <input type="submit" name="filmrelationsubmit" value="Salvesta seos stuudioga"><span><?php echo $studionotice; ?></span>
   
    </form>
@@ -125,9 +125,9 @@
    <hr>
    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
      <?php
- 		echo $filmselecthtml;
- 		echo $filmgenreselecthtml;
- 	?>
+ 		  echo $filmselecthtml;
+ 		  echo $filmgenreselecthtml;
+ 	  ?>
 
  	<input type="submit" name="filmrelationsubmit" value="Salvesta seos zanriga"><span><?php echo $genrenotice; ?></span>
    </form>

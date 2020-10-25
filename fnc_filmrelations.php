@@ -2,7 +2,7 @@
  $database = "if20_lisanne_ja_1";
 
  $quotes = "";
- $person = "";
+
  $studios = "";
 
  function readpersontoselect($selectedperson){
@@ -12,8 +12,9 @@
 	echo $conn->error;
 	$stmt->bind_result($idfromdb, $firstnamefromdb, $lastnamefromdb);
 	$stmt-> execute ();
+	$person = "";
 	while($stmt->fetch()){
-		$quotes .= '<option value=" ' .$idfromdb .'"';
+		$person .= '<option value=" ' .$idfromdb .'"';
 		if ($idfromdb == $selectedperson) {
 			$person.= " selected";
 		}
