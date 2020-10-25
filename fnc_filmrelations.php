@@ -1,10 +1,6 @@
 <?php
  $database = "if20_lisanne_ja_1";
 
- $quotes = "";
-
- $studios = "";
-
  function readpersontoselect($selectedperson){
 	$notice = "<p>Kahjuks tegelast ei leitud!</p> \n";
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
@@ -18,7 +14,7 @@
 		if ($idfromdb == $selectedperson) {
 			$person.= " selected";
 		}
-		$person.= ">" .$firstnamefromdb .$lastnamefromdb ."</option> \n";
+		$person.= ">" .$firstnamefromdb ." " .$lastnamefromdb ."</option> \n";
 	}
 	if(!empty($person)){
 		$notice = '<select name="personinput" id="personinput">' ."\n";
@@ -37,7 +33,7 @@
  	echo $conn->error;
  	$stmt->bind_param("ii", $selectedfilm, $selectedperson);
  	$stmt->bind_result($idfromdb);
- 	$stmt->execute();
+	$stmt->execute();
  	if($stmt->fetch()){
  		$notice = "Selline seos on juba olemas!";
  	} else {
@@ -64,6 +60,7 @@
 	echo $conn->error;
 	$stmt->bind_result($idfromdb, $quotefromdb);
 	$stmt-> execute ();
+	$quotes = "";
 	while($stmt->fetch()){
 		$quotes .= '<option value=" ' .$idfromdb .'"';
 		if ($idfromdb == $selectedquote) {
@@ -115,6 +112,7 @@
 	echo $conn->error;
 	$stmt->bind_result($idfromdb, $companyfromdb);
 	$stmt-> execute ();
+	$studios = "";
 	while($stmt->fetch()){
 		$studios .= '<option value=" ' .$idfromdb .'"';
 		if ($idfromdb == $selectedstudio) {
