@@ -29,6 +29,7 @@
       <td><a href="motetabel.php">Tabel</a></td>
       <td><a href="filmlist.php">Filmlist</a></td>
       <td><a href="addfilms.php">Lisa filme</a></td>
+      <td><a href="addperson.php">Lisa tegelasi</a></td>
       <td><a href="addfilmrelationgenre.php">Loo filmiseoseid</a></td>
       <td><a href="listfilmpersons.php">Filmitegelased</a></td>
       <td><a href="addnewuser.php">Tee kasutaja</a></td>
