@@ -138,7 +138,7 @@ function savequote ($quoteinput ){
     echo"olen siin";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
     $GLOBALS["database"] );
-    $stmt = $conn->prepare("INSERT INTO quotes (quote_text) VALUES(?)");
+    $stmt = $conn->prepare("INSERT INTO quote (quote_text) VALUES(?)");
     echo $conn->error;
     $stmt->bind_param("s", $quoteinput);
     $stmt->execute ();
