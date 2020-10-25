@@ -63,7 +63,7 @@ function readpeople (){
 
         $stmt->close ();
         $conn->close ();
-        return $filmhtml;
+        return $personhtml;
 }
 
 function saveperson ($firstnameinput, $lastnameinput, $birthdayinput ){

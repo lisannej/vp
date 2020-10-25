@@ -22,8 +22,14 @@ if(isset($_POST["personsubmit"])){
   if(empty($_POST["firstnameinput"]) or empty($_POST["lastnameinput"]) or empty($_POST["birthdayinput"])){
       $inputerror .="Osa infot on sisestamata! ";
    }
-   if($_POST["birthdayinput"]> date("dd-MM-Y")){
-     $inputerror .="Ebareaalne sunniaasta!";
+    if(!empty($birthday) and !empty($birthmonth) and !empty($birthyear)){
+        if(checkdate($birthmonth, $birthday, $birthyear)){
+            $tempdate = new DateTime($birthyear ."-" .$birthmonth ."-" .$birthday);
+            $birthdate = $tempdate->format("Y-m-d");
+        } else {
+            $birthdateerror = "Kuupaev ei ole reaalne!";
+        }
+    }
    }
    if(empty($inputerror)){
      echo"salvestan";
