@@ -46,7 +46,7 @@ function savefilm ($titleinput, $yearinput, $durationinput, $genreinput, $studio
 function readpeople (){
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
     //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
-    $stmt = $conn->prepare ("SELECT * FROM person");
+    $stmt = $conn->prepare ("SELECT first_name, last_name, birth_date FROM person");
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($firstnamefromdb, $lastnamefromdb, $birthdayfromdb);
