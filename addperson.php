@@ -50,7 +50,7 @@ if(isset($_POST["personsubmit"])){
   <input type="text" name="firstnameinput" id="firstnameinput" placeholder="Eesnimi" >
   <br>
   <label for="yearinput"> Perekonnanimi </label>
-  <input type="number" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi">
+  <input type="text" name="lastnameinput" id="lastnameinput" placeholder="Perekonnanimi">
   <br>
   <label for="birthdayinput">Sünnikuupäev: </label>
   <?php
