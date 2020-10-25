@@ -76,6 +76,7 @@ function saveperson ($firstnameinput, $lastnameinput, $birthdayinput ){
     $stmt->execute ();
     $stmt->close ();
     $conn->close ();
+    echo "wtf";
 } 
 
 
