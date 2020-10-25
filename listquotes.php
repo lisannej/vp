@@ -29,7 +29,7 @@ $sortorder=0;
             $sortorder=$_GET["sortorder"];
         }
     }
-    echo readquotesinfilm($sortby, $sortorder);
+    echo readquotes($sortby, $sortorder);
 ?>
 </body>
 </html>
