@@ -134,4 +134,15 @@ function readquotes($sortby, $sortorder) {
 	return $notice;
 } // readquotes lõpeb
 
+function savequotes ($quoteinput ){
+    echo"olen siin";
+    $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
+    $GLOBALS["database"] );
+    $stmt = $conn->prepare("INSERT INTO quotes (quote_text) VALUES(?)");
+    echo $conn->error;
+    $stmt->bind_param("s", $quoteinput);
+    $stmt->execute ();
+    $stmt->close ();
+    $conn->close ();
+} 
 ?>
