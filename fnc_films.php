@@ -134,7 +134,7 @@ function readquotes($sortby, $sortorder) {
 	return $notice;
 } // readquotes lõpeb
 
-function savequotes ($quoteinput ){
+function savequote ($quoteinput ){
     echo"olen siin";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
     $GLOBALS["database"] );
