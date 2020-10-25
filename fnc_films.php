@@ -30,6 +30,7 @@ function readfilms (){
       $conn->close ();
       return $filmhtml;
 } //readfilms loppeb
+
 function savefilm ($titleinput, $yearinput, $durationinput, $genreinput, $studioinput, $directorinput ){
     echo"olen siin";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
