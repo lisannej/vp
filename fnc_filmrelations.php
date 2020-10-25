@@ -1,6 +1,10 @@
 <?php
  $database = "if20_lisanne_ja_1";
 
+ $quotes = "";
+ $person = "";
+ $studios = "";
+
  function readpersontoselect($selectedperson){
 	$notice = "<p>Kahjuks tegelast ei leitud!</p> \n";
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
