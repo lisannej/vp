@@ -72,7 +72,7 @@ function saveperson ($firstnameinput, $lastnameinput, $birthdayinput ){
     $GLOBALS["database"] );
     $stmt = $conn->prepare("INSERT INTO person (first_name, last_name, birth_date) VALUES(?,?,?)");
     echo $conn->error;
-    $stmt->bind_param("sss", $firstnameinput, $lastnameinput, $birthdayinput);
+    $stmt->bind_param("ssd", $firstnameinput, $lastnameinput, $birthdayinput);
     $stmt->execute ();
     $stmt->close ();
     $conn->close ();
