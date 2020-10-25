@@ -42,4 +42,42 @@ function savefilm ($titleinput, $yearinput, $durationinput, $genreinput, $studio
     $stmt->close ();
     $conn->close ();
 } // savefilm loppeb
+
+function readpeople (){
+    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+    //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
+    $stmt = $conn->prepare ("SELECT * FROM person");
+    echo $conn->error;
+    //seome tulemuse muutujaga
+    $stmt->bind_result ($firstnamefromdb, $lastnamefromdb, $birthdayfromdb);
+    $stmt->execute ();
+    $personhtml = "<ol> \n";
+    while ($stmt->fetch ()) {
+        $personhtml .= "\t \t <li>".$firstnamefromdb ."" .$lastnamefromdb ."\n";
+        $personhtml .= "\t \t \t <ul> \n";
+        $personhtml .= "\t \t \t <li>Sunniaasta: " .$yearfromdb ."</li> \n";
+        $personhtml .= "\t \t \t </ul> \n";
+        $personhtml .= "\t \t </li> \n";
+    } 
+    $filmhtml .= "\t </ol> \n";
+
+        $stmt->close ();
+        $conn->close ();
+        return $filmhtml;
+}
+
+function saveperson ($firstnameinput, $lastnameinput, $birthdayinput ){
+    echo"olen siin";
+    $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
+    $GLOBALS["database"] );
+    $stmt = $conn->prepare("INSERT INTO person (first_name, last_name, birth_date) VALUES(?,?,?)");
+    echo $conn->error;
+    $stmt->bind_param("ssi", $firstnameinput, $lastnameinput, $birthdayinput);
+    $stmt->execute ();
+    $stmt->close ();
+    $conn->close ();
+} 
+
+
+
 ?>
