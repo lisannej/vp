@@ -6,14 +6,14 @@
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 	$stmt = $conn->prepare("SELECT person_id, first_name, last_name FROM person");
 	echo $conn->error;
-	$stmt->bind_result($idfromdb, $personfromdb);
+	$stmt->bind_result($idfromdb, $firstnamefromdb, $lastnamefromdb);
 	$stmt-> execute ();
 	while($stmt->fetch()){
 		$quotes .= '<option value=" ' .$idfromdb .'"';
 		if ($idfromdb == $selectedperson) {
 			$person.= " selected";
 		}
-		$person.= ">" .$personfromdb ."</option> \n";
+		$person.= ">" .$firstnamefromdb .$lastnamefromdb ."</option> \n";
 	}
 	if(!empty($person)){
 		$notice = '<select name="personinput" id="personinput">' ."\n";
