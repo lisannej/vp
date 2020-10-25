@@ -14,6 +14,7 @@ $sortorder=0;
 
 ?>
 
+
 <img src="IMG/vp_banner.png" alt="Veebiprogrammeerimise kursuse banner">
   <h1><?php echo $_SESSION["userfirstname"] ." " .$_SESSION["userlastname"]; ?></h1>
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
@@ -29,7 +30,7 @@ $sortorder=0;
             $sortorder=$_GET["sortorder"];
         }
     }
-    echo ($sortby, $sortorder);
+    echo readpersonsinfilm($sortby, $sortorder);
 ?>
 </body>
 </html>
