@@ -19,9 +19,9 @@ $personhtml=readpeople();
 //kui klikiti submit siis
 if(isset($_POST["personsubmit"])){
   echo"tegutsen";
-  if(empty($_POST["firstnameinput"]) or empty($_POST["lastnameinput"]) or empty($_POST["birthdayinput"])){
-      $inputerror .="Osa infot on sisestamata! ";
-   }
+    if(empty($_POST["firstnameinput"]) or empty($_POST["lastnameinput"]) or empty($_POST["birthdayinput"])){
+        $inputerror .="Osa infot on sisestamata! ";
+    }
     if(!empty($birthday) and !empty($birthmonth) and !empty($birthyear)){
         if(checkdate($birthmonth, $birthday, $birthyear)){
             $tempdate = new DateTime($birthyear ."-" .$birthmonth ."-" .$birthday);
@@ -30,12 +30,11 @@ if(isset($_POST["personsubmit"])){
             $birthdateerror = "Kuupaev ei ole reaalne!";
         }
     }
-   }
-   if(empty($inputerror)){
-     echo"salvestan";
-      saveperson($_POST["firstnameinput"], $_POST["lastnameinput"], $_POST["birthdayinput"] );
-   }
-  }
+    if(empty($inputerror)){
+        echo"salvestan";
+        saveperson($_POST["firstnameinput"], $_POST["lastnameinput"], $_POST["birthdayinput"] );
+    }
+}
 
 ?>
 
