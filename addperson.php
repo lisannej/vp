@@ -4,6 +4,12 @@ require ("header.php");
 require ("config.php");
 require ("fnc_films.php");
 
+$monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
+  "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+    $birthday=null;
+    $birthmonth=null;
+    $birthyear=null;
+    $birthdate=null;
 
 $inputerror=""; 
 //$database="if20_lisanne_ja_1" ;

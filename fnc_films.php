@@ -55,11 +55,11 @@ function readpeople (){
     while ($stmt->fetch ()) {
         $personhtml .= "\t \t <li>".$firstnamefromdb ."" .$lastnamefromdb ."\n";
         $personhtml .= "\t \t \t <ul> \n";
-        $personhtml .= "\t \t \t <li>Sunniaasta: " .$yearfromdb ."</li> \n";
+        $personhtml .= "\t \t \t <li>Sunniaasta: " .$birthdayfromdb ."</li> \n";
         $personhtml .= "\t \t \t </ul> \n";
         $personhtml .= "\t \t </li> \n";
     } 
-    $filmhtml .= "\t </ol> \n";
+    $personhtml .= "\t </ol> \n";
 
         $stmt->close ();
         $conn->close ();
