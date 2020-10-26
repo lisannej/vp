@@ -145,4 +145,45 @@ function savequote ($quoteinput ){
     $stmt->close ();
     $conn->close ();
 } 
+
+function readpositions($sortby, $sortorder) {
+	$notice = "<p>Kahjuks ametikohti ei leitud!</p> \n";
+	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+	$SQLsentence = "SELECT position_name, description FROM position";
+
+	if($sortby == 0 and $sortorder == 0) {
+		$stmt = $conn->prepare($SQLsentence);
+	}
+	if($sortby == 1) {
+	  if($sortorder == 2) {
+		$stmt = $conn->prepare($SQLsentence ." ORDER BY position_name DESC"); 
+	  }
+	  else {
+		  $stmt = $conn->prepare($SQLsentence ." ORDER BY position_name"); 
+	  }
+	}
+	
+	echo $conn->error; // <-- ainult õppimise jaoks!
+	$stmt->bind_result($namefromdb, $descfromdb);
+	$stmt->execute();
+	$lines = "";
+	while($stmt->fetch()) {
+		$lines .= "\t<tr>\n\t\t\t<td>" .$namefromdb ."</td>\n";
+		if(!empty($descfromdb)) {
+			$lines .= "\t\t\t<td>" .$descfromdb ."</td>\n\t\t</tr>\n\t";
+		}
+		else {
+			$lines .= "\t\t\t<td> </td>\n\t\t</tr>\n\t";
+		}	
+	}
+	if(!empty($lines)) {
+		$notice = "<table>\n\t\t<tr>\n\t\t\t" .'<th>Ametikoht &nbsp;<a href="?positionsortby=1&positionsortorder=1">&uarr;</a>&nbsp;<a href="?positionsortby=1&positionsortorder=2">&darr;</a></th>';
+		$notice .= "\n\t\t\t<th>Lühikirjeldus</th>\n\t";
+		$notice .= "\t</tr>\n\t" .$lines ."</table>\n";
+	}
+	
+	$stmt->close();
+	$conn->close();
+	return $notice;
+} // readpositions lõpeb
 ?>

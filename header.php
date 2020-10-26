@@ -31,6 +31,7 @@
       <td><a href="addperson.php">Lisa tegelasi</a></td>
       <td><a href="addquote.php">Lisa tsitaate</a></td>
       <td><a href="addproductioncompany.php">Lisa filmistuudio</a></td>
+      <td><a href="addgenre.php">Lisa zanr</a></td>
       <td><a href="addfilmrelationgenre.php">Loo filmiseoseid</a></td>
       <td><a href="listfilmpersons.php">Filmitegelased</a></td>
       <td><a href="listquotes.php">Filmi tsitaadid</a></td>

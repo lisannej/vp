@@ -52,6 +52,37 @@
  	$conn->close();
  	return $notice;
  } 
+ function readpositiontoselect($selectedposition) {
+	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+	$stmt = $conn->prepare("SELECT position_id, position_name FROM position");
+	echo $conn->error; // <-- ainult õppimise jaoks!
+	$stmt->bind_result($idfromdb, $namefromdb);
+	$stmt->execute();
+	$positions = "";
+	  while($stmt->fetch()) {
+		  $positions .= '<option value ="' .$idfromdb .'"';
+		  if($idfromdb == $selectedposition) {
+			  $positions .= " selected";
+		  }
+		  $positions .= ">" .$namefromdb ."</option> \n";
+	  }
+	  
+	  if(!empty($positions)) {
+		  $notice = '<select id ="positions" name="positioninput">' ."\n";
+		  $notice .= '<option value="" selected disabled>Vali amet</option>' ."\n";
+		  $notice .= $positions;
+		  $notice .= "</select> \n";
+	  }
+	$stmt->close();
+	$conn->close();
+	return $notice;
+  } // readpositiontoselect lõpeb
+function storenewpositionrelation ($selectedperson, $selectedposition){
+	
+}
+
+
+
 
  function readquotetoselect($selectedquote){
 	$notice = "<p>Kahjuks fraasi ei leitud!</p> \n";
