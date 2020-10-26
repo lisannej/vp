@@ -165,4 +165,37 @@ function saveposition ($positioninput ){
     $stmt->close ();
     $conn->close ();
 } 
+
+function readstudio (){
+    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+    //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
+    $stmt = $conn->prepare ("SELECT company_name FROM production_company");
+    echo $conn->error;
+    //seome tulemuse muutujaga
+    $stmt->bind_result ($studiofromdb);
+    $stmt->execute ();
+    $studiohtml = "<ol> \n";
+    while ($stmt->fetch ()) {
+        $studiohtml .= "\t \t <li>".$studiofromdb ."\n";
+        $studiohtml .= "\t \t \t <ul> \n";
+        $studiohtml .= "\t \t </li> \n";
+    } 
+    $studiohtml .= "\t </ol> \n";
+
+        $stmt->close ();
+        $conn->close ();
+        return $studiohtml;
+}
+
+function savestudio ($studioinput ){
+    echo"olen siin";
+    $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
+    $GLOBALS["database"] );
+    $stmt = $conn->prepare("INSERT INTO production_company (company_name) VALUES(?)");
+    echo $conn->error;
+    $stmt->bind_param("s", $studioinput);
+    $stmt->execute ();
+    $stmt->close ();
+    $conn->close ();
+} 
 ?>
