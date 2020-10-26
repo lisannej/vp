@@ -57,9 +57,15 @@ function readfilms (){
 	 if(!empty($lines)){
 		 $notice = "<table> \n" ;
 		 $notice.= "<tr> \n";
-		 $notice.= "<th>Title </th><th>Year </th><th>Duration </th><th>Genre </th><th>Studio </th>" .'<th>Director &nbsp;<a href="?sortby=4&sortorder=1">&uarr;</a> &nbsp;<a href="?sortby=4&sortorder=2">&darr;</a></th>' ."\n";
-		$notice.= $lines;
-		$notice.= "</table> \n";
+		 $notice = "<table>\n\t\t<tr>\n\t\t\t" .'<th>Pealkiri &nbsp;<a href="?filmsortby=1&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=1&filmsortorder=2">&darr;</a></th>';
+		 $notice .= "\n\t\t\t" .'<th>Tootmisaasta &nbsp;<a href="?filmsortby=2&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=2&filmsortorder=2">&darr;</a></th>';
+		 $notice .= "\n\t\t\t" .'<th>Kestus &nbsp;<a href="?filmsortby=3&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=3&filmsortorder=2">&darr;</a></th>';
+		 $notice .= "\n\t\t\t" .'<th>Zanr &nbsp;<a href="?filmsortby=1&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=1&filmsortorder=2">&darr;</a></th>';
+		 $notice .= "\n\t\t\t" .'<th>Stuudio &nbsp;<a href="?filmsortby=2&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=2&filmsortorder=2">&darr;</a></th>';
+		 $notice .= "\n\t\t\t" .'<th>Lavastaja &nbsp;<a href="?filmsortby=3&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=3&filmsortorder=2">&darr;</a></th>';
+		 $notice .= "\t</tr>\n\t" .$lines ."</table>\n";
+		 $notice.= $lines;
+		 $notice.= "</table> \n";
 	 }
         $stmt->close ();
       $conn->close ();
