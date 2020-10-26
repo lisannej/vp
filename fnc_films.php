@@ -101,7 +101,7 @@ function readquotes (){
         return $quotehtml;
 }
 
-function savequote ($quoteinput ){
+function savequotes ($quoteinput ){
     echo"olen siin";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
     $GLOBALS["database"] );

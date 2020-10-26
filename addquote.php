@@ -16,7 +16,7 @@ if(isset($_POST["quotesubmit"])){
     }
     if(empty($inputerror)){
         echo"salvestan";
-        savequote($_POST["quoteinput"]);
+        savequotes($_POST["quoteinput"]);
     }
 }
 
