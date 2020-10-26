@@ -18,6 +18,6 @@
     <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
     Digitehnoloogiate instituudis.</p>
 
-  <?php echo readfilms(); ?>
+  <?php echo readfilms($sortby, $sortorder); ?>
 </body>
 </html>
