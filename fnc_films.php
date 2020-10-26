@@ -43,20 +43,24 @@ function readfilms (){
     //seome tulemuse muutujaga
     $stmt->bind_result ($titlefromdb, $yearfromdb, $durationfromdb, $genrefromdb, $studiofromdb, $directorfromdb);
     $stmt->execute ();
-    $filmhtml = "<ol> \n";
+    $lines="";
     while ($stmt->fetch ()) {
-        $filmhtml .= "\t \t <li>".$titlefromdb ."\n";
-        $filmhtml .= "\t \t \t <ul> \n";
-        $filmhtml .= "\t \t \t \t <li>Valmimisaasta: " .$yearfromdb ."</li> \n";
-        $filmhtml .= "\t \t \t \t <li>Kestus minutites: " .$durationfromdb ." minutit</li> \n";
-        $filmhtml .= "\t \t \t \t <li>Zanr: " .$genrefromdb ."</li> \n";
-        $filmhtml .= "\t \t \t \t <li>Tootja: " .$studiofromdb ."</li> \n";
-        $filmhtml .= "\t \t \t \t <li>Lavastaja: " .$directorfromdb ."</li> \n";
-        $filmhtml .= "\t \t \t </ul> \n";
-        $filmhtml .= "\t \t </li> \n";
-    } 
-    $filmhtml .= "\t </ol> \n";
-
+        $lines.= "<tr> \n";
+		$lines.= "\t <td>" .$titlefromdb ." " ."</td>";
+		$lines.= "<td>" .$yearfromdb ."</td>";
+		$lines.= "<td>" .$durationfromdb ."</td> \n";
+		$lines.= "\t <td>" .$genrefromdb ." " ."</td>";
+		$lines.= "<td>" .$studiofromdb ."</td>";
+		$lines.= "<td>" .$directorfromdb ."</td> \n";
+		$lines.= "</tr> \n";
+	 }
+	 if(!empty($lines)){
+		 $notice = "<table> \n" ;
+		 $notice.= "<tr> \n";
+		 $notice.= "<th>Title </th><th>Year </th><th>Duration </th<th>Genre </th><th>Studio </th>" .'<th>Director &nbsp;<a href="?sortby=4&sortorder=1">&uarr;</a> &nbsp;<a href="?sortby=4&sortorder=2">&darr;</a></th>' ."\n";
+		$notice.= $lines;
+		$notice.= "</table> \n";
+	 }
         $stmt->close ();
       $conn->close ();
       return $filmhtml;
