@@ -6,9 +6,7 @@ require ("fnc_films.php");
 
 
 $inputerror=""; 
-//$database="if20_lisanne_ja_1" ;
 
-//loen lehele koik olemasolevad motted
 $filmhtml=readfilms ();
 //kui klikiti submit siis
 if(isset($_POST["filmsubmit"])){
