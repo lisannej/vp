@@ -77,9 +77,34 @@
 	$conn->close();
 	return $notice;
   } // readpositiontoselect lõpeb
+
 function storenewpositionrelation ($selectedperson, $selectedposition){
-	
-}
+	$notice = "";
+ 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+ 	$stmt = $conn->prepare("SELECT position_name FROM position WHERE position_id = ? AND movie_id = ?");
+ 	echo $conn->error;
+ 	$stmt->bind_param("ii", $selectedfilm, $selectedposition);
+ 	$stmt->bind_result($idfromdb);
+ 	$stmt->execute();
+ 	if($stmt->fetch()){
+ 		$notice = "Selline seos on juba olemas!";
+ 	} else {
+ 		$stmt->close();
+ 		$stmt = $conn->prepare("INSERT INTO position (movie_id, position_id) VALUES(?,?)");
+ 		echo $conn->error;
+ 		$stmt->bind_param("ii", $selectedfilm, $selectedposition);
+ 		if($stmt->execute()){
+ 			$notice = "Uus seos edukalt salvestatud!";
+ 		} else {
+ 			$notice = "Seose salvestamisel tekkis tehniline tõrge: " .$stmt->error;
+ 		}
+ 	}
+
+ 	$stmt->close();
+ 	$conn->close();
+ 	return $notice;
+ } 
+
 
 
 
