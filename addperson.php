@@ -5,6 +5,8 @@ require ("config.php");
 require ("fnc_films.php");
 require ("fnc_filmrelations.php");
 
+$inputerror=""; 
+
 $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
   "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
     $birthday=null;
@@ -12,10 +14,6 @@ $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
     $birthyear=null;
     $birthdate=null;
 
-$inputerror=""; 
-//$database="if20_lisanne_ja_1" ;
-
-//loen lehele koik olemasolevad tegelased
 $personhtml=readpeople();
 //kui klikiti submit siis
 if(isset($_POST["personsubmit"])){

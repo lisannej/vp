@@ -14,7 +14,7 @@ if(isset($_POST["genresubmit"])){
     }
     if(empty($inputerror)){
         echo"salvestan";
-        savestudio($_POST["genreinput"]);
+        savegenre($_POST["genreinput"]);
     }
 }
 

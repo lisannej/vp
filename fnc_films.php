@@ -186,4 +186,16 @@ function readpositions($sortby, $sortorder) {
 	$conn->close();
 	return $notice;
 } // readpositions lõpeb
+
+function saveposition ($positioninput ){
+    echo"olen siin";
+    $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
+    $GLOBALS["database"] );
+    $stmt = $conn->prepare("INSERT INTO position (position_name) VALUES(?)");
+    echo $conn->error;
+    $stmt->bind_param("s", $positioninput);
+    $stmt->execute ();
+    $stmt->close ();
+    $conn->close ();
+} 
 ?>
