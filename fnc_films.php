@@ -80,61 +80,26 @@ function saveperson ($firstnameinput, $lastnameinput, $birthdayinput ){
     $conn->close ();
 } 
 
-function readquotes($sortby, $sortorder) {
-	$notice = "<p>Kahjuks tsitaate ei leitud!</p> \n";
-	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
-	$SQLsentence = "SELECT first_name, last_name, role, title, quote_text FROM quote JOIN person_in_movie ON quote.person_in_movie_id = person_in_movie.person_in_movie_id JOIN person ON person.person_id = person_in_movie.person_id JOIN movie ON movie.movie_id = person_in_movie.movie_id";
+function readquotes (){
+    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+    //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
+    $stmt = $conn->prepare ("SELECT quote_text FROM quote");
+    echo $conn->error;
+    //seome tulemuse muutujaga
+    $stmt->bind_result ($quotefromdb);
+    $stmt->execute ();
+    $quotehtml = "<ol> \n";
+    while ($stmt->fetch ()) {
+        $quotehtml .= "\t \t <li>".$quotefromdb ."\n";
+        $quotehtml .= "\t \t \t <ul> \n";
+        $quotehtml .= "\t \t </li> \n";
+    } 
+    $quotehtml .= "\t </ol> \n";
 
-	if($sortby == 0 and $sortorder == 0) {
-		$stmt = $conn->prepare($SQLsentence);
-	}
-	if($sortby == 1) {
-	  if($sortorder == 2) {
-		$stmt = $conn->prepare($SQLsentence ." ORDER BY role DESC"); 
-	  }
-	  else {
-		  $stmt = $conn->prepare($SQLsentence ." ORDER BY role"); 
-	  }
-	}
-	if($sortby == 2) {
-	  if($sortorder == 2) {
-		$stmt = $conn->prepare($SQLsentence ." ORDER BY last_name DESC"); 
-	  }
-	  else {
-		  $stmt = $conn->prepare($SQLsentence ." ORDER BY last_name"); 
-	  }
-	}
-	if($sortby == 3) {
-	  if($sortorder == 2) {
-		$stmt = $conn->prepare($SQLsentence ." ORDER BY title DESC"); 
-	  }
-	  else {
-		  $stmt = $conn->prepare($SQLsentence ." ORDER BY title"); 
-	  }
-	}
-	
-	echo $conn->error; // <-- ainult õppimise jaoks!
-	$stmt->bind_result($firstnamefromdb, $lastnamefromdb, $rolefromdb, $titlefromdb, $quotefromdb);
-	$stmt->execute();
-	$lines = "";
-	while($stmt->fetch()) {
-		$lines .= "\t<tr>\n\t\t\t<td>" .'"' .$quotefromdb .'"' ."</td>\n";
-		$lines .= "\t\t\t<td>" .$rolefromdb ."</td>\n";
-		$lines .= "\t\t\t<td>" .$firstnamefromdb . " " .$lastnamefromdb ."</td>\n";
-		$lines .= "\t\t\t<td>" .$titlefromdb ."</td>\n\t\t</tr>\n\t";		
-	}
-	if(!empty($lines)) {
-		$notice = "<table>\n\t\t<tr>\n\t\t\t<th>Tsitaat</th>";
-		$notice .= "\n\t\t\t" .'<th>Roll &nbsp;<a href="?quotesortby=1&quotesortorder=1">&uarr;</a>&nbsp;<a href="?quotesortby=1&quotesortorder=2">&darr;</a></th>';
-		$notice .= "\n\t\t\t" .'<th>Näitleja &nbsp;<a href="?quotesortby=2&quotesortorder=1">&uarr;</a>&nbsp;<a href="?quotesortby=2&quotesortorder=2">&darr;</a></th>';
-		$notice .= "\n\t\t\t" .'<th>Film &nbsp;<a href="?quotesortby=3&quotesortorder=1">&uarr;</a>&nbsp;<a href="?quotesortby=3&quotesortorder=2">&darr;</a></th>' ."\n\t";
-		$notice .= "\t</tr>\n\t" .$lines ."</table>\n";
-	}
-	
-	$stmt->close();
-	$conn->close();
-	return $notice;
-} // readquotes lõpeb
+        $stmt->close ();
+        $conn->close ();
+        return $quotehtml;
+}
 
 function savequote ($quoteinput ){
     echo"olen siin";
