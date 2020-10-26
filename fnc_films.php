@@ -1,6 +1,8 @@
 <?php
 
 $database = "if20_lisanne_ja_1" ;
+$sortby="";
+$sortorder="";
 
 //var_dump ($GLOBALS);
 //funktsionn mis loeb koikide filmide info
