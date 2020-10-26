@@ -14,7 +14,7 @@ $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
     $birthyear=null;
     $birthdate=null;
 
-$personhtml=readpeople();
+$personhtml=readpersons();
 //kui klikiti submit siis
 if(isset($_POST["personsubmit"])){
   echo"tegutsen";
