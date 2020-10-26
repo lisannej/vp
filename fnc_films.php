@@ -9,7 +9,34 @@ $sortorder=0;
 function readfilms (){
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
     //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
-    $stmt = $conn->prepare ("SELECT * FROM film");
+	$SQLsentence= ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja  FROM film ");
+	if($sortby == 0 and $sortorder == 0) {
+		$stmt = $conn->prepare($SQLsentence);
+	}
+	if($sortby == 1) {
+	  if($sortorder == 2) {
+		$stmt = $conn->prepare($SQLsentence ." ORDER BY title DESC"); 
+	  }
+	  else {
+		  $stmt = $conn->prepare($SQLsentence ." ORDER BY title"); 
+	  }
+	}
+	if($sortby == 2) {
+	  if($sortorder == 2) {
+		$stmt = $conn->prepare($SQLsentence ." ORDER BY production_year DESC"); 
+	  }
+	  else {
+		  $stmt = $conn->prepare($SQLsentence ." ORDER BY production_year"); 
+	  }
+	}
+	if($sortby == 3) {
+	  if($sortorder == 2) {
+		$stmt = $conn->prepare($SQLsentence ." ORDER BY duration DESC"); 
+	  }
+	  else {
+		  $stmt = $conn->prepare($SQLsentence ." ORDER BY duration"); 
+	  }
+	}
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($titlefromdb, $yearfromdb, $durationfromdb, $genrefromdb, $studiofromdb, $directorfromdb);
