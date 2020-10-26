@@ -63,7 +63,7 @@ function readfilms (){
 	 }
         $stmt->close ();
       $conn->close ();
-      return $filmhtml;
+      return $notice;
 } //readfilms loppeb
 
 function savefilm ($titleinput, $yearinput, $durationinput, $genreinput, $studioinput, $directorinput ){
