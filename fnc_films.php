@@ -57,7 +57,7 @@ function readfilms (){
 	 if(!empty($lines)){
 		 $notice = "<table> \n" ;
 		 $notice.= "<tr> \n";
-		 $notice.= "<th>Title </th><th>Year </th><th>Duration </th<th>Genre </th><th>Studio </th>" .'<th>Director &nbsp;<a href="?sortby=4&sortorder=1">&uarr;</a> &nbsp;<a href="?sortby=4&sortorder=2">&darr;</a></th>' ."\n";
+		 $notice.= "<th>Title </th><th>Year </th><th>Duration </th><th>Genre </th><th>Studio </th>" .'<th>Director &nbsp;<a href="?sortby=4&sortorder=1">&uarr;</a> &nbsp;<a href="?sortby=4&sortorder=2">&darr;</a></th>' ."\n";
 		$notice.= $lines;
 		$notice.= "</table> \n";
 	 }
