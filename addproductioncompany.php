@@ -7,15 +7,14 @@ require ("fnc_filmrelations.php");
 
 $inputerror=""; 
 
-//kui klikiti submit siis
-if(isset($_POST["quotesubmit"])){
+if(isset($_POST["studiosubmit"])){
   echo"tegutsen";
-    if(empty($_POST["quoteinput"])){
+    if(empty($_POST["studioinput"])){
         $inputerror .="Osa infot on sisestamata! ";
     }
     if(empty($inputerror)){
         echo"salvestan";
-        savequote($_POST["quoteinput"]);
+        savestudio($_POST["studioinput"]);
     }
 }
 
@@ -29,10 +28,10 @@ if(isset($_POST["quotesubmit"])){
   Digitehnoloogiate instituudis.</p>
 
 <form method="POST">
-  <label for="quoteinput"> Lisa tsitaat </label>
-  <input type="text" name="quoteinput" id="quoteinput" placeholder="Tsitaat" >
+  <label for="studioinput"> Lisa stuudio </label>
+  <input type="text" name="studioinput" id="studioinput" placeholder="Stuudio nimi" >
   <br>
-  <input type="submit" name="quotesubmit" value="Salvesta tsitaat">
+  <input type="submit" name="studiosubmit" value="Salvesta stuudio">
 </form>
 <?php echo $inputerror ?>
 

@@ -3,6 +3,7 @@ require ("usesession.php");
 require ("header.php");
 require ("config.php");
 require ("fnc_films.php");
+require ("fnc_filmrelations.php");
 
 $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai",
   "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
