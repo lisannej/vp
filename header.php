@@ -27,6 +27,7 @@
       <td><a href="mote.php">Mõte</a></td>
       <td><a href="motetabel.php">Mõtete tabel</a></td>
       <td><a href="filmlist.php">Filmlist</a></td>
+      <td><a href="adddata.php">Lisa andmeid</a></td>
       <td><a href="addfilms.php">Lisa filme</a></td>
       <td><a href="addperson.php">Lisa tegelasi</a></td>
       <td><a href="addquote.php">Lisa tsitaate</a></td>
