@@ -9,7 +9,7 @@ $inputerror="";
 //$database="if20_lisanne_ja_1" ;
 
 //loen lehele koik olemasolevad tegelased
-//$personhtml=readpeople();
+$quotehtml=readquotes();
 //kui klikiti submit siis
 if(isset($_POST["quotesubmit"])){
   echo"tegutsen";
@@ -35,7 +35,7 @@ if(isset($_POST["quotesubmit"])){
   <label for="quoteinput"> Lisa tsitaat </label>
   <input type="text" name="quoteinput" id="quoteinput" placeholder="Tsitaat" >
   <br>
-  <input type="submit" name="quotesubmit" value="Salvesta tegelase info">
+  <input type="submit" name="quotesubmit" value="Salvesta tsitaat">
 </form>
 <?php echo $inputerror ?>
 
