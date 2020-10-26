@@ -7,26 +7,19 @@
  
  $inputerror=""; 
  //Kui klikiti position submit, siis ...
-  if(isset($_POST["positionsubmit"]))  {
-    $positiondescription = test_input($_POST["positiondescriptioninput"]);
+ $positionhtml=readpositions();
+//kui klikiti submit siis
+if(isset($_POST["positionsubmit"])){
+  echo"tegutsen";
     if(empty($_POST["positioninput"])){
-        $positionerror = "Ameti nimetus sisestamata!";
+        $inputerror .="Osa infot on sisestamata! ";
     }
-    else {
-        $position = test_input($_POST["positioninput"]);
+    if(empty($inputerror)){
+        echo"salvestan";
+        saveposition($_POST["positioninput"]);
     }
-    if(empty($positionerror)){
-        $result = saveposition($position, $positiondescription);
-        if($result == "OK") {
-          $positionnotice = "Ametikoht salvestatud!";
-          $position = "";
-          $positiondescription = "";
-        }
-        else {
-          $positionnotice = $result;
-        }
-    }
-  }
+}
+
   
   ?>
 
