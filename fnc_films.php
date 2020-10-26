@@ -113,34 +113,26 @@ function savequotes ($quoteinput ){
     $conn->close ();
 } 
 
-function readpositions($sortby, $sortorder) {
-	$notice = "<p>Kahjuks ametikohti ei leitud!</p> \n";
-	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
-	$SQLsentence = "SELECT position_name FROM position";
+function readpositions (){
+    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+    //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
+    $stmt = $conn->prepare ("SELECT position_name FROM position");
+    echo $conn->error;
+    //seome tulemuse muutujaga
+    $stmt->bind_result ($positionfromdb);
+    $stmt->execute ();
+    $positionhtml = "<ol> \n";
+    while ($stmt->fetch ()) {
+        $positionhtml .= "\t \t <li>".$positionfromdb ."\n";
+        $positionhtml .= "\t \t \t <ul> \n";
+        $positionhtml .= "\t \t </li> \n";
+    } 
+    $positionhtml .= "\t </ol> \n";
 
-	if($sortby == 0 and $sortorder == 0) {
-		$stmt = $conn->prepare($SQLsentence);
-	}
-	if($sortby == 1) {
-	  if($sortorder == 2) {
-		$stmt = $conn->prepare($SQLsentence ." ORDER BY position_name DESC"); 
-	  }
-	  else {
-		  $stmt = $conn->prepare($SQLsentence ." ORDER BY position_name"); 
-	  }
-	}
-	
-	echo $conn->error; // <-- ainult õppimise jaoks!
-	$stmt->bind_result($namefromdb);
-	$stmt->execute();
-	$lines = "";
-	while($stmt->fetch()) {
-		$lines .= "\t<tr>\n\t\t\t<td>" .$namefromdb ."</td>\n";
-	$stmt->close();
-	$conn->close();
-	return $notice;
-	}
-} // readpositions lõpeb
+        $stmt->close ();
+        $conn->close ();
+        return $positionhtml;
+}
 
 function saveposition ($positioninput ){
     echo"olen siin";
