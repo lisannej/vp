@@ -11,7 +11,7 @@ $filesizelimit=1048576;
 if(isset($_POST["photosubmit"])){
     //var_dump($_POST);
     //var_dump($_FILES);
-    $check = getimagesize(($_FILES["photoinput"]["tmp_name"]);
+    $check = getimagesize(($_FILES["photoinput"]["tmp_name"]));
     if($check!== false){
         if($check["mime"]== "image/jpeg"){
             $filetype="jpg";
@@ -22,19 +22,21 @@ if(isset($_POST["photosubmit"])){
     if($check["mime"]== "image/gif"){
         $filetype="gif";
     }
-} else {
+    } else {
     $inputerror="Valitud fail ei ole pilt! ";
-}
-if(empty($inputerror) and $_FILES["photoinput"]["size"]> $filesizelimit){
-    $inputerror="Liiga suur fail! ";
-}
-if(file_exists("photoupload_orig/" .$_FILES["photoinput"]["name"])){
-    $inputerror="Selle nimega fail on juba olemas! ";
-}
-    if(empty($inputerror)){
-    move_uploaded_file($_FILES["photoinput"]["tmp_name"], "photoupload_orig/" .$_FILES["photoinput"]["name"]);
     }
-}
+    //kontrollime faili suurust
+    if(empty($inputerror) and $_FILES["photoinput"]["size"]> $filesizelimit){
+    $inputerror="Liiga suur fail! ";
+    }
+    //kontrollime kas fail on olemas juba
+    if(file_exists("photoupload_orig/" .$_FILES["photoinput"]["name"])){
+        $inputerror="Selle nimega fail on juba olemas! ";
+    }
+        if(empty($inputerror)){
+        move_uploaded_file($_FILES["photoinput"]["tmp_name"], "photoupload_orig/" .$_FILES["photoinput"]["name"]);
+        }
+    }
 
 ?>
 
