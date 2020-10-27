@@ -24,10 +24,10 @@ if(isset($_POST["photosubmit"])){
     }
     if($check["mime"]== "image/gif"){
         $filetype="gif";
-    }
     } else {
     $inputerror="Valitud fail ei ole pilt! ";
     }
+}
     //kontrollime faili suurust
     if(empty($inputerror) and $_FILES["photoinput"]["size"]> $filesizelimit){
     $inputerror="Liiga suur fail! ";
