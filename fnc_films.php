@@ -141,6 +141,7 @@ function savequotes ($quoteinput){
         $conn = new mysqli ($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"] );
         //valmistan ette SQL kasu
         $stmt = $conn->prepare ("INSERT INTO quote (quote_text) VALUES (?) ");
+        echo "jain toppama";
         echo $conn->error;
         //seome kasuga meie parisandmed
         //i - integer, d- decimal, s - string
