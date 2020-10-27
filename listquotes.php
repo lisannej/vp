@@ -34,8 +34,8 @@ $sortorder=0;
     echo readpersons($sortby, $sortorder);
     echo readpositions($sortby, $sortorder);
     echo readfilms($sortby, $sortorder);
-    echo readgenres($sortby, $sortorder);
-    echo readstudios($sortby, $sortorder);
+    echo readgenre($sortby, $sortorder);
+    echo readstudio($sortby, $sortorder);
 
 
 
