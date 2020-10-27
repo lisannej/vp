@@ -114,6 +114,8 @@ function saveimage($mytempimage, $filetype, $filename){
             $notice = "Vahendatud pildi salvestamisel tekkis viga";
         }
     }
+}
+    }
     return $notice;
 }
     
