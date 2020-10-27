@@ -137,16 +137,17 @@ function readquotes (){
 }
 
 function savequotes ($quoteinput ){
-    echo"olen siin";
-    $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
-    $GLOBALS["database"] );
-    $stmt = $conn->prepare("INSERT INTO quote (quote_text) VALUES(?)");
-    echo $conn->error;
-    $stmt->bind_param("s", $quoteinput);
-    $stmt->execute ();
-    $stmt->close ();
-    $conn->close ();
-} 
+        $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+        //valmistan ette SQL kasu
+        $stmt = $conn->prepare ("INSERT INTO quote (quote_text) VALUES (?) ");
+        echo $conn->error;
+        //seome kasuga meie parisandmed
+        //i - integer, d- decimal, s - string
+        $stmt->bind_param("s", $_POST ["quoteinput"]);
+        $stmt->execute ();
+        $stmt->close ();
+        $conn->close ();
+    }
 
 function readpositions (){
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
