@@ -102,7 +102,7 @@ function readpersons (){
         return $personhtml;
 }
 
-function saveperson ($personinput ){
+function saveperson ($firstnameinput, $lastnameinput, $birthdateinput ){
     echo"olen siin";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
     $GLOBALS["database"] );
