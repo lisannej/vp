@@ -143,7 +143,7 @@ function savequotes ($quoteinput ){
         echo $conn->error;
         //seome kasuga meie parisandmed
         //i - integer, d- decimal, s - string
-        $stmt->bind_param("s", $_POST ["quoteinput"]);
+        $stmt->bind_param("s", $quoteinput);
         $stmt->execute ();
         $stmt->close ();
         $conn->close ();
