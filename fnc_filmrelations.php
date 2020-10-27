@@ -1,4 +1,5 @@
 <?php
+ require "config.php";
  $database = "if20_lisanne_ja_1";
 
  function readpersontoselect($selectedperson){
