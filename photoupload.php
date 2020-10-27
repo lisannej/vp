@@ -46,6 +46,7 @@ if(isset($_POST["photosubmit"])){
         $inputerror="Selle nimega fail on juba olemas! ";
     }
         if(empty($inputerror)){
+            $target = $photouploaddir_orig
             //muudame suurust
             //loome pikslikogumi, pildi objekti
             if($filetype=="jpg"){
@@ -115,7 +116,7 @@ function saveimage($mytempimage, $filetype, $filename){
     }
     return $notice;
 }
-    }
+    
 ?>
 
 
