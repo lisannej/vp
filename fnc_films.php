@@ -107,6 +107,7 @@ function saveperson ($firstnameinput, $lastnameinput, $birthdateinput ){
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], 
     $GLOBALS["database"] );
     $stmt = $conn->prepare("INSERT INTO person (first_name, last_name, birth_date) VALUES(?,?,?)");
+    echo "toppan";
     echo $conn->error;
     $stmt->bind_param("ssi", $firstnameinput, $lastnameinput, $birthdateinput);
     $stmt->execute ();
