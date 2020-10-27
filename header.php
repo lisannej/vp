@@ -32,6 +32,7 @@
       <td><a href="listfilmpersons.php">Filmitegelased</a></td>
       <td><a href="listquotes.php">Filmi tsitaadid</a></td>
       <td><a href="userprofile.php">Minu kasutajaprofiil</a></td>
+      <td><a href="photoupload.php">Piltide üleslaadimine</a></td>
 
     </tr>
   </table>
