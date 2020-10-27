@@ -4,8 +4,9 @@ require ("header.php");
 require ("config.php");
 
 $inputerror=""; 
-$filetype="";
+$filetype=null;
 $filesizelimit=1048576;
+$photouploaddir_orig= "photoupload_orig/";
 
 //kui klikiti submit siis
 if(isset($_POST["photosubmit"])){
@@ -30,11 +31,11 @@ if(isset($_POST["photosubmit"])){
     $inputerror="Liiga suur fail! ";
     }
     //kontrollime kas fail on olemas juba
-    if(file_exists("photoupload_orig/" .$_FILES["photoinput"]["name"])){
+    if(file_exists($photouploaddir_orig .$_FILES["photoinput"]["name"])){
         $inputerror="Selle nimega fail on juba olemas! ";
     }
         if(empty($inputerror)){
-        move_uploaded_file($_FILES["photoinput"]["tmp_name"], "photoupload_orig/" .$_FILES["photoinput"]["name"]);
+        move_uploaded_file($_FILES["photoinput"]["tmp_name"], $photouploaddir_orig .$_FILES["photoinput"]["name"]);
         }
     }
 
