@@ -137,6 +137,7 @@ function readquotes (){
 }
 
 function savequotes ($quoteinput ){
+        echo "olen siin!!!";
         $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
         //valmistan ette SQL kasu
         $stmt = $conn->prepare ("INSERT INTO quote (quote_text) VALUES (?) ");
