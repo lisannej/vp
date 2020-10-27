@@ -4,6 +4,7 @@ require ("header.php");
 require ("config.php");
 require ("fnc_films.php");
 require ("fnc_filmrelations.php");
+require ("fnc_readinfo.php");
 
 $database = "if20_lisanne_ja_1" ;
 //loen lehele koik olemasolevad motted
@@ -30,6 +31,13 @@ $sortorder=0;
         }
     }
     echo readquotes($sortby, $sortorder);
+    echo readpersonsinfilm($sortby, $sortorder);
+    echo readpositions($sortby, $sortorder);
+    echo readfilms($sortby, $sortorder);
+    echo readgenres($sortby, $sortorder);
+    echo readstudios($sortby, $sortorder);
+
+
 
 ?>
 </body>
