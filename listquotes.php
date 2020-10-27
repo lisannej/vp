@@ -31,7 +31,7 @@ $sortorder=0;
         }
     }
     echo readquotes($sortby, $sortorder);
-    echo readpersonsinfilm($sortby, $sortorder);
+    echo readpersons($sortby, $sortorder);
     echo readpositions($sortby, $sortorder);
     echo readfilms($sortby, $sortorder);
     echo readgenres($sortby, $sortorder);
