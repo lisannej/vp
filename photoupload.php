@@ -1,14 +1,14 @@
 <?php
   require("usesession.php");
 
-  require("../../../../config_vp2020.php");
+  require("config.php");
     
   $inputerror = "";
   $notice = null;
   $filetype = null;
   $filesizelimit = 1048576;
-  $photouploaddir_orig = "../photoupload_orig/";
-  $photouploaddir_normal = "../photoupload_normal/";
+  $photouploaddir_orig = "photoupload_orig/";
+  $photouploaddir_normal = "photoupload_normal/";
   $filenameprefix = "vp_";
   $filename = null;
   $photomaxwidth = 600;
