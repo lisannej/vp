@@ -292,7 +292,7 @@ function storenewpositionrelation ($selectedperson, $selectedposition){
 	$conn->close();
 	return $notice;
 } 
-function readpersonsinfilm($sortby, $sortorder){
+/*function readpersonsinfilm($sortby, $sortorder){
 	$notice = "<p>Kahjuks tegelasi ei leitud!</p> \n";
 	 $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 	 $SQLsentence= "SELECT first_name, last_name, role, title FROM person JOIN person_in_movie ON person.person_id = person_in_movie.person_id JOIN movie ON movie.movie_id = person_in_movie.movie_id
@@ -330,5 +330,5 @@ function readpersonsinfilm($sortby, $sortorder){
  	$conn->close();
  	return $notice;
  
-}
+}*/
 
