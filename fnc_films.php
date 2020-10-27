@@ -1,8 +1,6 @@
 <?php
 
 $database = "if20_lisanne_ja_1" ;
-$sortby=0;
-$sortorder=0;
 
 //var_dump ($GLOBALS);
 //funktsionn mis loeb koikide filmide info
@@ -10,8 +8,6 @@ function readfilms (){
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
     //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
 	$SQLsentence= ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja  FROM film ");
-	$sortby=0;
-	$sortorder=0;
 	if($sortby == 0 and $sortorder == 0) {
 		$stmt = $conn->prepare($SQLsentence);
 	}
