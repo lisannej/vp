@@ -1,6 +1,6 @@
 <?php
 
-/*$database = "if20_lisanne_ja_1" ;
+$database = "if20_lisanne_ja_1" ;
 
 //var_dump ($GLOBALS);
 //funktsionn mis loeb koikide filmide info
@@ -244,5 +244,5 @@ function savegenre ($genreinput ){
     $stmt->execute ();
     $stmt->close ();
     $conn->close ();
-} */
+} 
 ?>

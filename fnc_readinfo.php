@@ -1,5 +1,5 @@
 <?php
-  $database = "if20_lisanne_ja_1";
+  /*$database = "if20_lisanne_ja_1";
   
   function readpersonsinfilm($sortby, $sortorder) {
 	  $notice = "<p>Kahjuks filmitegelasi seoses filmidega ei leitud!</p> \n";
@@ -382,4 +382,4 @@ function readpositions($sortby, $sortorder) {
 	$stmt->close();
 	$conn->close();
 	return $notice;
-} // readpositions lõpeb
+} /* readpositions lõpeb
