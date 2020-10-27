@@ -7,19 +7,19 @@ require ("fnc_filmrelations.php");
 
 $inputerror=""; 
 
-$quotehtml=readquotes();
+
+ //Kui klikiti position submit, siis ...
+ $quotehtml=readquotes();
 //kui klikiti submit siis
-if(isset($_POST["quotesubmit"]) and !empty($_POST ["quoteinput"])){
-  $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
-  //valmistan ette SQL kasu
-  $stmt = $conn->prepare ("INSERT INTO quote (quote_text) VALUES (?) ");
-  echo $conn->error;
-  //seome kasuga meie parisandmed
-  //i - integer, d- decimal, s - string
-  $stmt->bind_param("s", $_POST ["quoteinput"]);
-  $stmt->execute ();
-  $stmt->close ();
-  $conn->close ();
+if(isset($_POST["quotesubmit"])){
+  echo"tegutsen";
+    if(empty($_POST["quoteinput"])){
+        $inputerror .="Osa infot on sisestamata! ";
+    }
+    if(empty($inputerror)){
+        echo"salvestan";
+        savequote($_POST["quoteinput"]);
+    }
 }
 
 ?>
