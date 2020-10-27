@@ -7,7 +7,7 @@ require ("fnc_filmrelations.php");
 
 $inputerror=""; 
 
-$quoteshtml=readquotes();
+$quotehtml=readquotes();
 //kui klikiti submit siis
 if(isset($_POST["quotesubmit"])){
   echo"tegutsen";
