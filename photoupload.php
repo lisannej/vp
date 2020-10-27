@@ -32,6 +32,7 @@ if(isset($_POST["photosubmit"])){
     $inputerror="Valitud fail ei ole pilt! ";
     }
 }
+}
     //kontrollime faili suurust
     if(empty($inputerror) and $_FILES["photoinput"]["size"]> $filesizelimit){
     $inputerror="Liiga suur fail! ";
@@ -75,32 +76,46 @@ if(isset($_POST["photosubmit"])){
                 //kirjutame jarelejaavad pikslid uuele pildile
                 imagecopyresampled($mynewtempimage, $mytempimage, 0, 0, 0, 0, $neww, $newh, $imagew, $imageh);
                 //salvestame faili
-                if($filetype=="jpg"){
-                    if(imagejpeg($mynewtempimage, $photouploaddir_normal .$filename, 90)){
-                        $notice = "Vahendatud pildi salvestamine onnestus!";
-                    } else {
-                        $notice = "Vahendatud pildi salvestamisel tekkis viga";
-                    }
-                if($filetype=="png"){
-                    if(imagepng($mynewtempimage, $photouploaddir_normal .$filename, 6)){
-                        $notice = "Vahendatud pildi salvestamine onnestus!";
-                    } else {
-                        $notice = "Vahendatud pildi salvestamisel tekkis viga";
-                    }
-                if($filetype=="gif"){
-                    if(imagegif($mynewtempimage, $photouploaddir_normal .$filename)){
-                        $notice = "Vahendatud pildi salvestamine onnestus!";
-                    } else {
-                        $notice = "Vahendatud pildi salvestamisel tekkis viga";
-                    }
-                }
+               
+            //kui pole vaja muuta suurust
+            } else {
+                $notice = saveimage ($mytempimage, $filetype);
+            }
+                imagedestroy($mynewtempimage);
             
-            }
-        move_uploaded_file($_FILES["photoinput"]["tmp_name"], $photouploaddir_orig .$filename);
+        if(move_uploaded_file($_FILES["photoinput"]["tmp_name"], $photouploaddir_orig .$filename)){
+            $notice .= "Originaalpildi salvestamine onnestus! ";
+
+        }else {
+            $notice .= "Originaalpildi salvestamisel tekkis viga! ";
         }
-            }
+        }
+            
+
+function saveimage($mytempimage, $filetype, $filename){
+    $notice = null;
+    if($filetype=="jpg"){
+        if(imagejpeg($mynewtempimage, $photouploaddir_normal .$filename, 90)){
+            $notice = "Vahendatud pildi salvestamine onnestus!";
+        } else {
+            $notice = "Vahendatud pildi salvestamisel tekkis viga";
+        }
+    if($filetype=="png"){
+        if(imagepng($mynewtempimage, $photouploaddir_normal .$filename, 6)){
+            $notice = "Vahendatud pildi salvestamine onnestus!";
+        } else {
+            $notice = "Vahendatud pildi salvestamisel tekkis viga";
+        }
+    if($filetype=="gif"){
+        if(imagegif($mynewtempimage, $photouploaddir_normal .$filename)){
+            $notice = "Vahendatud pildi salvestamine onnestus!";
+        } else {
+            $notice = "Vahendatud pildi salvestamisel tekkis viga";
+        }
     }
+    return $notice;
 }
+    }
 ?>
 
 
