@@ -76,7 +76,7 @@
 			//arvutame uued mõõdud
 			$neww = round($imagew / $photosizeratio);
 			$newh = round($imageh / $photosizeratio);
-			//teeme uue piklikogumi
+			//teeme uue pikslikogumi
 			$mynewtempimage = imagecreatetruecolor($neww, $newh);
 			//kirjutame järelejäävad piksid uuele pildile
 			imagecopyresampled($mynewtempimage, $mytempimage, 0, 0, 0, 0, $neww, $newh, $imagew, $imageh);
