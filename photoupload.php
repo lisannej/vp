@@ -51,79 +51,56 @@
 	
 	//kui vigu pole ...
 	if(empty($inputerror)){
-		$target = $photouploaddir_normal .$filename;
-		//muudame suurust
-		//loome pikslikogumi, pildi objekti
-		if($filetype == "jpg"){
-			$mytempimage = imagecreatefromjpeg($_FILES["photoinput"]["tmp_name"]);
+		//võtame kasutusele klassi
+		$myphoto = new Photoupload($_FILES["photoinput"], $filetype);
+		//teeme pildi väiksemaks
+		$myphoto->resizePhoto($photomaxwidth, $photomaxheight, true);
+		//lisame vesimärgi
+		$myphoto->addWatermark($watermark);
+		//salvestame vähendatud pildi
+		$result = $myphoto->saveimage($photouploaddir_normal .$filename);
+		if($result == 1){
+			$notice .= " Vähendatud pildi salvestamine õnnestus!";
+		} else {
+			$inputerror .= " Vähendatud pildi salvestamisel tekkis tõrge!";
 		}
-		if($filetype == "png"){
-			$mytempimage = imagecreatefrompng($_FILES["photoinput"]["tmp_name"]);
-		}
-		if($filetype == "gif"){
-			$mytempimage = imagecreatefromgif($_FILES["photoinput"]["tmp_name"]);
-		}
-		//teeme kindlaks originaalsuuruse
-		$imagew = imagesx($mytempimage);
-		$imageh = imagesy($mytempimage);
 		
-		if($imagew > $photomaxwidth or $imageh > $photomaxheight){
-			if($imagew / $photomaxwidth > $imageh / $photomaxheight){
-				$photosizeratio = $imagew / $photomaxwidth;
+		//teeme pisipildi
+		$myphoto->resizePhoto($thumbsize, $thumbsize);
+		$result = $myphoto->saveimage($photouploaddir_thumb .$filename);
+		if($result == 1){
+			$notice .= " Pisipildi salvestamine õnnestus!";
+		} else {
+			$inputerror .= "Pisipildi salvestamisel tekkis tõrge!";
+		}
+		//eemaldan klassi
+		unset($myphoto);
+		
+		//salvestame originaalpildi
+		if(empty($inputerror)){
+			if(move_uploaded_file($_FILES["photoinput"]["tmp_name"], $photouploaddir_orig .$filename)){
+				$notice .= " Originaalfaili üleslaadimine õnnestus!";
 			} else {
-				$photosizeratio = $imageh / $photomaxheight;
+				$inputerror .= " Originaalfaili üleslaadimisel tekkis tõrge!";
 			}
-			//arvutame uued mõõdud
-			$neww = round($imagew / $photosizeratio);
-			$newh = round($imageh / $photosizeratio);
-			//teeme uue pikslikogumi
-			$mynewtempimage = imagecreatetruecolor($neww, $newh);
-			//kirjutame järelejäävad piksid uuele pildile
-			imagecopyresampled($mynewtempimage, $mytempimage, 0, 0, 0, 0, $neww, $newh, $imagew, $imageh);
-			//salvestame
-			$notice = saveimage($mynewtempimage, $filetype, $target);
-			imagedestroy($mynewtempimage);
-		} else {
-			//kui pole suurust vaja muuta
-			$notice = saveimage($mytempimage, $filetype, $target);
 		}
-		imagedestroy($mytempimage);
 		
-		if(move_uploaded_file($_FILES["photoinput"]["tmp_name"], $photouploaddir_orig .$filename)){
-			$notice .= "Originaalpildi salvestamine õnnestus!";
+		if(empty($inputerror)){
+			$result = storePhotoData($filename, $alttext, $privacy);
+			if($result == 1){
+				$notice .= " Pildi info lisati andmebaasi!";
+				$privacy = 1;
+				$alttext = null;
+			} else {
+				$inputerror .= "Pildi info andmebaasi salvestamisel tekkis tõrge!";
+			}
 		} else {
-			$notice .= "Originaalpildi salvestamisel tekkis tõrge!";
+			$inputerror .= " Tekkinud vigade tõttu pildi andmeid ei salvestatud!";
 		}
+		
 	}
   }
   
-  function saveimage($mynewtempimage, $filetype, $target){
-		$notice = null;
-		//salvestame faili
-		if($filetype == "jpg"){
-			if(imagejpeg($mynewtempimage, $target, 90)){
-				$notice = "Vähendatud pildi salvestamine õnnestus! ";
-			} else {
-				$notice = "Vähendatud pildi salvestamisel tekkis tõrge! ";
-			}
-		}
-		if($filetype == "png"){
-			if(imagepng($mynewtempimage, $target, 6)){
-				$notice = "Vähendatud pildi salvestamine õnnestus! ";
-			} else {
-				$notice = "Vähendatud pildi salvestamisel tekkis tõrge! ";
-			}
-		}
-		if($filetype == "gif"){
-			if(imagegif($mynewtempimage, $target)){
-				$notice = "Vähendatud pildi salvestamine õnnestus! ";
-			} else {
-				$notice = "Vähendatud pildi salvestamisel tekkis tõrge! ";
-			}
-		}
-		//imagedestroy($mynewtempimage);
-		return $notice;
-  }
   
   require("header.php");
 ?>
