@@ -2,17 +2,25 @@
   require("usesession.php");
 
   require("config.php");
+  require("fnc_photo.php");
+  require("fnc_common.php");
+  require("Photoupload_class.php");
     
   $inputerror = "";
   $notice = null;
   $filetype = null;
-  $filesizelimit = 1048576;
+  $filesizelimit = 2097152;
   $photouploaddir_orig = "photoupload_orig/";
   $photouploaddir_normal = "photoupload_normal/";
+  $photouploaddir_thumb = "../photoupload_thumb/";
+  $watermark = "../img/vp_logo_w100_overlay.png";
   $filenameprefix = "vp_";
   $filename = null;
   $photomaxwidth = 600;
   $photomaxheight = 400;
+  $thumbsize = 100;
+  $privacy = 1;
+  $alttext = null;
     
   //kui klikiti submit, siis ...
   if(isset($_POST["photosubmit"])){

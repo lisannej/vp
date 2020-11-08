@@ -1,5 +1,5 @@
 <?php
-	$database = "if20_rinde_1";
+	$database = "if20_lisanne_ja_1";
 	
 	function storePhotoData($filename, $alttext, $privacy){
 		$notice = null;
