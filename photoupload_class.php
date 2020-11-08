@@ -9,9 +9,6 @@
         private $photouploaddir_normal = "photoupload_normal/";
         private $photouploaddir_thumb = "photoupload_thumb/";
         private $watermark = "IMG/vp_logo_w100_overlay.png";
-        private $filenameprefix = "vp_";
-        private $filename;
-        private $filetype = null;
 		
 		function __construct(/*$photoinput, $filetype*/){
             //$this->photoinput = $photoinput;
@@ -65,7 +62,7 @@
             return file_exists($photouploaddir_orig .$filename["name"]);
         }
 
-        public function createName(){
+        public function createName($filenameprefix, $filetype){
             $timestamp = microtime(1) * 10000;
             $filename = $filenameprefix .$timestamp ."." .$filetype;
             return $filename;

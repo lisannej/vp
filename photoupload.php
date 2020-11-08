@@ -8,7 +8,8 @@
   $inputerror = "";
   $notice = null;
   $filetype = null;
-  
+  $filenameprefix = "vp_";
+  $filetype = null;
   $file = $_FILES["photoinput"];
   $filename = null;
   $photomaxwidth = 600;
@@ -37,7 +38,7 @@
 	}
 
 	// saame failile nime
-	$filename = $myphoto->createName();
+	$filename = $myphoto->createName($filenameprefix, $filetype);
 	if(empty($filename)){
 		$inputerror .= "Faili nimetamine ebaonnestus! ";
 	}
