@@ -11,6 +11,7 @@
         private $watermark = "IMG/vp_logo_w100_overlay.png";
         private $filenameprefix = "vp_";
         private $filename;
+        private $filetype = null;
 		
 		function __construct(/*$photoinput, $filetype*/){
             //$this->photoinput = $photoinput;
