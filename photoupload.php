@@ -12,7 +12,7 @@
   $photouploaddir_orig = "photoupload_orig/";
   $photouploaddir_normal = "photoupload_normal/";
   $photouploaddir_thumb = "../photoupload_thumb/";
-  $watermark = "../img/vp_logo_w100_overlay.png";
+  $watermark = "../IMG/vp_logo_w100_overlay.png";
   $filenameprefix = "vp_";
   $filename = null;
   $photomaxwidth = 600;
