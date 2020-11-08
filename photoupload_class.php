@@ -39,13 +39,13 @@
             $fileInfo = getImagesize($file["tmp_name"]);
 		    if(in_array($fileInfo["mime"], $photoFileTypes)){
                 if($fileInfo["mime"] == "image/jpeg"){
-                    $filetype = "jpg";
+                    $photofiletype = "jpg";
                 }
                 elseif($fileInfo["mime"] == "image/png"){
-                    $filetype = "png";
+                    $photofiletype = "png";
                 }
                 elseif($fileInfo["mime"] == "image/gif"){
-                    $filetype = "gif";
+                    $photofiletype = "gif";
                 }
                 return TRUE;
             }
