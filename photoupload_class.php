@@ -38,7 +38,7 @@
         
         public function isImage($file){
             $photoFileTypes = ["image/jpeg", "image/png", "image/gif"];
-            $fileInfo = getImagesize($file);
+            $fileInfo = getImagesize($file["tmp_name"]);
 		    if(in_array($fileInfo["mime"], $photoFileTypes)){
                 if($check["mime"] == "image/jpeg"){
                     $filetype = "jpg";
