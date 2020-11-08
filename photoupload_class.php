@@ -3,13 +3,21 @@
 		private $photoinput;
 		private $photofiletype;
 		private $mytempimage;
-		private $mynewtempimage;
+        private $mynewtempimage;
+        private $filesizelimit = 2097152;
+        private $photouploaddir_orig = "photoupload_orig/";
+        private $photouploaddir_normal = "photoupload_normal/";
+        private $photouploaddir_thumb = "photoupload_thumb/";
+        private $watermark = "IMG/vp_logo_w100_overlay.png";
+        private $filenameprefix = "vp_";
+        private $filename;
 		
-		function __construct($photoinput, $filetype){
-			$this->photoinput = $photoinput;
-			//var_dump($this->photoinput);
-			$this->photofiletype = $filetype;
-			$this->createImageFromFile();
+		function __construct(/*$photoinput, $filetype*/){
+            //$this->photoinput = $photoinput;
+            //var_dump($this->photoinput);
+            //$this->photofiletype = $filetype;
+            //$this->createImageFromFile();
+			
 		}//construct
 		
 		function __destruct(){
@@ -26,7 +34,41 @@
 			if($this->photofiletype == "gif"){
 				$this->mytempimage = imagecreatefromgif($this->photoinput["tmp_name"]);
 			}
-		}
+        }
+        
+        public function isImage($file){
+            $photoFileTypes = ["image/jpeg", "image/png", "image/gif"];
+            $fileInfo = getImagesize($file);
+		    if(in_array($fileInfo["mime"], $photoFileTypes)){
+                if($check["mime"] == "image/jpeg"){
+                    $filetype = "jpg";
+                }
+                elseif($check["mime"] == "image/png"){
+                    $filetype = "png";
+                }
+                elseif($check["mime"] == "image/gif"){
+                    $filetype = "gif";
+                }
+                return TRUE;
+            }
+            else{
+                return FALSE;
+            }
+        }
+
+        public function isAllowedSize($file){
+            return ($file["size"] > $filesizelimit);
+        }
+
+        public function alreadyExists($filename){
+            return file_exists($photouploaddir_orig .$filename["name"]);
+        }
+
+        public function createName(){
+            $timestamp = microtime(1) * 10000;
+            $filename = $filenameprefix .$timestamp ."." .$filetype;
+            return $filename;
+        }
 		
 		public function resizePhoto($w, $h, $keeporigproportion = true){
 			$imagew = imagesx($this->mytempimage);
