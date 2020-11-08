@@ -11,7 +11,7 @@
   $filesizelimit = 2097152;
   $photouploaddir_orig = "photoupload_orig/";
   $photouploaddir_normal = "photoupload_normal/";
-  $photouploaddir_thumb = "../photoupload_thumb/";
+  $photouploaddir_thumb = "photoupload_thumb/";
   $watermark = "IMG/vp_logo_w100_overlay.png";
   $filenameprefix = "vp_";
   $filename = null;
