@@ -10,7 +10,7 @@
   $filetype = null;
   $filenameprefix = "vp_";
   $filetype = null;
-  $file = $_FILES["photoinput"];
+  
   $filename = null;
   $photomaxwidth = 600;
   $photomaxheight = 400;
@@ -23,7 +23,7 @@
 	//var_dump($_POST);
 	//var_dump($_FILES);
 	//kas on pilt ja mis tüüpi
-
+	$file = $_FILES["photoinput"];
 	//võtame kasutusele klassi
 	$myphoto = new Photoupload();
 	// kas on uldse pilt ja sobiva suurusega
