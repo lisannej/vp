@@ -1,10 +1,9 @@
 <?php
-  require("usesession.php");
-
-  require("config.php");
-  require("fnc_photo.php");
-  require("fnc_common.php");
-  require("Photoupload_class.php");
+  require ("usesession.php");
+  require ("config.php");
+  require ("fnc_photo.php");
+  require ("fnc_common.php");
+  require ("Photoupload_class.php");
     
   $inputerror = "";
   $notice = null;
