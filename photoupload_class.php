@@ -22,7 +22,7 @@
 			imagedestroy($this->mytempimage);
 		}
 		
-		private function createImageFromFile(){
+		public function createImageFromFile(){
 			if($this->photofiletype == "jpg"){
 				$this->mytempimage = imagecreatefromjpeg($this->photoinput["tmp_name"]);
 			}

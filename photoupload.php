@@ -43,6 +43,9 @@
 		$inputerror .= "Faili nimetamine ebaonnestus! ";
 	}
 
+	// loon klassi temp faili
+	$myphoto->createImageFromFile();
+
 	//teeme pildi väiksemaks
 	if(empty($inputerror)){
 		$myphoto->resizePhoto($photomaxwidth, $photomaxheight, true);
