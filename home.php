@@ -15,6 +15,8 @@ session_start();
      $lastvisitor = "<p>Viimane kulastaja pole teada.</p> \n";
    }
   
+  //kupsise kustutamiseks
+  //kustutamiseks tuleb sama kupsis kirjutada minevikus aegumistahtajaga nt time() - 3600
   
    require ("header.php");
 
