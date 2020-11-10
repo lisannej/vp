@@ -11,7 +11,8 @@
   $photouploaddir_orig = "../photoupload_orig/";
   $photouploaddir_normal = "../photoupload_normal/";
   $photouploaddir_thumb = "../photoupload_thumb/";
-  $filename = null;
+  $publicphotothumbshtml= readPublicPhotoThumbs(2);
+  
   
   require("header.php");
 ?>
@@ -19,14 +20,14 @@
   <p>See veebileht on loodud õppetöö kaigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
   <p>See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis.</p>
   
-  <ul>
-    <li><a href="?logout=1">Logi välja</a>!</li>
-    <li><a href="home.php">Avaleht</a></li>
-  </ul>
+
   
   <hr>
   <h2>Fotogalerii</h2>
-  </p>
+  <?php 
+  echo $publicphotothumbshtml;
+  ?>
+
   
 </body>
 </html>
