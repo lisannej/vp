@@ -21,7 +21,7 @@
 	function readPublicPhotoThumbs($privacy){
 		$photohtml= null;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
-		$stmt = $conn->prepare ("SELECT filename, alttext FROM vpphotos privacy>=? AND deleted IS NULL");
+		$stmt = $conn->prepare ("SELECT filename, alttext FROM vpphotos WHERE privacy>=? AND deleted IS NULL");
 		echo $conn->error;
 		$stmt->bind_param("i", $privacy);
 		$stmt->bind_result($filenamefromdb, $alttextfromdb);
