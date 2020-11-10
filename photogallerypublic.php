@@ -4,7 +4,9 @@
   SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
   require ("config.php");
   require ("fnc_photo.php");
-    
+
+  $tolink='<link rel="stylesheet" type="text/css" href="style/gallery.css">'."\n";
+
   
   $notice = null;
   $filenameprefix = "vp_";
