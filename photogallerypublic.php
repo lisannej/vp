@@ -11,7 +11,14 @@
   $photouploaddir_orig = "../photoupload_orig/";
   $photouploaddir_normal = "../photoupload_normal/";
   $photouploaddir_thumb = "../photoupload_thumb/";
-  $publicphotothumbshtml= readPublicPhotoThumbs(2);
+  $gallerypagelimit= 3;
+  $page = 1;
+  $photocount= countPublicPhotos(2);
+  if(isset($_GET["page"])){
+	  $page=$_GET["page"];
+  }
+  //$publicphotothumbshtml= readPublicPhotoThumbs(2);
+  $publicphotothumbshtml= readPublicPhotoThumbsPage(2, $gallerypagelimit, $page);
   
   
   require("header.php");
@@ -24,6 +31,19 @@
   
   <hr>
   <h2>Fotogalerii</h2>
+  <p>
+  <?php
+  if($page>1){
+	echo '<span><a href"?page='.($page - 1) .' ">Eelmine leht</a></span> |'."\n";
+  }else { 
+	  echo '<span>Eelmine leht</a></span> |'."\n";
+  }
+  if($page * $gallerypagelimit< $photocount){
+	echo '<span><a href"?page='.($page + 1) .' ">Jargmine leht</a></span> '."\n";
+  }else{
+	'<span>Jargmine leht</a></span> '."\n";
+  }
+  ?>
   <?php 
   echo $publicphotothumbshtml;
   ?>
