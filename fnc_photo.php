@@ -20,6 +20,7 @@
 
 	function readPublicPhotoThumbs($privacy){
 		$photohtml= null;
+		$notice= null;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 		$stmt = $conn->prepare ("SELECT filename, alttext FROM vpphotos WHERE privacy>=? AND deleted IS NULL");
 		echo $conn->error;
