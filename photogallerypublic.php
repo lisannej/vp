@@ -14,7 +14,10 @@
   $gallerypagelimit= 3;
   $page = 1;
   $photocount= countPublicPhotos(2);
-  if(isset($_GET["page"])){
+  if(isset($_GET["page"])or $_GET["page]"<1]){
+	  $page=1;
+  }elseif(round($_GET["page"]-1)* $gallerypagelimit>= $photocount){
+	  $page= ceil($photocount/$gallerypagelimit);
 	  $page=$_GET["page"];
   }
   //$publicphotothumbshtml= readPublicPhotoThumbs(2);
