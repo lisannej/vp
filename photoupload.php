@@ -12,7 +12,9 @@
   $filetype = null;
   $filenameprefix = "vp_";
   $filetype = null;
-  
+  $photouploaddir_orig = "../photoupload_orig/";
+  $photouploaddir_normal = "../photoupload_normal/";
+  $photouploaddir_thumb = "../photoupload_thumb/";
   $filename = null;
   $photomaxwidth = 600;
   $photomaxheight = 400;

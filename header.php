@@ -33,6 +33,7 @@
       <td><a href="listquotes.php">Filmi tsitaadid</a></td>
       <td><a href="userprofile.php">Minu kasutajaprofiil</a></td>
       <td><a href="photoupload.php">Piltide üleslaadimine</a></td>
+      <td><a href="photogallerypublic.php">Piltide galerii</a></td>
 
     </tr>
   </table>
