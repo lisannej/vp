@@ -1,6 +1,6 @@
 <?php
   //session_start();
-  require ("classes/sessionmanager_class.php");
+  require ("sessionmanager_class.php");
   SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
 
   //kas on sessioon olemas
