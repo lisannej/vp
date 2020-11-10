@@ -1,5 +1,6 @@
 <?php
-  require ("usesession.php");
+  require ("classes/sessionmanager_class.php");
+  SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
   require ("config.php");
   require ("fnc_photo.php");
   require ("fnc_common.php");

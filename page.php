@@ -1,6 +1,7 @@
 <?php
   //kaivitan sessiooni
-  session_start();
+  require ("classes/sessionmanager_class.php");
+  SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
