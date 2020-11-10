@@ -4,18 +4,21 @@
 
 session_start();
 
-   //kui pole sisseloginud
-   if(!isset($_SESSION["userid"])){
- 	  //jõugu sisselogimise lehele
- 	  header("Location: page.php");
+   //tegelen kupsistega
+   //setcookie see funktsioon peab olema enne HTML
+   //kupsise nimi, vaartus, aegumistahtaeg, faili tee (domeeni piires), domeen, https kasutamine
+   setcookie("vpvisitorname", $_SESSION["userfirstname"] ." ".$_SESSION["userlastname"], time()+(8400 * 8), "~/lisajar/", "greeny.cs.tlu.ee",isset($_SERVER["HTTPS"]),true );
+   $lastvisitor= null;
+   if(isset($_COOKIE["vpvisitorname"])){
+     $lastvisitor= "<p>Viimati kulastas lehte:" .$_COOKIE["vpvisitorname"] .".</p> \n";
+   } else {
+     $lastvisitor = "<p>Viimane kulastaja pole teada.</p> \n";
    }
-   //väljalogimine
-   if(isset($_GET["logout"])){
- 	  session_destroy();
- 	   header("Location: page.php");
- 	   exit();
-   }
-  require ("header.php");
+  
+  
+   require ("header.php");
+
+
   //annan ette lubatud piltivormingute loendi
   $picfiletypes = ["image/jpeg", "image/png"];
   // loeme piltide kataloogi sisu ja naitame pilte
@@ -53,9 +56,12 @@ session_start();
   <p> See konkreetne leht on loodud veebiprogrammeerimise kursusel aasta 2020 sügissemestril <a href="https://www.tlu.ee">Tallinna Ülikooli </a> 
   Digitehnoloogiate instituudis.</p>
   
+  <h3> Viimane kulastaja sellest arvutist</h3>
+
   
-  
-  <?php echo $imghtml ; ?>
+  <?php echo $lastvisitor;
+  echo $imghtml ; 
+  ?>
   
   
 </body>
