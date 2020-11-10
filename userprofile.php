@@ -13,7 +13,7 @@
  	   exit();
    }
 
-   //loeme andmebaasi login ifo muutujad
+   //loeme andmebaasi login info muutujad
    require ("config.php");
    require ("fnc_user.php");
 
