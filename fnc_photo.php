@@ -76,8 +76,8 @@
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 		$stmt = $conn->prepare("SELECT COUNT (vpphotos_id) FROM vpphotos WHERE privact>=? AND deleted IS NULL");
 		echo $conn->error;
-		$stmt = bind_param("i", $privacy);
-		$stmt = bind_result($result);
+		$stmt ->bind_param("i", $privacy);
+		$stmt ->bind_result($result);
 		if($stmt->fetch()){
 			$photocount = 0;
 		}
