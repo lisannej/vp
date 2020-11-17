@@ -6,7 +6,8 @@
   require ("fnc_photo.php");
   require ("fnc_common.php");
   require ("photoupload_class.php");
-    
+	
+  $tolink = '<script src="javascript/checkfilesize.js" defer></script> ."\n"';
   $inputerror = "";
   $notice = null;
   $filetype = null;
