@@ -106,7 +106,7 @@
   }
   //annan ette lubatud piltivormingute loendi
   $picfiletypes = ["image/jpeg", "image/png"];
-  $privacy=2;
+  $privacy=3;
   $photohtml= null;
 		$notice= null;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
