@@ -4,17 +4,18 @@
 		private $photofiletype;
 		private $mytempimage;
         private $mynewtempimage;
-        private $filesizelimit = 2097152;
+		
+		private $filesizelimit = 2097152;
         private $photouploaddir_orig = "photoupload_orig/";
         private $photouploaddir_normal = "photoupload_normal/";
         private $photouploaddir_thumb = "photoupload_thumb/";
         private $watermark = "IMG/vp_logo_w100_overlay.png";
 		
 		function __construct(/*$photoinput, $filetype*/){
-            //$this->photoinput = $photoinput;
+            $this->photoinput = $photoinput;
             //var_dump($this->photoinput);
-            //$this->photofiletype = $filetype;
-            //$this->createImageFromFile();
+            $this->photofiletype = $filetype;
+            $this->createImageFromFile();
 			
 		}//construct
 		
