@@ -13,6 +13,7 @@
   $notice = null;
   $filetype = null;
   $filenameprefix = "vp_";
+  $filesizelimit = 2097152;//1048576;
   $filetype = null;
   $photouploaddir_orig = "photoupload_orig/";
   $photouploaddir_normal = "photoupload_normal/";
