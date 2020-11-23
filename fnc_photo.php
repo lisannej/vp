@@ -73,7 +73,7 @@
 
 		$stmt->close();
 		$conn->close();
-		return $notice;
+		return $photohtml;
 	}
 	function countPublicPhotos($privacy){
 		$photocount = 0;
@@ -82,8 +82,9 @@
 		echo $conn->error;
 		$stmt ->bind_param("i", $privacy);
 		$stmt ->bind_result($result);
+		$stmt ->execute();
 		if($stmt->fetch()){
-			$photocount = 0;
+			$photocount = $result;
 		}
 		$stmt->close();
 		$conn->close();
