@@ -115,7 +115,8 @@
 		$stmt->bind_param("i", $privacy);
 		$stmt->bind_result($filenamefromdb, $alttextfromdb);
 		$stmt->execute();
-		$temphtml= null;
+    $temphtml= null;
+    echo $filenamefromdb;
 		while($stmt->fetch()){
 			//<img src="failinimi.laiend" alt="alternatiivtekst">
 			$temphtml.= '<img src=" '.$GLOBALS["photouploaddir_thumb"] .$filenamefromdb .' "alt=" '.$alttextfromdb .' ">' ."\n";
