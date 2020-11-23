@@ -7,7 +7,7 @@ session_start();
    //tegelen kupsistega
    //setcookie see funktsioon peab olema enne HTML
    //kupsise nimi, vaartus, aegumistahtaeg, faili tee (domeeni piires), domeen, https kasutamine
-   setcookie("vpvisitorname", $_SESSION["userfirstname"] ." ".$_SESSION["userlastname"], time()+(8400 * 8), "~/lisajar/", "greeny.cs.tlu.ee",isset($_SERVER["HTTPS"]),true );
+   setcookie("vpvisitorname", $_SESSION["userfirstname"] ." ".$_SESSION["userlastname"], time()+(86400 * 8), "/~lisajar/", "greeny.cs.tlu.ee",isset($_SERVER["HTTPS"]),true );
    $lastvisitor= null;
    if(isset($_COOKIE["vpvisitorname"])){
      $lastvisitor= "<p>Viimati kulastas lehte:" .$_COOKIE["vpvisitorname"] .".</p> \n";
