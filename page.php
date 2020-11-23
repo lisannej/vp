@@ -5,7 +5,7 @@
   require ("config.php");
   require ("fnc_common.php");
   require ("fnc_user.php");
-
+  $database = "if20_lisanne_ja_1";
   // login info
   $emailinput="";
   $passwordinput="";
@@ -106,22 +106,30 @@
   }
   //annan ette lubatud piltivormingute loendi
   $picfiletypes = ["image/jpeg", "image/png"];
-  // loeme piltide kataloogi sisu ja naitame pilte
-  $allfiles = array_slice (scandir ("vp_pics/"), 2);
-  $picfiles = [];
-  foreach ($allfiles as $thing) {
-    $fileinfo = getImagesize ("vp_pics/" .$thing);
-    if (in_array($fileinfo["mime"], $picfiletypes) == true) {
-      array_push ($picfiles, $thing);
-    }
-  }
+  
+  $photohtml= null;
+		$notice= null;
+		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+		$stmt = $conn->prepare ("SELECT filename, alttext FROM vpphotos WHERE vpphotos_id=(SELECT MAX(vpphotos_id) FROM vpphotos WHERE privacy=? AND deleted IS NULL");
+		echo $conn->error;
+		$stmt->bind_param("i", 3);
+		$stmt->bind_result($filenamefromdb, $alttextfromdb);
+		$stmt->execute();
+		$temphtml= null;
+		while($stmt->fetch()){
+			//<img src="failinimi.laiend" alt="alternatiivtekst">
+			$temphtml.= '<img src=" '.$GLOBALS["photouploaddir_thumb"] .$filenamefromdb .' "alt=" '.$alttextfromdb .' ">' ."\n";
+		}
 
-  //paneme koik pildid ekraanile
-  $piccount = count ($picfiles);
-  $imghtml = "";
-  $i = mt_rand(0, ($piccount - 1));
-  $imghtml .= '<img src="vp_pics/' .$picfiles[$i].'"';
-  $imghtml .= 'alt="Tallinna Ulikool">';
+		if(!empty($temphtml)){
+			$photohtml = "<div> \n" .$temphtml ."\n <div> \n";
+		} else {
+			$photohtml = "<p> Kahjuks galeriipilte ei leitud </p> \n";
+		}
+
+		$stmt->close();
+		$conn->close();
+		echo $notice;
 ?>
 
 <!DOCTYPE html>
