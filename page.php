@@ -106,7 +106,7 @@
   }
   //annan ette lubatud piltivormingute loendi
   $picfiletypes = ["image/jpeg", "image/png"];
-  $privacy=3;
+  $privacy=2;
   $photohtml= null;
 		$notice= null;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
@@ -118,7 +118,7 @@
 		$temphtml= null;
 		while($stmt->fetch()){
 			//<img src="failinimi.laiend" alt="alternatiivtekst">
-			$temphtml.= '<img src=" '.$GLOBALS["photouploaddir_normal"] .$filenamefromdb .' "alt=" '.$alttextfromdb .' ">' ."\n";
+			$temphtml.= '<img src=" '.$GLOBALS["photouploaddir_thumb"] .$filenamefromdb .' "alt=" '.$alttextfromdb .' ">' ."\n";
 		}
 
 		if(!empty($temphtml)){
