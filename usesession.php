@@ -1,7 +1,7 @@
 <?php
   //session_start();
   require ("sessionmanager_class.php");
-  SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
+  SessionManager::sessionStart("vp", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
 
   //kas on sessioon olemas
   if(!isset($_SESSION["userid"])){
@@ -15,4 +15,4 @@
     header("Location: page.php");
     exit();
   }
-  
+    

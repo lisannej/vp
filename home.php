@@ -2,7 +2,8 @@
 
 
 
-session_start();
+//session_start();
+require ("usesession.php");
 
    //tegelen kupsistega
    //setcookie see funktsioon peab olema enne HTML
