@@ -1,7 +1,7 @@
 <?php
-  //require ("usesession.php");
-  require ("sessionmanager_class.php");
-  SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
+  require ("usesession.php");
+  //require ("sessionmanager_class.php");
+  //SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
    
   require ("config.php");
   require ("fnc_photo.php");
@@ -18,6 +18,7 @@
   $photouploaddir_orig = "photoupload_orig/";
   $photouploaddir_normal = "photoupload_normal/";
   $photouploaddir_thumb = "photoupload_thumb/";
+  $watermark = "IMG/vp_logo_w100_overlay.png";
   $filename = null;
   $photomaxwidth = 600;
   $photomaxheight = 400;
