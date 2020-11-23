@@ -157,6 +157,6 @@
     <br>
     <input type="submit" name="submituserdata" value="Logi sisse"><br><span><?php echo $result; ?></span>
   </form>
-  <?php echo $imghtml ; ?>
+  <?php echo $photohtml ; ?>
 </body>
 </html>
