@@ -40,16 +40,17 @@
   <p>
   <?php
   if($page>1){
-	echo '<span><a href"?page='.($page - 1) .' ">Eelmine leht</a></span> |'."\n";
+	  echo '<span><a href"?page='.($page - 1) .' ">Eelmine leht</a></span> |'."\n";
   }else { 
 	  echo '<span>Eelmine leht</a></span> |'."\n";
   }
   if($page * $gallerypagelimit< $photocount){
 	echo '<span><a href"?page='.($page + 1) .' ">Jargmine leht</a></span> '."\n";
   }else{
-	'<span>Jargmine leht</a></span> '."\n";
+	echo '<span>Jargmine leht</a></span> '."\n";
   }
   ?>
+  </p>
   <?php 
   echo $publicphotothumbshtml;
   ?>
