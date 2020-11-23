@@ -20,7 +20,8 @@
 	  $page=1;
   }elseif(round($_GET["page"]-1)* $gallerypagelimit>= $photocount){
 	  $page= ceil($photocount/$gallerypagelimit);
-	  $page=$_GET["page"];
+  }else{  
+    $page=$_GET["page"];
   }
   //$publicphotothumbshtml= readPublicPhotoThumbs(2);
   $publicphotothumbshtml= readPublicPhotoThumbsPage(2, $gallerypagelimit, $page);
