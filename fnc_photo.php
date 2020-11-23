@@ -47,7 +47,7 @@
 	function readPublicPhotoThumbsPage($privacy, $limit, $page = 1){
 		$photohtml= null;
 		$notice= null;
-		$skip=(page -1) * $limit;
+		$skip=($page -1) * $limit;
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 		$stmt = $conn->prepare ("SELECT filename, alttext FROM vpphotos WHERE privacy>=? AND deleted IS NULL ORDER BY vpphotos_id DESC LIMIT ?,?");
 
