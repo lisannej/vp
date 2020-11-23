@@ -1,5 +1,5 @@
 <?php
-  require("usesession.php");
+  require ("usesession.php");
   //require ("sessionmanager_class.php");
   //SessionManager::sessionStart("vp20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
   require ("config.php");
@@ -10,9 +10,9 @@
   
   $notice = null;
   $filenameprefix = "vp_";
-  $photouploaddir_orig = "../photoupload_orig/";
-  $photouploaddir_normal = "../photoupload_normal/";
-  $photouploaddir_thumb = "../photoupload_thumb/";
+  $photouploaddir_orig = "photoupload_orig/";
+  $photouploaddir_normal = "photoupload_normal/";
+  $photouploaddir_thumb = "photoupload_thumb/";
   $gallerypagelimit= 3;
   $page = 1;
   $photocount= countPublicPhotos(2);
