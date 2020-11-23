@@ -112,7 +112,7 @@
 		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 		$stmt = $conn->prepare ("SELECT filename, alttext FROM vpphotos WHERE vpphotos_id=(SELECT MAX(vpphotos_id) FROM vpphotos WHERE privacy=? AND deleted IS NULL");
 		echo $conn->error;
-		$stmt->bind_param("i", 3);
+		$stmt->bind_param("i", 2);
 		$stmt->bind_result($filenamefromdb, $alttextfromdb);
 		$stmt->execute();
 		$temphtml= null;
