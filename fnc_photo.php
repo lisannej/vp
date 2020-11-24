@@ -52,7 +52,7 @@
 		//$stmt = $conn->prepare ("SELECT vpphotos_id, filename, alttext FROM vpphotos WHERE privacy>=? AND deleted IS NULL ORDER BY vpphotos_id DESC LIMIT ?,?");
 		$stmt = $conn->prepare ("SELECT vpphotos.vpphotos_id, vpusers.firstname, vpusers.lastname, vpphotos.filename, vpphotos.alttext, AVG(vpphotoratings.rating) as AvgValue FROM vpphotos JOIN vpusers ON vpphotos.userid = vpusers.vpusers_id LEFT JOIN vpphotoratings ON vpphotoratings.photoid = vpphotos.vpphotos_id WHERE vpphotos.privacy >= ? AND deleted IS NULL GROUP BY vpphotos.vpphotos_id DESC LIMIT ?, ?");
 		echo $conn->error;
-		$stmt->bind_param("iii", $privacy, $skip, $limit,);
+		$stmt->bind_param("iii", $privacy, $skip, $limit);
 		$stmt->bind_result($idfromdb, $firstnamefromdb, $lastnamefromdb, $filenamefromdb, $alttextfromdb, $avgfromdb);
 		$stmt->execute();
 		$temphtml= null;
