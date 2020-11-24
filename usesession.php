@@ -1,17 +1,20 @@
 <?php
   //session_start();
   require ("sessionmanager_class.php");
-  SessionManager::sessionStart("VP20", 0, "/~lisajar/", "greeny.cs.tlu.ee" );
-
-  //kas on sessioon olemas
+  SessionManager::sessionStart("vp", 0, "/~lisajar/", "greeny.cs.tlu.ee");
+  
+  //kas on sisse loginud
   if(!isset($_SESSION["userid"])){
-    //jouga suunatake sisselogimise lehele
-    header("Location: page.php");
-    exit();
+	//jõuga suunatakse sisselogimise lehele
+	header("Location: page.php");
+	exit();
   }
-  //LOGIME VALJA
+  
+  //logime välja
   if(isset($_GET["logout"])){
-    session_destroy();
-    header("Location: page.php");
-    exit();
+	//lõpetame sessiooni
+	session_destroy();
+	//jõuga suunatakse sisselogimise lehele
+	header("Location: page.php");
+	exit();
   }
