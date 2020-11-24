@@ -49,7 +49,7 @@
   
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
     <label for="newstitleinput">Sisesta uudise pealkiri!</label>
-	<input id="newstitleinput" name="newstitleinput" type="text" value=<?php echo $newstitle; ?> required>
+	<input id="newstitleinput" name="newstitleinput" type="text" value=<?php echo $newstitle;?>required>
 	<br>
 	<label for="newsinput">Kirjuta uudis</label>
 	<textarea id="newsinput" name="newsinput"><?php echo $news;?></textarea>
