@@ -40,6 +40,7 @@
       <td><a href="userprofile.php">Minu kasutajaprofiil</a></td>
       <td><a href="photoupload.php">Piltide üleslaadimine</a></td>
       <td><a href="photogallerypublic.php">Piltide galerii</a></td>
+      <td><a href="addnews.php">Lisa uudiseid</a></td>
 
     </tr>
   </table>
