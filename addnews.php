@@ -38,7 +38,7 @@
 	<textarea id="newsinput" name="newsinput" placeholder="Uudise sisu"><?php echo $news; ?>
 	</textarea>
 	<br>	
-	<input type="newssubmit" name="newssubmit" value="Salvesta uudis">
+	<input type="submit" name="newssubmit" value="Salvesta uudis">
   </form>
   <p id="notice">
   <?php
