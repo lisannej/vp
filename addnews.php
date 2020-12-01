@@ -3,7 +3,7 @@
   require("config.php");
   require("fnc_news.php");
   require("fnc_common.php");
-  require("classes/Photoupload_class.php");
+  require("Photoupload_class.php");
   
   //$photouploaddir_news
   
