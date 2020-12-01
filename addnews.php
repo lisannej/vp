@@ -29,7 +29,7 @@
   $filesizelimit = 2097152;//1048576;
   $filenameprefix = "vpnews_";
   $filename = null;
-  $watermark = "../img/vp_logo_w100_overlay.png";
+  $watermark = "IMG/vp_logo_w100_overlay.png";
   $photomaxwidth = 600;
   $photomaxheight = 400;
   $alttext = null;
