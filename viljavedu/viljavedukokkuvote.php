@@ -7,6 +7,27 @@
     $entermass;
     $exitmass;
     $notice;
+    function carloads (){
+        $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+        //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
+        $SQLsentence= ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu ");
+        if($sortby == 0 and $sortorder == 0) {
+            $stmt = $conn->prepare($SQLsentence);
+        }
+        if($sortby == 1) {
+          if($sortorder == 2) {
+            $stmt = $conn->prepare($SQLsentence ." ORDER BY auto_reg_number DESC"); 
+          }
+          else {
+              $stmt = $conn->prepare($SQLsentence ." ORDER BY sisenemismass"); 
+          }
+        }
+        if($sortby == 2) {
+          if($sortorder == 2) {
+            $stmt = $conn->prepare($SQLsentence ." ORDER BY valjumismass DESC"); 
+          }
+        }
+    }
     //loen lehele koik olemasolevad motted
     $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
     $stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
