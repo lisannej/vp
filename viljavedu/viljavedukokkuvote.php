@@ -14,7 +14,6 @@
         }
     }
 
-    function carloads ($sortby, $sortorder){
         require ("../config.php");
         $database = "if20_lisanne_ja_1";
         $carfromdb;
@@ -79,10 +78,9 @@
         }
         $stmt->close ();
         $conn->close ();
-        return $notice;
-    }
     
-    echo carloads(2, 2);
+    echo $notice;
+    //echo carloads(2, 2);
     //echo carloads($sortby, $sortorder);
 
 ?>
