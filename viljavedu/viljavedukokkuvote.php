@@ -48,6 +48,6 @@
         }
     }
     //echo readquotes($sortby, $sortorder);
-    echo $notice;
+    //echo $notice;
 
 ?>
