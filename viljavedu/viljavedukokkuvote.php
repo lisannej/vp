@@ -7,6 +7,8 @@
     $entermass;
     $exitmass;
     $notice;
+    $sortby=0;
+    $sortorder=0;
     function carloads (){
         $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
         //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
@@ -57,8 +59,7 @@
     $conn->close ();
 
     $notice = carloads();
-    $sortby=0;
-    $sortorder=0;
+    
 
     if(isset($_GET["sortby"])and isset($_GET["sortorder"])){
         if($_GET["sortby"]>= 1 and $_GET["sortby"]<= 4){
