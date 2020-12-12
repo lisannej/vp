@@ -7,6 +7,7 @@
     $entermass;
     $exitmass;
     $notice;
+    $SQLsentence="";
 
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
 
