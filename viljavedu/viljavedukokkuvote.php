@@ -8,16 +8,16 @@
     $exitmass;
     $notice;
 
+    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
+
     if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"]) and isset($_POST["filter"])){
         $SQLsentence= "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = " .$_GET["filter"];
-        $stmt = $conn->prepare($SQLsentence);
+        
     }
 
-    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
-    
     //loen lehele koik olemasolevad motted
     //$conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
-    //$stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
+    $stmt = $conn->prepare($SQLsentence);
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($carfromdb, $entermass, $exitmass);
