@@ -4,6 +4,11 @@
 
     $sortby=0;
     $sortorder=0;
+    $database = "if20_lisanne_ja_1";
+    $carfromdb;
+    $entermass;
+    $exitmass;
+    $notice;
 
     if(isset($_GET["sortby"])and isset($_GET["sortorder"])){
         if($_GET["sortby"]>= 1 and $_GET["sortby"]<= 4){
@@ -13,13 +18,6 @@
             $sortorder=$_GET["sortorder"];
         }
     }
-
-        require ("../config.php");
-        $database = "if20_lisanne_ja_1";
-        $carfromdb;
-        $entermass;
-        $exitmass;
-        $notice;
 
         $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
         //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
