@@ -22,7 +22,7 @@
         $carhtml .= "\t <td>" .$exitmass ."</td>";
         $carhtml .= "</tr> \n";
     }
-    if(!empty($lines)){
+    if(!empty($carhtml)){
         $notice = "<table> \n" ;
         $notice.= "<tr> \n";
         $notice .= "\n\t\t\t" .'<th>Auto registreerimisnumber &nbsp;<a href="?filmsortby=2&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=2&filmsortorder=2">&darr;</a></th>';
