@@ -58,7 +58,7 @@
     $stmt->close ();
     $conn->close ();
 
-    $notice = carloads();
+    $notice = carloads($sortby, $sortorder);
     
 
     if(isset($_GET["sortby"])and isset($_GET["sortorder"])){
