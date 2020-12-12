@@ -2,8 +2,8 @@
     require ("../header.php");
     require ("../config.php");
 
-    $sortby=0;
-    $sortorder=0;
+    $sortby;
+    $sortorder;
     $database = "if20_lisanne_ja_1";
     $carfromdb;
     $entermass;
