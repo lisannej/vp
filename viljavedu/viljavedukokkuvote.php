@@ -15,7 +15,11 @@
     $stmt->execute ();
     $carhtml = "";
     while ($stmt->fetch ()) {
-        $carhtml .= "<p>Auto reg number on: " .$carfromdb . " Sisenemismass on: " .$entermass ." Valjumismass on: " .$exitmass ."</p>";
+        $carhtml .= "<tr> \n";
+        $carhtml .= "\t <td>" .$carfromdb ."</td>";
+        $carhtml .= "\t <td>" .$entermass ."</td>";
+        $carhtml .= "\t <td>" .$exitmass ."</td>";
+        $carhtml .= "</tr> \n";
     }
     $stmt->close ();
     $conn->close ();

@@ -4,7 +4,7 @@
     
     $database = "if20_lisanne_ja_1";
     //kui on idee sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
-    if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"])){
+    if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"]) and $_POST["loadinput"] == "vili"){
         $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
         //valmistan ette SQL kasu
         $stmt = $conn->prepare ("INSERT INTO viljavedu (auto_reg_number, sisenemismass, valjumismass) VALUES (?,?,?) ");
@@ -19,12 +19,12 @@
 ?>
 
 <form method="POST">
-    <!--<label for="carinput"> Lisa auto </label>
+    <label for="carinput"> Lisa auto </label>
     <input type="text" name="carinput" id="carinput" placeholder="Auto" >
     <br>
     <label for="loadinput"> Lisa mis koorma auto toob </label>
     <input type="text" name="loadinput" id="loadinput" placeholder="Koorem" >
-    <br>-->
+    <br>
     <label for="carnumberinput"> Lisa autonumber </label>
     <input type="text" name="carnumberinput" id="carnumberinput" placeholder="Auto number" >
     <br>
