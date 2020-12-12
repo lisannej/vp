@@ -6,6 +6,7 @@
     $carfromdb;
     $entermass;
     $exitmass;
+    $notice;
     //loen lehele koik olemasolevad motted
     $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
     $stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
