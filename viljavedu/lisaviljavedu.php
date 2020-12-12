@@ -19,12 +19,12 @@
 ?>
 
 <form method="POST">
-<label for="carinput"> Lisa auto </label>
+    <!--<label for="carinput"> Lisa auto </label>
     <input type="text" name="carinput" id="carinput" placeholder="Auto" >
     <br>
     <label for="loadinput"> Lisa mis koorma auto toob </label>
     <input type="text" name="loadinput" id="loadinput" placeholder="Koorem" >
-    <br>
+    <br>-->
     <label for="carnumberinput"> Lisa autonumber </label>
     <input type="text" name="carnumberinput" id="carnumberinput" placeholder="Auto number" >
     <br>
@@ -36,4 +36,3 @@
     <br>
     <input type="submit" name="datasubmit" value="Salvesta andmed">
   </form>
-  <?php echo $inputerror ?>
