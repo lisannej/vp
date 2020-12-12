@@ -47,6 +47,6 @@
         }
     }
     //echo readquotes($sortby, $sortorder);
-    echo $carhtml;
+    echo $notice;
 
 ?>
