@@ -1,6 +1,6 @@
 <?php
-    require ("header.php");
-    require ("config.php");
+    require ("../header.php");
+    require ("../config.php");
 
     $database = "if20_lisanne_ja_1" ;
     $carfromdb;
