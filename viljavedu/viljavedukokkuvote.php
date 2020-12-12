@@ -2,8 +2,8 @@
     require ("../header.php");
     require ("../config.php");
 
-    $sortby;
-    $sortorder;
+    $sortby = $_GET["sortby"];
+    $sortorder = $_GET["sortorder"];
     $database = "if20_lisanne_ja_1";
     $carfromdb;
     $entermass;
