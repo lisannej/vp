@@ -14,8 +14,8 @@
     $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu";
     
     if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"]) and !empty($_POST ["filter"]) and isset($_POST["filter"])){
-        $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number =";
-        $SQLsentence .= $_GET["filter"];
+        $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = 4";
+        //$SQLsentence .= $_GET["filter"];
     }
 
     //loen lehele koik olemasolevad motted
