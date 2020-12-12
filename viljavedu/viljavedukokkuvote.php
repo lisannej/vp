@@ -4,16 +4,18 @@
 
     $database = "if20_lisanne_ja_1" ;
     $carfromdb;
+    $entermass;
+    $exitmass;
     //loen lehele koik olemasolevad motted
     $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
     $stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
     echo $conn->error;
     //seome tulemuse muutujaga
-    $stmt->bind_result ($carfromdb);
+    $stmt->bind_result ($carfromdb, $entermass, $exitmass);
     $stmt->execute ();
     $carhtml = "";
     while ($stmt->fetch ()) {
-        $carhtml .= "<p>" .$carfromdb ."</p>";
+        $carhtml .= "<p>Auto reg number on: " .$carfromdb . " Sisenemismass on: " .$entermass ." Valjumismass on: " .$exitmass ."</p>";
     }
     $stmt->close ();
     $conn->close ();
