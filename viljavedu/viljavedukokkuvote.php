@@ -16,8 +16,8 @@
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
     
     //loen lehele koik olemasolevad motted
-    $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
-    $stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
+    //$conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
+    //$stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($carfromdb, $entermass, $exitmass);
