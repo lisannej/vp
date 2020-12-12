@@ -11,7 +11,7 @@
         echo $conn->error;
         //seome kasuga meie parisandmed
         //i - integer, d- decimal, s - string
-        $stmt->bind_param("s,i,i", $_POST ["datasubmit"]);
+        $stmt->bind_param("s,i,i", $_POST["carnumberinput"], $_POST["fullloadinput"], $_POST["emptyloadinput"]);
         $stmt->execute ();
         $stmt->close ();
         $conn->close ();
