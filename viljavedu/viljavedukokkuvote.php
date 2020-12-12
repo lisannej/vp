@@ -56,7 +56,7 @@
     $stmt->close ();
     $conn->close ();
 
-    //$filmhtml = readquotes();
+    $notice = carloads();
     $sortby=0;
     $sortorder=0;
 
