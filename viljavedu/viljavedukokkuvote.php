@@ -6,7 +6,7 @@
     $carfromdb;
     //loen lehele koik olemasolevad motted
     $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
-    $stmt = $conn->prepare ("SELECT * FROM viljavedu");
+    $stmt = $conn->prepare ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu");
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($carfromdb);
