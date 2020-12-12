@@ -8,7 +8,7 @@
     $exitmass;
     $notice;
 
-    if(isset($_POST["datasubmit"]) and isset($_GET["filter"])){
+    if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"]) and isset($_POST["filter"])){
         $SQLsentence= "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = " .$_GET["filter"];
         $stmt = $conn->prepare($SQLsentence);
     }
