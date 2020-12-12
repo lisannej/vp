@@ -23,7 +23,7 @@
         $exitmass;
         $notice;
 
-        $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
+        $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database );
         //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
         $SQLsentence= ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu ");
         if($sortby == 0 and $sortorder == 0) {
