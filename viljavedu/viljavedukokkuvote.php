@@ -20,6 +20,7 @@
     }
 
     function carloads ($sortby, $sortorder){
+        require ("../config.php");
         $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
         //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
         $SQLsentence= ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu ");
@@ -60,7 +61,6 @@
             $notice .= "\n\t\t\t" .'<th>Auto registreerimisnumber &nbsp;<a href="?filmsortby=2&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=2&filmsortorder=2">&darr;</a></th>';
             $notice .= "\n\t\t\t" .'<th>Sisseveo mass &nbsp;<a href="?filmsortby=3&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=3&filmsortorder=2">&darr;</a></th>';
             $notice .= "\n\t\t\t" .'<th>Valjumismass &nbsp;<a href="?filmsortby=1&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=1&filmsortorder=2">&darr;</a></th>';
-            //$notice .= "\t</tr>\n\t" .$carhtml ."</table>\n";
             $notice.= $carhtml;
             $notice.= "</table> \n";
         }
