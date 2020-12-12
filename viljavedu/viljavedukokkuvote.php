@@ -11,7 +11,7 @@
 
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
 
-    $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu";
+    $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = 4";
     
     if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"]) and !empty($_POST ["filter"]) and isset($_POST["filter"])){
         $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = 4";
