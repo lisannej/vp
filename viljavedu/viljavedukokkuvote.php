@@ -8,7 +8,7 @@
     $exitmass;
     $notice;
 
-    if(isset($_GET["filter"])){
+    if(isset($_POST["datasubmit"]) and isset($_GET["filter"])){
         $SQLsentence= "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = " .$_GET["filter"];
         $stmt = $conn->prepare($SQLsentence);
     }
@@ -50,4 +50,5 @@
 <form method="POST">
     <label for="filter"> Vali auto </label>
     <input type="text" name="carinput" id="filter" placeholder="Auto reg number" >
+    <input type="submit" name="datasubmit" value="Salvesta filter">
 </form>
