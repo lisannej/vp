@@ -2,11 +2,7 @@
     require ("../header.php");
     require ("../config.php");
 
-    $database = "if20_lisanne_ja_1" ;
-    $carfromdb;
-    $entermass;
-    $exitmass;
-    $notice;
+    
     $sortby=0;
     $sortorder=0;
 
@@ -21,6 +17,12 @@
 
     function carloads ($sortby, $sortorder){
         require ("../config.php");
+        $database = "if20_lisanne_ja_1";
+        $carfromdb;
+        $entermass;
+        $exitmass;
+        $notice;
+
         $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $GLOBALS ["database"] );
         //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
         $SQLsentence= ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu ");
