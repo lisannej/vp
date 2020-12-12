@@ -23,7 +23,7 @@
         $exitmass;
         $notice;
 
-        $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database );
+        $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
         //$stmt = $conn->prepare ("SELECT pealkiri, aasta, kestus, zanr, tootja, lavastaja FROM film");
         $SQLsentence= ("SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu ");
         if($sortby == 0 and $sortorder == 0) {
@@ -34,13 +34,24 @@
             $stmt = $conn->prepare($SQLsentence ." ORDER BY auto_reg_number DESC"); 
           }
           else {
-              $stmt = $conn->prepare($SQLsentence ." ORDER BY sisenemismass"); 
+            $stmt = $conn->prepare($SQLsentence ." ORDER BY auto_reg_number"); 
           }
         }
         if($sortby == 2) {
           if($sortorder == 2) {
-            $stmt = $conn->prepare($SQLsentence ." ORDER BY valjumismass DESC"); 
+            $stmt = $conn->prepare($SQLsentence ." ORDER BY sisenemismass DESC"); 
           }
+          else {
+            $stmt = $conn->prepare($SQLsentence ." ORDER BY sisenemismass"); 
+            }
+        }
+        if($sortby == 3) {
+            if($sortorder == 2) {
+                $stmt = $conn->prepare($SQLsentence ." ORDER BY valjumismass DESC"); 
+            }
+            else {
+                $stmt = $conn->prepare($SQLsentence ." ORDER BY valjumismass"); 
+            }
         }
         //loen lehele koik olemasolevad motted
         $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
