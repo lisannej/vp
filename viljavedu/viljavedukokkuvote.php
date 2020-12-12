@@ -70,10 +70,11 @@
         if(!empty($carhtml)){
             $notice = "<table> \n" ;
             $notice.= "<tr> \n";
-            $notice .= "\n\t\t\t" .'<th>Auto registreerimisnumber &nbsp;<a href="?filmsortby=2&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=2&filmsortorder=2">&darr;</a></th>';
-            $notice .= "\n\t\t\t" .'<th>Sisseveo mass &nbsp;<a href="?filmsortby=3&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=3&filmsortorder=2">&darr;</a></th>';
-            $notice .= "\n\t\t\t" .'<th>Valjumismass &nbsp;<a href="?filmsortby=1&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=1&filmsortorder=2">&darr;</a></th>';
+            $notice .= "\n\t\t\t" .'<th>Auto registreerimisnumber &nbsp;<a href="?filmsortby=1&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=1&filmsortorder=2">&darr;</a></th>';
+            $notice .= "\n\t\t\t" .'<th>Sisseveo mass &nbsp;<a href="?filmsortby=2&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=2&filmsortorder=2">&darr;</a></th>';
+            $notice .= "\n\t\t\t" .'<th>Valjumismass &nbsp;<a href="?filmsortby=3&filmsortorder=1">&uarr;</a>&nbsp;<a href="?filmsortby=3&filmsortorder=2">&darr;</a></th>';
             $notice.= $carhtml;
+            $notice.= "</tr> \n";
             $notice.= "</table> \n";
         }
         $stmt->close ();
@@ -81,7 +82,7 @@
         return $notice;
     }
     
-    //echo readquotes($sortby, $sortorder);
-    echo carloads($sortby, $sortorder);
+    echo carloads(2, 2);
+    //echo carloads($sortby, $sortorder);
 
 ?>
