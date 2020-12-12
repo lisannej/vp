@@ -2,8 +2,6 @@
     require ("../header.php");
     require ("../config.php");
 
-    $sortby=1;
-    $sortorder=2;
     $database = "if20_lisanne_ja_1";
     $carfromdb;
     $entermass;
@@ -11,7 +9,7 @@
     $notice;
 
     if(isset($_GET["filter"])){
-        $SQLsentence= ('SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = $_GET["filter"]');
+        $SQLsentence= "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = " .$_GET["filter"];
         $stmt = $conn->prepare($SQLsentence);
     }
 
