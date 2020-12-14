@@ -5,7 +5,7 @@
     $database = "if20_lisanne_ja_1";
     $genderfromdb;
     $maleteacherfromdb;
-    $malestudentfromdb;
+    $malestudentfromdb="";
     $femalestudentfromdb;
     $femaleteacherfromdb;
 
@@ -75,7 +75,7 @@
     $stmt->close ();
     $conn->close ();
 
-    echo $notice;
+    //echo $notice;
 
 ?>
 <p> Meessoost õpilasi hoones: <?php echo $malestudenthtml?> <p>
