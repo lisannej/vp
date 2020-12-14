@@ -15,7 +15,7 @@
     $SQLsentence="";
 
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
-    $stmt = $conn->prepare ("SELECT Count(entryexit) FROM inimesed WHERE entryexit=5");
+    $stmt = $conn->prepare ("SELECT entryexit FROM inimesed WHERE entryexit=5");
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($entryexitfromdb);
