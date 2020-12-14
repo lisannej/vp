@@ -38,33 +38,33 @@
     } echo "lopus";
     $stmt->close ();
     
-    $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
+    $stmt= $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5 AND gender=1 AND occupation=4");
     echo $conn->error;
-    $stmt->bind_result($genderfromdb);
+    $stmt->bind_result($entryexitfromdb);
     $stmt->execute();
     $maleteacherhtml = "";
     while ($stmt->fetch()) {
-        $maleteacherhtml .= "<p> Meessoost õpetajaid hoones: " .$maleteacherfromdb ."</p>";
+        $maleteacherhtml .= "<p> Meessoost õpetajaid hoones: " .$entryexitfromdb ."</p>";
     }
     //$stmt->close ();
 
-    $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=3");
+    $stmt= $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5 AND gender=2 AND occupation=3");
     echo $conn->error;
-    $stmt->bind_result($genderfromdb);
+    $stmt->bind_result($entryexitfromdb);
     $stmt->execute();
     $femalestudenthtml = "";
     while ($stmt->fetch()) {
-        $femalestudenthtml .= "<p> Naissoost õpilasi hoones: " .$femalestudentfromdb ."</p>";
+        $femalestudenthtml .= "<p> Naissoost õpilasi hoones: " .$entryexitfromdb ."</p>";
     }
     //$stmt->close ();
 
-    $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=4");
+    $stmt= $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5 AND gender=2 AND occupation=4");
     echo $conn->error;
-    $stmt->bind_result($genderfromdb);
+    $stmt->bind_result($entryexitfromdb);
     $stmt->execute();
     $femaleteacherhtml = "";
     while ($stmt->fetch()) {
-        $femaleteacherhtml .= "<p> Naissoost õpetajaid hoones: " .$femaleteacherfromdb ."</p>";
+        $femaleteacherhtml .= "<p> Naissoost õpetajaid hoones: " .$entryexitfromdb ."</p>";
     }
     $stmt->close();
     $conn->close();
