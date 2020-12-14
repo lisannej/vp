@@ -69,6 +69,7 @@
 
 
 ?>
+<p> Inimesi kokku hoones: <?php echo $entryexithtml?></p>
 <p> Meessoost õpilasi hoones: <?php echo $malestudenthtml?></p>
 <p> Meessoost õpetajaid hoones: <?php echo $maleteacherhtml?></p>
 <p> Naissoost õpilasi hoones: <?php echo $femalestudenthtml?></p>
