@@ -24,7 +24,7 @@
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones" .$entryexitfromdb ."</p>";
     }
-    $stmt->close ();
+    //$stmt->close ();
 
     $stmt = $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
