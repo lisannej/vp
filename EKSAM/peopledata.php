@@ -15,7 +15,7 @@
     $SQLsentence="";
 
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
-    $stmt = $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5");
+    $stmt = $conn->prepare ("SELECT Count(entryexit) FROM inimesed WHERE entryexit=5");
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($entryexitfromdb);
@@ -26,7 +26,7 @@
     }
     //$stmt->close ();
 
-    $stmt = $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
+    $stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
@@ -36,7 +36,7 @@
     }
     $stmt->close ();
 
-    $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
+    $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
