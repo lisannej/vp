@@ -16,7 +16,7 @@ if(isset($_POST["datasubmit"])){
         $genderinputerror = "Sugu määramata! ";
       }
       if (isset($_POST["occupationinput"])){
-        $genderinput = intval($_POST["occupationinput"]);
+        $occupationinput = intval($_POST["occupationinput"]);
       } else{
         $occupationinputerror = "Andmed määramata! ";
       }
