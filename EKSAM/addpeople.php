@@ -33,7 +33,7 @@ if(isset($_POST["datasubmit"])){
     $stmt->execute ();
     $stmt->close ();
     $conn->close ();
-    echo "Andmed salvestati!"
+    echo "Andmed salvestati!";
     }
 }
 ?>
