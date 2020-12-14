@@ -23,9 +23,9 @@
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones: " .$entryexitfromdb ."</p>";
     }
-        $stmt->close ();
+    $stmt->close ();
     
-    $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
+    
     $stmt = $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
     echo "ma siin";
@@ -34,9 +34,9 @@
     echo "jama siin";
     $malestudenthtml = "";
     while ($stmt->fetch ()) {
-        $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
+        $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$genderfromdb ."</p>";
     } echo "lopus";
-        $stmt->close ();
+    $stmt->close ();
     
     $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
