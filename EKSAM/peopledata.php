@@ -15,7 +15,7 @@
     $SQLsentence="";
 
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
-    $stmt = $conn->prepare ("SELECT entryexit FROM inimesed WHERE entryexit=5");
+    $stmt = $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5");
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($entryexitfromdb);
@@ -24,9 +24,9 @@
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones" .$entryexitfromdb ."</p>";
     }
-    //$stmt->close ();
+    $stmt->close ();
 
-    $stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
+    /*$stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
@@ -64,7 +64,7 @@
     while ($stmt->fetch ()) {
         $femaleteacherhtml .= "<p> Naissoost õpetajaid hoones: " .$femaleteacherfromdb ."</p>";
     }
-    $stmt->close ();
+    $stmt->close ();*/
     $conn->close ();
 
 
