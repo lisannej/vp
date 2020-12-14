@@ -4,7 +4,7 @@ require ("../config.php");
 
 $genderinput="";
 $occupationinput="";
-
+$genderinputerror="";
 $database = "if20_lisanne_ja_1";
 //kui on andmed sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
 if(isset($_POST["datasubmit"]) and !empty($_POST["datasubmit"])){
@@ -26,7 +26,7 @@ if(isset($_POST["datasubmit"]) and !empty($_POST["datasubmit"])){
 <input type="radio" name="genderinput" id="genderfemale" value="2" <?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
 <span><?php echo $genderinputerror; ?></span>
 <br>
-<input type="radio" name="occupationinput" id="student" value="3" <?php if($occupationtinput == "3"){echo " checked";}?>><label for="occupationstudent">Õpilane</label>
+<input type="radio" name="occupationinput" id="student" value="3" <?php if($occupationinput == "3"){echo " checked";}?>><label for="occupationstudent">Õpilane</label>
 <input type="radio" name="occupationinput" id="teacher" value="4" <?php if($occupationinput == "4"){echo " checked";}?>><label for="occupationteacher">Õpetaja</label>
 <input type="submit" name="datasubmit" value="Salvesta andmed">
 </form>
