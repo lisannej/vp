@@ -12,6 +12,7 @@
     $entryexitfromdb="";
     $occupationfromdb="";
 
+
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
     $stmt = $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5");
     echo $conn->error;
@@ -21,8 +22,9 @@
     $entryexithtml = "";
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones: " .$entryexitfromdb ."</p>";
-    }
+    
         $stmt->close ();
+    }
 
     $stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
@@ -31,9 +33,9 @@
     $malestudenthtml = "";
     while ($stmt->fetch ()) {
         $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
-    }
+    
         $stmt->close ();
-
+    }
     $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
     $stmt->bind_result ($genderfromdb);
