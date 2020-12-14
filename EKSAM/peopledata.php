@@ -22,7 +22,7 @@
     $stmt->execute ();
     $entryexithtml = "";
     while ($stmt->fetch ()) {
-        $entryexithtml .= "<p>" .$entryexitfromdb ."</p>";
+        $entryexithtml .= "<p> Inimesi kokku hoones" .$entryexitfromdb ."</p>";
     }
     $stmt->close ();
 
@@ -32,7 +32,7 @@
     $stmt->execute ();
     $malestudenthtml = "";
     while ($stmt->fetch ()) {
-        $malestudenthtml .= "<p>" .$malestudentfromdb ."</p>";
+        $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
     }
     $stmt->close ();
 
@@ -42,7 +42,7 @@
     $stmt->execute ();
     $maleteacherhtml = "";
     while ($stmt->fetch ()) {
-        $maleteacherhtml .= "<p>" .$maleteacherfromdb ."</p>";
+        $maleteacherhtml .= "<p> Meessoost õpetajaid hoones: " .$maleteacherfromdb ."</p>";
     }
     $stmt->close ();
 
@@ -52,7 +52,7 @@
     $stmt->execute ();
     $femalestudenthtml = "";
     while ($stmt->fetch ()) {
-        $femalestudenthtml .= "<p>" .$femalestudentfromdb ."</p>";
+        $femalestudenthtml .= "<p> Naissoost õpilasi hoones: " .$femalestudentfromdb ."</p>";
     }
     $stmt->close ();
 
@@ -62,14 +62,10 @@
     $stmt->execute ();
     $femaleteacherhtml = "";
     while ($stmt->fetch ()) {
-        $femaleteacherhtml .= "<p> Kui ma kirjutan" .$femaleteacherfromdb ."</p>";
+        $femaleteacherhtml .= "<p> Naissoost õpetajaid hoones: " .$femaleteacherfromdb ."</p>";
     }
     $stmt->close ();
     $conn->close ();
 
 
 ?>
-<p> Meessoost õpilasi hoones: <?php echo $malestudenthtml?></p>
-<p> Meessoost õpetajaid hoones: <?php echo $maleteacherhtml?></p>
-<p> Naissoost õpilasi hoones: <?php echo $femalestudenthtml?></p>
-<p> Naissoost õpetajaid hoones: <?php echo $femaleteacherhtml?></p>
