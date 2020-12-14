@@ -26,7 +26,7 @@
     $stmt->close();
     
     
-    $stmt = $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE gender=1 AND occupation=3");
+    $stmt = $conn->prepare ("SELECT count(entryexit) FROM inimesed WHERE entryexit=5 AND gender=1 AND occupation=3");
     echo $conn->error;
     echo "ma siin";
     $stmt->bind_result($entryexitfromdb);
