@@ -4,10 +4,10 @@
 
     $database = "if20_lisanne_ja_1";
     $genderfromdb;
-    $maleteacherfromdb;
+    $maleteacherfromdb="";
     $malestudentfromdb="";
-    $femalestudentfromdb;
-    $femaleteacherfromdb;
+    $femalestudentfromdb="";
+    $femaleteacherfromdb="";
 
     $entryexitfromdb;
     $occupationfromdb;
@@ -25,11 +25,9 @@
         $entryexithtml .= "<p>" .$entryexitfromdb ."</p>";
     }
     $stmt->close ();
-    //$conn->close ();
 
     $stmt = $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
-    //seome tulemuse muutujaga
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
     $malestudenthtml = "";
@@ -37,11 +35,9 @@
         $malestudenthtml .= "<p>" .$malestudentfromdb ."</p>";
     }
     $stmt->close ();
-    //$conn->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
-    //seome tulemuse muutujaga
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
     $maleteacherhtml = "";
@@ -49,11 +45,9 @@
         $maleteacherhtml .= "<p>" .$maleteacherfromdb ."</p>";
     }
     $stmt->close ();
-    //$conn->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=3");
     echo $conn->error;
-    //seome tulemuse muutujaga
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
     $femalestudenthtml = "";
@@ -61,22 +55,21 @@
         $femalestudenthtml .= "<p>" .$femalestudentfromdb ."</p>";
     }
     $stmt->close ();
-    //$conn->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=4");
     echo $conn->error;
-    //seome tulemuse muutujaga
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
     $femaleteacherhtml = "";
     while ($stmt->fetch ()) {
-        $femaleteacherhtml .= "<p>" .$femaleteacherfromdb ."</p>";
+        $femaleteacherhtml .= "<p> Kui ma kirjutan" .$femaleteacherfromdb ."</p>";
     }
     $stmt->close ();
     $conn->close ();
 
-    //echo $notice;
 
 ?>
-<p> Meessoost õpilasi hoones: <?php echo $malestudenthtml?> <p>
-<p> Meessoost õpetajaid hoones: <p>
+<p> Meessoost õpilasi hoones: <?php echo $malestudenthtml?></p>
+<p> Meessoost õpetajaid hoones: <?php echo $maleteacherhtml?></p>
+<p> Naissoost õpilasi hoones: <?php echo $femalestudenthtml?></p>
+<p> Naissoost õpetajaid hoones: <?php echo $femaleteacherhtml?></p>
