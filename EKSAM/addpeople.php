@@ -21,14 +21,19 @@ if(isset($_POST["datasubmit"])){
       } else{
         $occupationinputerror = "Andmed määramata! ";
       }
-    if (empty($genderinputerror) and empty($occupationinputerror)){
+      if (isset($_POST["countinput"])){
+        $genderinput = intval($_POST["countinput"]);
+      } else{
+        $countinputerror = "Tegevus määramata! ";
+      }
+    if (empty($countinputerror) and empty($genderinputerror) and empty($occupationinputerror)){
         $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
         //valmistan ette SQL kasu
-        $stmt = $conn->prepare ("INSERT INTO inimesed (gender, occupation) VALUES (?,?) ");
+        $stmt = $conn->prepare ("INSERT INTO inimesed (count, gender, occupation) VALUES (?,?,?) ");
         echo $conn->error;
         //seome kasuga meie parisandmed
         //i - integer, d- decimal, s - string
-        $stmt->bind_param("ii", $_POST["genderinput"], $_POST["occupationinput"]);
+        $stmt->bind_param("iii", $_POST["countinput"], $_POST["genderinput"], $_POST["occupationinput"]);
         $stmt->execute ();
         $stmt->close ();
         $conn->close ();
@@ -42,6 +47,7 @@ if(isset($_POST["datasubmit"])){
 <br>
 <input type="radio" name="countinput" id="countentry" value="5" <?php if($countinput == "5"){echo " checked";}?>><label for="countentry">Siseneb</label>
 <input type="radio" name="countinput" id="countexit" value="6" <?php if($countinput == "6"){echo " checked";}?>><label for="countexit">Väljub</label>
+<span><?php echo $countinputerror; ?></span>
 <br>
 <label for="genderinput"> Kas siseneja on mees/naine? </label>
 <br>
