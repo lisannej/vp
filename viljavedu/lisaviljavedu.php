@@ -19,7 +19,7 @@
 ?>
 
 <form method="POST">
-    <label for="carinput"> Lisa auto </label>
+    <label for="carinput"> Lisa sisenejate arv </label>
     <input type="text" name="carinput" id="carinput" placeholder="Auto" >
     <br>
     <label for="loadinput"> Lisa mis koorma auto toob </label>
