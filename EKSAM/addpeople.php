@@ -15,7 +15,7 @@ if(isset($_POST["datasubmit"]) and !empty($_POST["datasubmit"])){
     echo $conn->error;
     //seome kasuga meie parisandmed
     //i - integer, d- decimal, s - string
-    $stmt->bind_param("iiii", $_POST["genderinput"], $_POST["studentinput"], $_POST["teacherinput"]);
+    $stmt->bind_param("iii", $_POST["genderinput"], $_POST["studentinput"], $_POST["teacherinput"]);
     $stmt->execute ();
     $stmt->close ();
     $conn->close ();
