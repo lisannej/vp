@@ -24,9 +24,9 @@
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones" .$entryexitfromdb ."</p>";
     }
-    $stmt->close ();
+    //$stmt->close ();
 
-    /*$stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
+    $stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
@@ -34,7 +34,7 @@
     while ($stmt->fetch ()) {
         $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
     }
-    $stmt->close ();
+    //$stmt->close ();
 
     $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
@@ -44,7 +44,7 @@
     while ($stmt->fetch ()) {
         $maleteacherhtml .= "<p> Meessoost õpetajaid hoones: " .$maleteacherfromdb ."</p>";
     }
-    $stmt->close ();
+    //$stmt->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=3");
     echo $conn->error;
@@ -54,7 +54,7 @@
     while ($stmt->fetch ()) {
         $femalestudenthtml .= "<p> Naissoost õpilasi hoones: " .$femalestudentfromdb ."</p>";
     }
-    $stmt->close ();
+    //$stmt->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=4");
     echo $conn->error;
@@ -64,13 +64,12 @@
     while ($stmt->fetch ()) {
         $femaleteacherhtml .= "<p> Naissoost õpetajaid hoones: " .$femaleteacherfromdb ."</p>";
     }
-    $stmt->close ();*/
+    $stmt->close ();
     $conn->close ();
 
 
-?>
-<p> Inimesi kokku hoones: <?php echo $entryexithtml?></p>
-<p> Meessoost õpilasi hoones: <?php echo $malestudenthtml?></p>
-<p> Meessoost õpetajaid hoones: <?php echo $maleteacherhtml?></p>
-<p> Naissoost õpilasi hoones: <?php echo $femalestudenthtml?></p>
-<p> Naissoost õpetajaid hoones: <?php echo $femaleteacherhtml?></p>
+ echo $entryexithtml;
+ echo $malestudenthtml;
+ echo $maleteacherhtml;
+ echo $femalestudenthtml;
+ echo $femaleteacherhtml;
