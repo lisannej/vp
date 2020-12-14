@@ -25,7 +25,7 @@
         $entryexithtml .= "<p>" .$entryexitfromdb ."</p>";
     }
     $stmt->close ();
-    $conn->close ();
+    //$conn->close ();
 
     $stmt = $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
@@ -37,7 +37,7 @@
         $malestudenthtml .= "<p>" .$malestudentfromdb ."</p>";
     }
     $stmt->close ();
-    $conn->close ();
+    //$conn->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
@@ -49,7 +49,7 @@
         $maleteacherhtml .= "<p>" .$maleteacherfromdb ."</p>";
     }
     $stmt->close ();
-    $conn->close ();
+    //$conn->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=3");
     echo $conn->error;
@@ -61,7 +61,7 @@
         $femalestudenthtml .= "<p>" .$femalestudentfromdb ."</p>";
     }
     $stmt->close ();
-    $conn->close ();
+    //$conn->close ();
 
     $stmt= $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=2 AND occupation=4");
     echo $conn->error;
