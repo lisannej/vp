@@ -22,20 +22,21 @@
     $entryexithtml = "";
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones: " .$entryexitfromdb ."</p>";
-    
-        $stmt->close ();
     }
+        $stmt->close ();
+    
 
     $stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
+    echo "ma siin";
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
     $malestudenthtml = "";
     while ($stmt->fetch ()) {
         $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
-    
-        $stmt->close ();
     }
+        $stmt->close ();
+    
     $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
     $stmt->bind_result ($genderfromdb);
