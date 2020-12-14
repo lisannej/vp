@@ -3,19 +3,18 @@ require ("../header.php");
 require ("../config.php");
 
 $genderinput="";
-$studentinput="";
-$teacherinput="";
+$occupationinput="";
 
 $database = "if20_lisanne_ja_1";
-//kui on idee sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
+//kui on andmed sisestatud ja nuppu vajutatud, salvestame selle andmebaasi
 if(isset($_POST["datasubmit"]) and !empty($_POST["datasubmit"])){
     $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
     //valmistan ette SQL kasu
-    $stmt = $conn->prepare ("INSERT INTO inimesed (female, male, student, teacher) VALUES (?,?,?,?) ");
+    $stmt = $conn->prepare ("INSERT INTO inimesed (gender, occupation) VALUES (?,?) ");
     echo $conn->error;
     //seome kasuga meie parisandmed
     //i - integer, d- decimal, s - string
-    $stmt->bind_param("iii", $_POST["genderinput"], $_POST["studentinput"], $_POST["teacherinput"]);
+    $stmt->bind_param("ii", $_POST["genderinput"], $_POST["occupationinput"]);
     $stmt->execute ();
     $stmt->close ();
     $conn->close ();
@@ -27,7 +26,7 @@ if(isset($_POST["datasubmit"]) and !empty($_POST["datasubmit"])){
 <input type="radio" name="genderinput" id="genderfemale" value="2" <?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
 <span><?php echo $genderinputerror; ?></span>
 <br>
-<input type="radio" name="studentinput" id="student" value="3" <?php if($studentinput == "3"){echo " checked";}?>><label for="student">Õpilane</label>
-<input type="radio" name="teacherinput" id="teacher" value="4" <?php if($teacherinput == "4"){echo " checked";}?>><label for="teacher">Õpetaja</label>
+<input type="radio" name="occupationinput" id="student" value="3" <?php if($occupationtinput == "3"){echo " checked";}?>><label for="occupationstudent">Õpilane</label>
+<input type="radio" name="occupationinput" id="teacher" value="4" <?php if($occupationinput == "4"){echo " checked";}?>><label for="occupationteacher">Õpetaja</label>
 <input type="submit" name="datasubmit" value="Salvesta andmed">
 </form>
