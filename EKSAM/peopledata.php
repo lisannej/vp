@@ -13,10 +13,10 @@
 
     $stmt = $conn->prepare ("SELECT count, gender, occupation FROM inimesed");
     
-    if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"])){
-        $SQLsentence = "SELECT count, gender, occupation FROM inimesed WHERE count = 5";
-    }
-    $stmt = $conn->prepare($SQLsentence);
+    //if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"])){
+        //$SQLsentence = "SELECT count, gender, occupation FROM inimesed WHERE count = 5";
+    //}
+    //$stmt = $conn->prepare($SQLsentence);
     echo $conn->error;
     //seome tulemuse muutujaga
     $stmt->bind_result ($countfromdb, $genderfromdb, $occupationfromdb);
