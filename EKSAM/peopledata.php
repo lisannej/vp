@@ -31,10 +31,11 @@
     echo "ma siin";
     $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
+    echo "jama siin";
     $malestudenthtml = "";
     while ($stmt->fetch ()) {
         $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
-    }
+    } echo "lopus";
         $stmt->close ();
     
     $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
