@@ -2,6 +2,7 @@
 require ("examheader.php");
 require ("../config.php");
 
+$countinput="";
 $genderinput="";
 $occupationinput="";
 
@@ -37,6 +38,11 @@ if(isset($_POST["datasubmit"])){
 ?>
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<label for="countinput"> Kas siseneb/väljub? </label>
+<br>
+<input type="radio" name="countinput" id="countentry" value="5" <?php if($countinput == "5"){echo " checked";}?>><label for="countentry">Siseneb</label>
+<input type="radio" name="countinput" id="countexit" value="6" <?php if($countinput == "6"){echo " checked";}?>><label for="countexit">Väljub</label>
+<br>
 <label for="genderinput"> Kas siseneja on mees/naine? </label>
 <br>
 <input type="radio" name="genderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label>
@@ -47,20 +53,9 @@ if(isset($_POST["datasubmit"])){
 <br>
 <input type="radio" name="occupationinput" id="student" value="3" <?php if($occupationinput == "3"){echo " checked";}?>><label for="occupationstudent">Õpilane</label>
 <input type="radio" name="occupationinput" id="teacher" value="4" <?php if($occupationinput == "4"){echo " checked";}?>><label for="occupationteacher">Õpetaja</label>
+<span><?php echo $occupationinputerror; ?></span>
 <br>
 <input type="submit" name="datasubmit" value="Salvesta andmed">
 
-<label for="genderinput"> Kas väljuja on mees/naine? </label>
-<br>
-<input type="radio" name="exitgenderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label>
-<input type="radio" name="exitgenderinput" id="genderfemale" value="2" <?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
-<span><?php echo $genderinputerror; ?></span>
-<br>
-<label for="occupationinput"> Kas ta on õpilane või õpetaja? </label>
-<br>
-<input type="radio" name="occupationinput" id="student" value="3" <?php if($occupationinput == "3"){echo " checked";}?>><label for="occupationstudent">Õpilane</label>
-<input type="radio" name="occupationinput" id="teacher" value="4" <?php if($occupationinput == "4"){echo " checked";}?>><label for="occupationteacher">Õpetaja</label>
-<br>
-<input type="submit" name="datasubmit" value="Salvesta andmed">
 
 </form>
