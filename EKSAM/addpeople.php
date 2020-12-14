@@ -1,5 +1,5 @@
 <?php
-require ("../header.php");
+require ("examheader.php");
 require ("../config.php");
 
 $genderinput="";
@@ -21,19 +21,17 @@ if(isset($_POST["datasubmit"])){
         $occupationinputerror = "Andmed määramata! ";
       }
     if (empty($genderinputerror) and empty($occupationinputerror)){
-
-    
-    $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
-    //valmistan ette SQL kasu
-    $stmt = $conn->prepare ("INSERT INTO inimesed (gender, occupation) VALUES (?,?) ");
-    echo $conn->error;
-    //seome kasuga meie parisandmed
-    //i - integer, d- decimal, s - string
-    $stmt->bind_param("ii", $_POST["genderinput"], $_POST["occupationinput"]);
-    $stmt->execute ();
-    $stmt->close ();
-    $conn->close ();
-    echo "Andmed salvestati!";
+        $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
+        //valmistan ette SQL kasu
+        $stmt = $conn->prepare ("INSERT INTO inimesed (gender, occupation) VALUES (?,?) ");
+        echo $conn->error;
+        //seome kasuga meie parisandmed
+        //i - integer, d- decimal, s - string
+        $stmt->bind_param("ii", $_POST["genderinput"], $_POST["occupationinput"]);
+        $stmt->execute ();
+        $stmt->close ();
+        $conn->close ();
+        echo "Andmed salvestati!";
     }
 }
 ?>
@@ -51,4 +49,18 @@ if(isset($_POST["datasubmit"])){
 <input type="radio" name="occupationinput" id="teacher" value="4" <?php if($occupationinput == "4"){echo " checked";}?>><label for="occupationteacher">Õpetaja</label>
 <br>
 <input type="submit" name="datasubmit" value="Salvesta andmed">
+
+<label for="genderinput"> Kas väljuja on mees/naine? </label>
+<br>
+<input type="radio" name="exitgenderinput" id="gendermale" value="1" <?php if($genderinput == "1"){echo " checked";}?>><label for="gendermale">Mees</label>
+<input type="radio" name="exitgenderinput" id="genderfemale" value="2" <?php if($genderinput == "2"){echo " checked";}?>><label for="genderfemale">Naine</label>
+<span><?php echo $genderinputerror; ?></span>
+<br>
+<label for="occupationinput"> Kas ta on õpilane või õpetaja? </label>
+<br>
+<input type="radio" name="occupationinput" id="student" value="3" <?php if($occupationinput == "3"){echo " checked";}?>><label for="occupationstudent">Õpilane</label>
+<input type="radio" name="occupationinput" id="teacher" value="4" <?php if($occupationinput == "4"){echo " checked";}?>><label for="occupationteacher">Õpetaja</label>
+<br>
+<input type="submit" name="datasubmit" value="Salvesta andmed">
+
 </form>
