@@ -2,10 +2,10 @@
 require ("examheader.php");
 require ("../config.php");
 
-$countinput="";
+$entryexitinput="";
 $genderinput="";
 $occupationinput="";
-$countinputerror="";
+$entryexitinputerror="";
 $occupationinputerror="";
 $genderinputerror="";
 $database = "if20_lisanne_ja_1";
@@ -21,19 +21,19 @@ if(isset($_POST["datasubmit"])){
       } else{
         $occupationinputerror = "Andmed määramata! ";
       }
-      if (isset($_POST["countinput"])){
-        $genderinput = intval($_POST["countinput"]);
+      if (isset($_POST["entryexitinput"])){
+        $entryexitinput = intval($_POST["entryexitinput"]);
       } else{
-        $countinputerror = "Tegevus määramata! ";
+        $entryexitinputerror = "Tegevus määramata! ";
       }
-    if (empty($countinputerror) and empty($genderinputerror) and empty($occupationinputerror)){
+    if (empty($entryexitinputerror) and empty($genderinputerror) and empty($occupationinputerror)){
         $conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
         //valmistan ette SQL kasu
-        $stmt = $conn->prepare ("INSERT INTO inimesed (count, gender, occupation) VALUES (?,?,?) ");
+        $stmt = $conn->prepare ("INSERT INTO inimesed (entryexit, gender, occupation) VALUES (?,?,?) ");
         echo $conn->error;
         //seome kasuga meie parisandmed
         //i - integer, d- decimal, s - string
-        $stmt->bind_param("iii", $_POST["countinput"], $_POST["genderinput"], $_POST["occupationinput"]);
+        $stmt->bind_param("iii", $_POST["entryexitinput"], $_POST["genderinput"], $_POST["occupationinput"]);
         $stmt->execute ();
         $stmt->close ();
         $conn->close ();
@@ -43,11 +43,11 @@ if(isset($_POST["datasubmit"])){
 ?>
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<label for="countinput"> Kas siseneb/väljub? </label>
+<label for="entryexitinput"> Kas siseneb/väljub? </label>
 <br>
-<input type="radio" name="countinput" id="countentry" value="5" <?php if($countinput == "5"){echo " checked";}?>><label for="countentry">Siseneb</label>
-<input type="radio" name="countinput" id="countexit" value="6" <?php if($countinput == "6"){echo " checked";}?>><label for="countexit">Väljub</label>
-<span><?php echo $countinputerror; ?></span>
+<input type="radio" name="entryexitinput" id="entry" value="5" <?php if($entryexitinput == "5"){echo " checked";}?>><label for="entry">Siseneb</label>
+<input type="radio" name="entryexitinput" id="exit" value="6" <?php if($entryexitinput == "6"){echo " checked";}?>><label for="exit">Väljub</label>
+<span><?php echo $entryexitinputerror; ?></span>
 <br>
 <label for="genderinput"> Kas siseneja on mees/naine? </label>
 <br>
