@@ -26,10 +26,10 @@
         $stmt->close ();
     
 
-    $stmt = $conn->prepare ("SELECT Count(entryexit) FROM inimesed WHERE gender=1 AND occupation=3 AND entryexit=5");
+    $stmt = $conn->prepare ("SELECT count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
     echo "ma siin";
-    $stmt->bind_result ($entryexitfromdb);
+    $stmt->bind_result ($genderfromdb);
     $stmt->execute ();
     echo "jama siin";
     $malestudenthtml = "";
