@@ -22,10 +22,7 @@
     while ($stmt->fetch ()) {
         $entryexithtml .= "<p> Inimesi kokku hoones: " .$entryexitfromdb ."</p>";
     }
-    $entryexithtml .="\t </ol> \n";
-
         $stmt->close ();
-        return $entryexithtml;
 
     $stmt = $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=3");
     echo $conn->error;
@@ -35,10 +32,7 @@
     while ($stmt->fetch ()) {
         $malestudenthtml .= "<p> Meessoost õpilasi hoones: " .$malestudentfromdb ."</p>";
     }
-    $malestudenthtml .="\t </ol> \n";
-
         $stmt->close ();
-        return $malestudenthtml;
 
     $stmt= $conn->prepare ("SELECT Count(gender) FROM inimesed WHERE gender=1 AND occupation=4");
     echo $conn->error;
