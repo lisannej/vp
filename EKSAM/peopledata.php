@@ -4,42 +4,38 @@
 
     $database = "if20_lisanne_ja_1";
     $genderfromdb;
-    $entermass;
-    $exitmass;
+    $countfromdb;
+    $occupationfromdb;
     $notice;
     $SQLsentence="";
 
     $conn = new mysqli ($GLOBALS ["serverhost"], $GLOBALS ["serverusername"], $GLOBALS ["serverpassword"], $database);
 
-    $stmt = $conn->prepare ("SELECT gender, occupation FROM inimesed");
+    $stmt = $conn->prepare ("SELECT count, gender, occupation FROM inimesed");
     
     if(isset($_POST["datasubmit"]) and !empty($_POST ["datasubmit"])){
-        $SQLsentence = "SELECT auto_reg_number, sisenemismass, valjumismass FROM viljavedu WHERE auto_reg_number = ?";
-        $SQLsentence .= $_POST["filter"];
+        $SQLsentence = "SELECT count, gender, occupation FROM inimesed WHERE count = 5";
     }
-
-    //loen lehele koik olemasolevad motted
-    //$conn = new mysqli ($serverhost, $serverusername, $serverpassword, $database );
     $stmt = $conn->prepare($SQLsentence);
     echo $conn->error;
     //seome tulemuse muutujaga
-    $stmt->bind_result ($carfromdb, $entermass, $exitmass);
+    $stmt->bind_result ($countfromdb, $genderfromdb, $occupationfromdb);
     $stmt->execute ();
-    $carhtml = "";
+    $lines = "";
     while ($stmt->fetch ()) {
-        $carhtml .= "<tr> \n";
-        $carhtml .= "\t <td>" .$carfromdb ."</td>";
-        $carhtml .= "\t <td>" .$entermass ."</td>";
-        $carhtml .= "\t <td>" .$exitmass ."</td>";
-        $carhtml .= "</tr> \n";
+        $lines .= "<tr> \n";
+        $lines .= "\t <td>" .$countfromdb ."</td>";
+        $lines .= "\t <td>" .$genderfromdb ."</td>";
+        $lines .= "\t <td>" .$occupationfromdb ."</td>";
+        $lines .= "</tr> \n";
     }
-    if(!empty($carhtml)){
+    if(!empty($lines)){
         $notice = "<table> \n" ;
         $notice.= "<tr> \n";
-        $notice .= "\n\t\t\t" .'<th>Auto registreerimisnumber</th>';
-        $notice .= "\n\t\t\t" .'<th>Sisseveo mass</th>';
-        $notice .= "\n\t\t\t" .'<th>Valjumismass</th>';
-        $notice.= $carhtml;
+        $notice .= "\n\t\t\t" .'<th>Inimesi hoones sees</th>';
+        $notice .= "\n\t\t\t" .'<th>Sugu</th>';
+        $notice .= "\n\t\t\t" .'<th>Ala</th>';
+        $notice.= $lines;
         $notice.= "</tr> \n";
         $notice.= "</table> \n";
     }
@@ -49,9 +45,3 @@
     echo $notice;
 
 ?>
-
-<form method="POST">
-    <label for="filter"> Vali auto </label>
-    <input type="text" name="carinput" id="filter" placeholder="Auto reg number" >
-    <input type="submit" name="datasubmit" value="Salvesta filter">
-</form>
