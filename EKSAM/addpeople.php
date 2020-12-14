@@ -5,7 +5,7 @@ require ("../config.php");
 $countinput="";
 $genderinput="";
 $occupationinput="";
-
+$countinputerror="";
 $occupationinputerror="";
 $genderinputerror="";
 $database = "if20_lisanne_ja_1";
